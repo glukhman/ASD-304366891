@@ -1,4 +1,4 @@
-# project-304366891
+# Michael Glukhman's BCI
 
 Michael Glukhman's project for Advanced System Design
 
@@ -18,7 +18,7 @@ Michael Glukhman's project for Advanced System Design
     $ ./scripts/install.sh
     ...
     $ source .env/bin/activate
-    [Mike''s project] $    # you're good to go!
+    [Mike`s BCI] $    # you're good to go!
     ```
 
 3. To check that everything is working as expected, run the tests:
