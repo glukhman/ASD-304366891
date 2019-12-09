@@ -1,7 +1,8 @@
-import socket, struct, time, sys, signal
-from datetime import datetime
-from pathlib import Path
+import sys
+import signal
 import threading
+
+from pathlib import Path
 
 from . import Thought
 from .utils import Listener
@@ -18,10 +19,12 @@ def run_server(address, data_dir):
 
 class Handler(threading.Thread):
     lock = threading.Lock()
+
     def __init__(self, connection, data_dir):
         super().__init__()
         self.connection = connection
         self.data_dir = data_dir
+
     def run(self):
         data = bytes()
         while True:
@@ -47,6 +50,8 @@ class Handler(threading.Thread):
 
 
 def signal_handler(sig, frame):
-        print('Exiting...')
-        sys.exit(0)
+    print('Exiting...')
+    sys.exit(0)
+
+
 signal.signal(signal.SIGINT, signal_handler)

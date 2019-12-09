@@ -1,12 +1,17 @@
 from .connection import Connection
 import socket
 
+
 class Listener:
-    def __init__(self, /, port, host='0.0.0.0', backlog=1000, reuseaddr=True):
-        self.port, self.host, self.backlog, self.reuseaddr  = port, host, backlog, reuseaddr
+    def __init__(self, /, port, host='0.0.0.0', backlog=1000, reuseaddr=True): # noqa
+        self.port = port
+        self.host = host
+        self.backlog = backlog
+        self.reuseaddr = reuseaddr
 
     def __repr__(self):
-        return f'Listener(port={self.port}, host=\'{self.host}\', backlog={self.backlog}, reuseaddr={self.reuseaddr})'
+        return f'Listener(port={self.port}, host=\'{self.host}\', ' \
+               f'backlog={self.backlog}, reuseaddr={self.reuseaddr})'
 
     def __enter__(self):
         self.start()

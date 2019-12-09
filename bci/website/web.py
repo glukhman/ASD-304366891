@@ -4,15 +4,17 @@ from flask import Flask, abort
 website = Flask(__name__)
 data_dir = None
 
+
 def run_webserver(address, data):
     try:
         global data_dir
         data_dir = data
-        ip,port = address
-        website.run(ip,int(port))
+        ip, port = address
+        website.run(ip, int(port))
     except Exception as error:
         print(f'ERROR: {error}')
         return 1
+
 
 def _html(title, content):
     boilerplate = f"""
@@ -22,12 +24,15 @@ def _html(title, content):
     </html>"""
     return boilerplate
 
+
 @website.route('/')
 def index_():
     users_list = [f.name for f in Path(data_dir).glob('*') if f.is_dir()]
-    users_list = [f'<li><a href="/users/{f}">user {f}</a></li>' for f in users_list]
+    users_list = [f'<li><a href="/users/{f}">user {f}</a></li>'
+                  for f in users_list]
     content = '<ul>{0}</ul>'.format(''.join(sorted(users_list)))
     return _html('', content)
+
 
 @website.route('/users/<int:user_id>')
 def user(user_id):
@@ -38,7 +43,8 @@ def user(user_id):
     content = []
     for file in sorted(files_list):
         timestamp = file.name.split('.')[0].split('_')
-        timestamp = '{0} {1}'.format(timestamp[0], timestamp[1].replace('-',':'))
+        timestamp = '{0} {1}'.format(timestamp[0],
+                                     timestamp[1].replace('-', ':'))
         thought = file.read_text()
         content.append(f'<tr><td>{timestamp}</td><td>{thought}</td></tr>')
     content = '<table>{0}</table>'.format(''.join(content))

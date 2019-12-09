@@ -78,4 +78,5 @@ $ python -m bci upload-thought 127.0.0.1:5050 12 'thoughty little thought'
 done
 $ python -m bci run-web localhost:8080 data/
 * Serving Flask app "bci.website.web" (lazy loading)
+...
 ```

@@ -1,2 +1,2 @@
-from .listener import Listener
-from .connection import Connection
+from .listener import Listener              # noqa
+from .connection import Connection          # noqa

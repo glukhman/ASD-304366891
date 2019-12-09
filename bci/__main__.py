@@ -4,6 +4,7 @@ from .website import web
 
 VERSION = 0.5
 
+
 @click.version_option(prog_name='Michael Glukhman\'s BCI', version=VERSION)
 @click.group()
 def cli():
@@ -16,8 +17,8 @@ def cli():
 @click.argument('thought')
 def upload_thought(address, user, thought):
     try:
-        ip,port = address.split(':')
-        client.upload_thought((ip,int(port)), int(user), thought)
+        ip, port = address.split(':')
+        client.upload_thought((ip, int(port)), int(user), thought)
         print('done')
     except Exception as error:
         print(f'ERROR: {error}')
@@ -29,8 +30,8 @@ def upload_thought(address, user, thought):
 @click.argument('data')
 def run_server(address, data):
     try:
-        ip,port = address.split(':')
-        server.run_server((ip,int(port)), data)
+        ip, port = address.split(':')
+        server.run_server((ip, int(port)), data)
     except Exception as error:
         print(f'ERROR: {error}')
         return 1

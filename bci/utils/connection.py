@@ -1,5 +1,6 @@
 import socket
 
+
 class Connection:
     def __init__(self, socket):
         self.socket = socket
@@ -9,6 +10,7 @@ class Connection:
             ':'.join(str(arg) for arg in self.socket.getsockname()),
             ':'.join(str(arg) for arg in self.socket.getpeername()),
         )
+
     def __enter__(self):
         pass
 
