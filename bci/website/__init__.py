@@ -1,1 +1,1 @@
-from . import website, web
+from . import web

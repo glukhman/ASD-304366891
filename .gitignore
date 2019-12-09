@@ -2,3 +2,4 @@
 .env/
 .pytest-cache/
 *.py[cod]
+data/

@@ -1,19 +1,19 @@
 import socket, struct, time, sys, signal
-from .cli import CommandLineInterface
-from .thought import Thought
 from datetime import datetime
 from pathlib import Path
 import threading
-from .utils.listener import Listener
+
+from . import Thought
+from .utils import Listener
 
 
 def run_server(address, data_dir):
     listener = Listener(port=address[1], host=address[0])
-    listener.start()
-    while True:
-        connection = listener.accept()
-        handler = Handler(connection, data_dir)
-        handler.start()
+    with listener:
+        while True:
+            connection = listener.accept()
+            handler = Handler(connection, data_dir)
+            handler.start()
 
 
 class Handler(threading.Thread):
@@ -45,21 +45,8 @@ class Handler(threading.Thread):
         finally:
             self.lock.release()
 
-cli = CommandLineInterface()
-
-@cli.command
-def run(address, data):
-    try:
-        ip,port = address.split(':')
-        run_server((ip,int(port)), data)
-    except Exception as error:
-        print(f'ERROR: {error}')
-        return 1
 
 def signal_handler(sig, frame):
         print('Exiting...')
         sys.exit(0)
 signal.signal(signal.SIGINT, signal_handler)
-
-if __name__ == '__main__':
-    cli.main()
