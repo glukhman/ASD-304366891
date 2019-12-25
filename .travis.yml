@@ -1,6 +1,5 @@
 language: python
 python:
-  - "3.7"
   - "3.8"
   - "3.8-dev"  # 3.8 development branch
   - "nightly"  # nightly build
@@ -8,4 +7,4 @@ python:
 install:
   - pip install -r requirements.txt
 # command to run tests
-script: pytest
+script: pytest -v

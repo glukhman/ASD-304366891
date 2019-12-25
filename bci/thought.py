@@ -26,9 +26,9 @@ class Thought:
                (self.thought == other.thought)
 
     def serialize(self):
-        message = self.thought.encode()
+        message = self.thought.encode('utf-8')
         msg_size = len(message)
-        msg_header = struct.pack('<QQI',
+        msg_header = struct.pack('<qqI',
                                  self.user_id,
                                  int(self.timestamp.timestamp()),
                                  msg_size)
@@ -36,9 +36,9 @@ class Thought:
 
     @classmethod
     def deserialize(cls, data):
-        user_id, timestamp, msg_size = struct.unpack('<QQI', data[:20])
+        user_id, timestamp, msg_size = struct.unpack('<qqI', data[:20])
         timestamp = datetime.fromtimestamp(timestamp)
         thought = data[20:]
         if len(thought) != msg_size:
             raise Exception('data is incomplete')
-        return Thought(user_id, timestamp, data[20:].decode())
+        return Thought(user_id, timestamp, data[20:].decode('utf-8'))
