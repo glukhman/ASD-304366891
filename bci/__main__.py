@@ -1,6 +1,7 @@
 import click
 from . import client, server
 from .website import web
+from .utils import reader
 
 VERSION = 0.5
 
@@ -42,6 +43,12 @@ def run_server(address, data):
 @click.argument('data')
 def run_web(address, data):
     web.run_webserver(address.split(":"), data)
+
+
+@cli.command()
+@click.argument('file')
+def read(file):
+    reader.read(file)
 
 
 if __name__ == '__main__':
