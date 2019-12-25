@@ -1,12 +1,7 @@
-import os
-import time
 import pytest
 import datetime as dt
 
 from bci import Thought
-
-os.environ['TZ'] = 'Asia/Jerusalem'
-time.tzset()
 
 user_id = 1
 datetime = dt.datetime(2000, 1, 1, 12, 0)
