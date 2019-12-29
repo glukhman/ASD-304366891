@@ -15,7 +15,6 @@ class Reader:
             f'{username_length}s', self.fp.read(username_length))[0].decode()
         self.birthdate, self.gender = struct.unpack('Ic', self.fp.read(5))
 
-
     def read_snapshot(self, save_dir):
         idx = 0
         while True:
@@ -47,6 +46,7 @@ class Reader:
                 timestamp = datetime.fromtimestamp(timestamp/1000)
                 print('\nSnapshot from {time} on {trans} / {rot} with a '
                       '{color_dim} color image and a {depth_dim} depth image.'
+                      f'\nfeelings={hunger}, {thirst}, {exhaustion}, {happiness}'
                       .format(
                       time=timestamp.strftime("%B %-d, %Y at %H:%M:%S.%f")[:-3],
                       trans=tuple(f'{x:.2f}' for x in translation),
@@ -73,6 +73,8 @@ def read(filename):
               f'born {birthdate.strftime("%B %-d, %Y")} ({gender})')
 
         snapshot_reader = reader.read_snapshot('data')
+        next(snapshot_reader)
+        next(snapshot_reader)
         next(snapshot_reader)
 
         # THIS ALSO WORKS:

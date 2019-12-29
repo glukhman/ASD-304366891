@@ -27,15 +27,23 @@ def upload_thought(address, user, thought):
 
 
 @cli.command()
-@click.argument('address')
-@click.argument('data')
-def run_server(address, data):
+@click.argument('port')
+@click.argument('datapath', required=False)
+def run_server(port, datapath):
+    if not datapath:
+        datapath = 'data'
     try:
-        ip, port = address.split(':')
-        server.run_server((ip, int(port)), data)
+        server.run(port, datapath)
     except Exception as error:
         print(f'ERROR: {error}')
         return 1
+
+
+@cli.command()
+@click.argument('filepath')
+@click.argument('port')
+def run_client(filepath, port):
+    client.run(filepath, port)
 
 
 @cli.command()
@@ -46,9 +54,9 @@ def run_web(address, data):
 
 
 @cli.command()
-@click.argument('file')
-def read(file):
-    reader.read(file)
+@click.argument('filepath')
+def read(filepath):
+    reader.read(filepath)
 
 
 if __name__ == '__main__':

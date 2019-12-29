@@ -1,3 +1,4 @@
+import struct
 import socket
 
 
@@ -20,9 +21,32 @@ class Connection:
     def send(self, data):
         self.socket.sendall(data)
 
+    # EX-6
+    def send_message(self, message):
+        if type(message) == str:
+            message = message.encode('utf8')
+        msg_size = len(message)    # data should be binary
+
+        msg_header = struct.pack('<I', msg_size)
+        self.socket.sendall(msg_header + message)
+
     def receive(self, size):
         data = self.socket.recv(size)
         if len(data) != size:
+            raise Exception('data is incomplete')
+        return data
+
+    # EX-6
+    def receive_message(self):
+        msg_size = self.socket.recv(4)
+        msg_size, = struct.unpack('<I', msg_size)
+        data = bytes()
+        while len(data) < msg_size:
+            new_data = self.socket.recv(1024)
+            if not new_data:
+                break
+            data += new_data
+        if len(data) != msg_size:
             raise Exception('data is incomplete')
         return data
 
