@@ -17,5 +17,5 @@ script:
 jobs:
   include:
     - stage: flake8 test
-      install: skip # bundle install is not required
+      install: pip install flake8==3.5.0
       script: flake8
