@@ -17,5 +17,5 @@ script:
 jobs:
   include:
     - stage: flake8 test
-      install: pip install flake8==3.5.0
+      install: pip install flake8
       script: flake8
