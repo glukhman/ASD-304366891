@@ -5,3 +5,4 @@ click==7.0
 Pillow
 flask
 flake8
+protobuf3

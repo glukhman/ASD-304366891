@@ -55,8 +55,9 @@ def run_web(address, data):
 
 @cli.command()
 @click.argument('filepath')
-def read(filepath):
-    reader.read(filepath)
+@click.argument('format', required=False)
+def read(filepath, format):
+    reader.read(filepath, format)
 
 
 if __name__ == '__main__':
