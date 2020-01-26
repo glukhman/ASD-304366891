@@ -1,10 +1,15 @@
 import gzip
 import struct
+import random
 from datetime import datetime
 
+import numpy as np
 from PIL import Image
+from matplotlib import pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+import pytransform3d.rotations as pr
 
-from ..utils.protobuf import cortex
+from ..utils.protobuf import cortex_pb2
 
 class BinaryReader:
     def __init__(self, filename):
@@ -74,10 +79,16 @@ class ProtobufReader:
         self.fp = gzip.open(self.filename, 'rb')
         # parse header
         msg_size, = struct.unpack('I', self.fp.read(4))
-        user = cortex.User()
-        user.parse_from_bytes(self.fp.read(msg_size))
-        self.user_id, self.username, self.birthdate, self.gender = \
-            user.user_id, user.username, user.birthday, user.gender
+        user = cortex_pb2.User()
+        user.ParseFromString(self.fp.read(msg_size))
+        self.user_id, self.username, self.birthdate = \
+            user.user_id, user.username, user.birthday
+        if user.gender == user.MALE:
+            self.gender = 'male'
+        elif user.gender == user.FEMALE:
+            self.gender = 'female'
+        elif user.gender == user.OTHER:
+            self.gender = 'other'
 
     def read_snapshot(self, save_dir):
         idx = 0
@@ -85,8 +96,8 @@ class ProtobufReader:
             try:
                 #parse snapshot header
                 msg_size, = struct.unpack('I', self.fp.read(4))
-                snapshot = cortex.Snapshot()
-                snapshot.parse_from_bytes(self.fp.read(msg_size))
+                snapshot = cortex_pb2.Snapshot()
+                snapshot.ParseFromString(self.fp.read(msg_size))
 
                 # parse color image
                 color_pixels = []
@@ -99,20 +110,77 @@ class ProtobufReader:
                 image = Image.new('RGB', (snapshot.color_image.width,
                                           snapshot.color_image.height))
                 image.putdata(color_pixels)
-                image.save(f'{save_dir}/color_image_{idx}.pbuf.jpg')
+                image.save(f'{save_dir}/color_image_{idx}.jpg')
 
                 # parse depth image
-                depth_pixels = []
-                for byte in snapshot.depth_image.data:
-                    pixel.append(byte)
-                    if len(pixel)==4:
-                        pixel = bytearray(pixel)
-                        depth_pixels.append(struct.unpack('f', pixel))
-                        pixel = []
-                print(depth_pixels)
-                # TODO: print to screen using matplotlib
+                fig = plt.figure(figsize=(12,12), dpi=72)
+                image = np.array(snapshot.depth_image.data).reshape(
+                    snapshot.depth_image.height, snapshot.depth_image.width
+                )
+                plt.imshow(image, cmap='hot', interpolation='nearest')
+                plt.axis('off')
+                plt.savefig(f'{save_dir}/depth_image_{idx}.png',
+                            bbox_inches='tight', pad_inches=0, dpi=48)
 
+                # parse translation
+                fig = plt.figure(figsize=(12,12), dpi=72)
+                ax = fig.add_subplot(111, projection='3d')
+                ax.set_xlim3d(-2,2)
+                ax.set_ylim3d(-2,2)
+                ax.set_zlim3d(-2,2)
 
+                x = snapshot.pose.translation.x
+                y = snapshot.pose.translation.y
+                z = snapshot.pose.translation.z
+                translation = [x, y, z]
+                xline = np.linspace(x, 2, 100)
+                yline = np.linspace(-2, y, 100)
+                zline = np.linspace(-2, z, 100)
+
+                ax.scatter(x, y, z, zdir='z', s=1000, c='b', depthshade=True)
+                ax.plot(xline, [y]*100, [z]*100, c='b', alpha=0.7, ls='--')
+                ax.plot([x]*100, yline, [z]*100, c='b', alpha=0.7, ls='--')
+                ax.plot([x]*100, [y]*100, zline, c='b', alpha=0.7, ls='--')
+
+                ax.view_init(elev = 20, azim = 120)
+                plt.savefig(f'{save_dir}/translation_{idx}.png',
+                            bbox_inches='tight', pad_inches=0, dpi=48)
+
+                # parse rotation
+                fig = plt.figure(figsize=(12,12), dpi=72)
+                ax = fig.add_subplot(111, projection='3d')
+                ax.set_xlim3d(-1,1)
+                ax.set_ylim3d(-1,1)
+                ax.set_zlim3d(-1,1)
+                ax.set_xticks([])
+                ax.set_yticks([])
+                ax.set_zticks([])
+
+                a = np.linspace(.33*np.pi, 1.33*np.pi, 100)
+                b = np.linspace(-.67*np.pi, .33*np.pi, 100)
+                c = np.linspace(np.pi, 2*np.pi, 100)
+                u = np.linspace(0, 2 * np.pi, 100)
+                v = np.linspace(0, np.pi, 100)
+                x = np.outer(np.cos(u), np.sin(v))
+                y = np.outer(np.sin(u), np.sin(v))
+                z = np.outer(np.ones(np.size(u)), np.cos(v))
+
+                ax.plot_surface(x, y, z, color='cyan', lw=1, alpha=0.3)
+                ax.plot(np.sin(a), np.cos(a), 0, c='b', alpha=0.3, ls='--')
+                ax.plot(np.sin(b), np.cos(b), 0, c='b', alpha=0.7)
+                ax.plot([0]*100, np.sin(v), np.cos(v), c='b', alpha=0.7)
+                ax.plot([0]*100, np.sin(c), np.cos(c), c='b', alpha=0.3,
+                        ls='--')
+
+                rotation = [snapshot.pose.rotation.x, snapshot.pose.rotation.y,
+                            snapshot.pose.rotation.z, snapshot.pose.rotation.w]
+                vector = pr.q_prod_vector(np.array(rotation),
+                                          np.array([0,0,1]))
+                ax.quiver(0,0,0,*vector, length=1, linewidth=5,color='k')
+
+                ax.view_init(elev = 20, azim = 120)
+                plt.savefig(f'{save_dir}/rotation_{idx}.png',
+                            bbox_inches='tight', pad_inches=0, dpi=48)
 
                 # print result
                 timestamp = datetime.fromtimestamp(snapshot.datetime/1000)
@@ -124,13 +192,8 @@ class ProtobufReader:
                       f'{snapshot.feelings.happiness}'
                       .format(
                       time=timestamp.strftime("%B %-d, %Y at %H:%M:%S.%f")[:-3],
-                      trans=(f'{snapshot.pose.translation.x:.2f}',
-                             f'{snapshot.pose.translation.y:.2f}',
-                             f'{snapshot.pose.translation.z:.2f}'),
-                      rot=(f'{snapshot.pose.rotation.x:.2f}',
-                           f'{snapshot.pose.rotation.y:.2f}',
-                           f'{snapshot.pose.rotation.z:.2f}',
-                           f'{snapshot.pose.rotation.w:.2f}'),
+                      trans=tuple([f'{x:.2f}' for x in translation]),
+                      rot=tuple([f'{x:.2f}' for x in rotation]),
                       color_dim=f'{snapshot.color_image.height}x'
                                 f'{snapshot.color_image.width}',
                       depth_dim=f'{snapshot.depth_image.height}x'
@@ -152,7 +215,10 @@ def read(filename, format):
         reader = BinaryReader(filename)
     with reader:
         birthdate = datetime.fromtimestamp(reader.birthdate)
-        gender = 'male' if reader.gender == b'm' else 'female'
+        if format == 'protobuf':
+            gender = reader.gender
+        else:
+            gender = 'male' if reader.gender == b'm' else 'female'
         print(f'user {reader.user_id}: {reader.username}, '
               f'born {birthdate.strftime("%B %-d, %Y")} ({gender})')
 

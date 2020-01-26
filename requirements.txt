@@ -5,4 +5,7 @@ click==7.0
 Pillow
 flask
 flake8
+matplotlib
 protobuf3
+pytransform3d
+google-cloud-bigquery

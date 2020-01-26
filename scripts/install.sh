@@ -10,18 +10,10 @@ function main {
     .env/bin/pip install -U pip
     .env/bin/pip install -U Sphinx
     .env/bin/pip install -r requirements.txt
-
-    # install protobuf compiler
-    PROTOC_ZIP=protoc-3.7.1-linux-x86_64.zip
-    curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.7.1/$PROTOC_ZIP
-    sudo unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
-    sudo unzip -o $PROTOC_ZIP -d /usr/local 'include/*'
-    rm -f $PROTOC_ZIP
+    .env/bin/pip install grpcio grpcio-tools   # install protobuf compiler
 
     # compile the cortex protobuf format
-    source .env/bin/activate
-    protoc -I=bci --python3_out=bci bci/utils/protobuf/cortex.proto
+    .env/bin/python -m grpc.tools.protoc -I=bci --python_out=bci --grpc_python_out=bci bci/utils/protobuf/cortex.proto
 }
-
 
 main "$@"
