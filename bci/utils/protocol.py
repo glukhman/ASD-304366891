@@ -4,7 +4,7 @@ from datetime import datetime
 
 from PIL import Image
 
-class DataReader:
+class DataReader():
     def __init__(self, filename):
         self.filename = filename
         self.config_fields = []
