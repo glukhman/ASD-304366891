@@ -47,14 +47,14 @@ def run_parser(parser, message_queue_url):
         print(f'ERROR: {error}')
         return 1
 
+
 def _run_parser(parser, publish, **kwargs):
     if (not kwargs['publisher_host']) or (not kwargs['publisher_port']):
         raise Exception('no host or port provided for parser service')
 
     # retrieve parser class
-    parser_module = __import__('bci.parser_store', globals(), locals())
-    # parser = getattr(parser_module, parser).parser_cls
-    print(parser_module)
+    parser_module = __import__('bci.parsing', globals(), locals(), [parser])
+    parser = getattr(parser_module, parser).parser_cls()
 
     connection = pika.BlockingConnection(pika.ConnectionParameters(
         kwargs['publisher_host'], kwargs['publisher_port']))
@@ -72,6 +72,20 @@ def _run_parser(parser, publish, **kwargs):
                           auto_ack=True,
                           on_message_callback=callback)
     channel.start_consuming()
+
+
+@cli.command()
+@click.argument('parser', required=True)
+@click.argument('raw-data-path', required=True)
+def parse(parser, raw_data_path):
+    # retrieve parser class
+    parser_module = __import__('bci.parsing', globals(), locals(), [parser])
+    parser = getattr(parser_module, parser).parser_cls()
+    try:
+        parser.parse(raw_data_path)
+    except Exception as error:
+        print(f'ERROR: {error}')
+        return 1
 
 
 # API function aliases
