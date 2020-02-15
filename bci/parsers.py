@@ -54,8 +54,10 @@ def _run_parser(parser, publish, **kwargs):
 
     # retrieve parser class
     parser_module = __import__('bci.parsing', globals(), locals(), [parser])
-    parser = getattr(parser_module, parser).parser_cls()
+    parser_engine = getattr(parser_module, parser).parser_cls()
 
+    # consume raw snapshot messages, then parse them and publish to
+    # dedicated topics
     connection = pika.BlockingConnection(pika.ConnectionParameters(
         kwargs['publisher_host'], kwargs['publisher_port']))
     channel = connection.channel()
@@ -66,10 +68,19 @@ def _run_parser(parser, publish, **kwargs):
     queue_name = result.method.queue
     channel.queue_bind(exchange='raw_snapshot', queue=queue_name)
     print(' [*] Waiting for logs. To exit press CTRL+C')
+
     def callback(ch, method, properties, body):
-        parser.parse(body.decode())
-    channel.basic_consume(queue=queue_name,
-                          auto_ack=True,
+        parse_result = parser_engine.parse(body.decode())
+
+        save_channel = connection.channel()
+        save_channel.exchange_declare(exchange='parse_results',
+                                      exchange_type='topic')
+        routing_key = parser
+        save_channel.basic_publish(exchange='parse_results',
+                                   routing_key=routing_key, body=parse_result)
+        print(" [x] Sent %r:%r to saver" % (routing_key, parse_result))
+
+    channel.basic_consume(queue=queue_name, auto_ack=True,
                           on_message_callback=callback)
     channel.start_consuming()
 

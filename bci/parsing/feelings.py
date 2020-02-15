@@ -11,6 +11,8 @@ class FeelingsParser(BasicParser):
             'exhaustion': self.snapshot.feelings.exhaustion,
             'happiness': self.snapshot.feelings.happiness
         }
-        print(json.dumps(feelings))
+        result = json.dumps(feelings)
+        print(result)
+        return result
 
 parser_cls = FeelingsParser

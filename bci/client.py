@@ -64,17 +64,6 @@ def _upload_sample(host, port, path, format=DEFAULT_FORMAT):
     # generator for reading snapshots from data file
     snapshot_reader = reader.read_snapshot()
 
-    #----------- TODO: debug only -----------
-    with reader:
-        birthdate = datetime.fromtimestamp(reader.birthdate)
-        if format == 'protobuf':
-            gender = reader.gender
-        else:
-            gender = 'male' if reader.gender == b'm' else 'female'
-        print(f'user {reader.user_id}: {reader.username}, '
-              f'born {birthdate.strftime("%B %-d, %Y")} ({gender})')
-    #--------------- end debug ---------------
-
     # send user data to server + receive ack message from server
     connection = Connection.connect(host, port)
     with connection, reader:
@@ -100,8 +89,6 @@ def _upload_sample(host, port, path, format=DEFAULT_FORMAT):
 
 # API function aliases
 upload_sample = _upload_sample
-
-
 
 if __name__ == '__main__':
     cli(prog_name='client')

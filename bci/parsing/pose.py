@@ -18,6 +18,8 @@ class PoseParser(BasicParser):
                 'w': self.snapshot.pose.rotation.w
             }
         }
-        print(json.dumps(pose))
+        result = json.dumps(pose)
+        print(result)
+        return result
 
 parser_cls = PoseParser
