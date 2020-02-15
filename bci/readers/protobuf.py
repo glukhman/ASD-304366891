@@ -27,7 +27,12 @@ class ProtobufReader:
         while True:
             try:
                 pack_data = bytes()
-                yield pack_data
+
+                #parse snapshot header
+                msg_size, = struct.unpack('I', self.fp.read(4))
+                snapshot = cortex_pb2.Snapshot()
+                snapshot.ParseFromString(self.fp.read(msg_size))
+                yield snapshot
 
             except struct.error:
                 break

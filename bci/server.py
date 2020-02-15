@@ -1,24 +1,14 @@
 import sys
 import signal
+import struct
 import threading
-
 from pathlib import Path
 
+import click
+from furl import furl
+
 from . import Thought
-from .utils import Listener, Hello, Config, Snapshot
-from .utils import TranslationParser, ColorImageParser
-
-CONFIG_FIELDS = ['translation', 'color_image']
-
-
-def run_server(address, data_dir):
-    listener = Listener(port=address[1], host=address[0])
-    with listener:
-        while True:
-            connection = listener.accept()
-            handler = Handler(connection, data_dir)
-            handler.start()
-
+from .utils import Listener, UserData, Snapshot, VERSION, DATA_DIR, MSG_TYPES
 
 #EX-6
 def run(port, datapath):
@@ -33,36 +23,39 @@ def run(port, datapath):
 class Handler(threading.Thread):
     lock = threading.Lock()
 
-    def __init__(self, connection, datapath):
+    def __init__(self, connection, datapath, publish, **kwargs):
         super().__init__()
-        self.connection = connection
-        self.datapath = datapath
+        self.connection, self.datapath, self.publish, self.kwargs = \
+            connection, datapath, publish, kwargs
 
     def run(self):
-
-        # receive hello message from client
-        hello_msg = self.connection.receive_message()
-        hello_msg = Hello.deserialize(hello_msg)
-
-        # send config message to client
-        config_msg = Config(CONFIG_FIELDS)
-        self.connection.send_message(config_msg.serialize())
-
-        # receive snapshot message from client
-        snapshot_msg = self.connection.receive_message()
-        snapshot = Snapshot.deserialize(snapshot_msg)
-
-        # parse the received snapshot
-        self.lock.acquire()     # <- critical section here
+        # receive message from client
         try:
-            # parse translation
-            parser = TranslationParser(self.datapath, hello_msg)
-            parser.parse(snapshot)
-            # parse color image
-            parser = ColorImageParser(self.datapath, hello_msg)
-            parser.parse(snapshot)
-        finally:
-            self.lock.release()
+            message = self.connection.receive_message()
+        except Exception as e:
+            self.connection.send_message(f'ERROR: {e.args[0]}')
+            return
+
+        # deserialize message using protobuf3
+        try:
+            msg_type, user_id = struct.unpack('<IQ', message[:12])
+            if msg_type == MSG_TYPES.USER_DATA:
+                message = UserData.deserialize(message[12:])
+            elif msg_type == MSG_TYPES.SNAPSHOT:
+                message = Snapshot.deserialize(message[12:])
+            else:
+                self.connection.send_message(f'ERROR: Unknown message type')
+        except Exception as e:
+            self.connection.send_message(f'ERROR deserializing message')
+            return
+
+        # publish message using the provided publish service
+        try:
+            self.publish.publish(message, msg_type, user_id, **self.kwargs)
+        except Exception as e:
+            self.connection.send_message(f'ERROR: {e.args[0]}')
+            return
+        self.connection.send_message('OK!')
 
 
 def signal_handler(sig, frame):
@@ -71,3 +64,48 @@ def signal_handler(sig, frame):
 
 
 signal.signal(signal.SIGINT, signal_handler)
+
+# Final project
+@click.version_option(prog_name='Michael Glukhman\'s BCI', version=VERSION)
+@click.group()
+def cli():
+    pass
+
+@cli.command()
+@click.option('-h', '--host')
+@click.option('-p', '--port', type=int)
+@click.argument('message-queue-url')
+def run_server(host, port, message_queue_url):
+    # retrieve publisher module
+    message_queue_url = furl(message_queue_url)
+    publisher = __import__(f'bci.publishers.{message_queue_url.scheme}',
+                           globals(),
+                           locals(),
+                           [message_queue_url.scheme])
+    try:
+        _run_server(host, port, publish=publisher,
+                    publisher_host=message_queue_url.host,
+                    publisher_port=message_queue_url.port)
+    except Exception as error:
+        print(f'ERROR: {error}')
+        return 1
+
+def _run_server(host, port, publish, **kwargs):
+    if not host:
+        host = '127.0.0.1'
+    if not port:
+        port = 8000
+
+    listener = Listener(port=port, host=host)
+    with listener:
+        while True:
+            connection = listener.accept()
+            handler = Handler(connection, DATA_DIR, publish, **kwargs)
+            handler.start()
+
+
+# API function aliases
+run_server = _run_server
+
+if __name__ == '__main__':
+    cli(prog_name='bci.server')

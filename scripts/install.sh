@@ -14,6 +14,9 @@ function main {
 
     # compile the cortex protobuf format
     .env/bin/python -m grpc.tools.protoc -I=bci --python_out=bci --grpc_python_out=bci bci/utils/protobuf/cortex.proto
+
+    # run rabbitmq docker container
+    sudo docker run -d --network host --hostname myrabbit --name myrabbit -p 5672:5672 -p 15672:15672 rabbitmq:3-management
 }
 
 main "$@"

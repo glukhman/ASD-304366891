@@ -8,4 +8,6 @@ flake8
 matplotlib
 protobuf3
 pytransform3d
+furl
+pika
 google-cloud-bigquery

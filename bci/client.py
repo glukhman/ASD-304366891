@@ -2,8 +2,7 @@ from datetime import datetime
 
 import click
 
-from .utils import (Connection, DataReader, Hello, Config, Snapshot,
-                    VERSION, DEFAULT_FORMAT)
+from .utils import (Connection, UserData, Snapshot, VERSION, DEFAULT_FORMAT)
 from .thought import Thought
 
 
@@ -42,27 +41,23 @@ def run(filepath, port):
 def cli():
     pass
 
-@cli.command(context_settings=dict(
-    ignore_unknown_options=True,
-))
+@cli.command()
 @click.option('-h', '--host')
 @click.option('-p', '--port', type=int)
 @click.argument('path')
 @click.option('-f', '--format')
 def upload_sample(host, port, path, format):
     try:
-        _upload_sample(host, port, path, format)
+        _upload_sample(host, port, path)
     except Exception as error:
         print(f'ERROR: {error}')
         return 1
 
-def _upload_sample(host, port, path, format):
+def _upload_sample(host, port, path, format=DEFAULT_FORMAT):
     if not host:
         host = '127.0.0.1'
     if not port:
         port = 8000
-    if not format:
-        format = DEFAULT_FORMAT
 
     reader_module = __import__('bci.readers', globals(), locals(), [format])
     reader = getattr(reader_module, format).reader_cls(path)
@@ -80,15 +75,27 @@ def _upload_sample(host, port, path, format):
               f'born {birthdate.strftime("%B %-d, %Y")} ({gender})')
     #--------------- end debug ---------------
 
+    # send user data to server + receive ack message from server
     connection = Connection.connect(host, port)
-
     with connection, reader:
-        # TODO: cannibalize from <run> above.
-        # protocol: while the reader keeps yielding snapshots:
-        # 1. send serialized snabshot to run_server
-        #    (which includes header = user info + snapshot repacked as protobuf)
-        # 2. recieve ack with message size
-        pass
+
+        user_data = UserData(reader)
+        packed_user_data = user_data.serialize()
+        connection.send_message(packed_user_data)
+
+        ack_msg = connection.receive_message()
+        print(f'User data: {ack_msg.decode()}')
+
+    # send snapshot to server + receive ack message from server
+    connection = Connection.connect(host, port)
+    with connection, reader:
+        snapshot = Snapshot(user_data.user_id, snapshot_reader)
+        packed_snapshot = snapshot.serialize()
+        connection.send_message(packed_snapshot)
+
+        # receive ack message from server
+        ack_msg = connection.receive_message()
+        print(f'Snapshot #{1}: {ack_msg.decode()}')
 
 
 # API function aliases

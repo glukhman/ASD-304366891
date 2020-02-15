@@ -1,5 +1,4 @@
 import click
-from . import server
 from .website import web
 from .utils import reader
 
