@@ -5,7 +5,7 @@ from datetime import datetime
 
 import numpy as np
 from PIL import Image
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt, mpld3
 from mpl_toolkits.mplot3d import Axes3D
 import pytransform3d.rotations as pr
 
