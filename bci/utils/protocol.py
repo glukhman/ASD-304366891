@@ -45,7 +45,7 @@ class UserData:
         user_data = UserData()
         user_data.user_id, user_data.username, user_data.birthdate = \
             user.user_id, user.username, user.birthday
-        user_data.gender == user.gender
+        user_data.gender = user.gender
         return user_data
 
 

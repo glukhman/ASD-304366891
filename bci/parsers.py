@@ -71,8 +71,16 @@ def _run_parser(parser, publish, **kwargs):
     print(' [*] Waiting for logs. To exit press CTRL+C')
 
     def callback(ch, method, properties, body):
-        parse_result = parser_engine.parse(body.decode())
+        # parse raw data
+        body = json.loads(body)
+        parse_result = parser_engine.parse(body['address'])
 
+        # append user id to parsed data
+        parse_result = json.loads(parse_result)
+        parse_result['user_id'] = body['user_id']
+        parse_result = json.dumps(parse_result)
+
+        # publish to saver
         save_channel = connection.channel()
         save_channel.exchange_declare(exchange='parse_results',
                                       exchange_type='topic')

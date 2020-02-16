@@ -10,25 +10,21 @@ from .utils import VERSION, TOPICS
 
 class Saver:
     def __init__(self, database_url):
-        database_url = furl(database_url)
-        self.database = database_url.scheme
-        self.host = database_url.host
-        self.port = database_url.port
-        if self.database != 'mongodb':
+        self.database_url = database_url
+        database_service = furl(self.database_url).scheme
+        if database_service != 'mongodb':
             raise Exception('Unsupported database service')
-
-        # TODO: initialize the appropriate db client at init (??)
 
     def save(self, topic, data):    # data is assumed to arrive in JSON format
 
-        # initialize db
-        client = pymongo.MongoClient()
+        # initialize mongodb
+        client = pymongo.MongoClient(self.database_url)
         db = client.db
         table = db[topic]
-        result = table.insert_one(json.loads(data))
-
-        # DEBUG check:
-        print(table.find_one({'_id': result.inserted_id}))
+        # only insert if unique
+        identical_items = list(table.find(json.loads(data)))
+        if not identical_items:
+            table.insert_one(json.loads(data))
 
 
 @click.version_option(prog_name='Michael Glukhman\'s BCI', version=VERSION)

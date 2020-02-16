@@ -1,3 +1,4 @@
+import json
 import click
 import requests
 from flask import Flask
@@ -21,11 +22,11 @@ def _html(title, content):
 @website.route('/')
 def index_():
     url = f"http://{website.config['api_host']}:{website.config['api_port']}/users"
-    content = requests.get(url).text
-    # users_list = [f.name for f in Path(data_dir).glob('*') if f.is_dir()]
-    # users_list = [f'<li><a href="/users/{f}">user {f}</a></li>'
-    #               for f in users_list]
-    # content = '<ul>{0}</ul>'.format(''.join(sorted(users_list)))
+    users_list = json.loads(requests.get(url).json())
+    users_list = ['<li><a href="/users/{0}">{1}</a></li>'.format(
+            user['user_id'], user['username']
+        ) for user in users_list]
+    content = '<ul>{}</ul>'.format(''.join(sorted(users_list)))
     return _html('Welcome', content)
 
 

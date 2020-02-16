@@ -1,4 +1,5 @@
 import os
+import json
 from datetime import datetime
 
 import pika
@@ -12,16 +13,51 @@ def publish(message, msg_type, user_id, **kwargs):
     if (not kwargs['publisher_host']) or (not kwargs['publisher_port']):
         raise Exception('no host or port provided for publisher service')
 
-    if msg_type == MSG_TYPES.SNAPSHOT:
+    if msg_type == MSG_TYPES.USER_DATA:
+
+        # gender issues :)
+        user_format = cortex_pb2.User()
+        if message.gender == user_format.MALE:
+            gender = 'male'
+        elif message.gender == user_format.FEMALE:
+            gender = 'female'
+        elif message.gender == user_format.OTHER:
+            gender = 'other'
+
+        # format birthday
+        birthdate = datetime.fromtimestamp(message.birthdate)
+        birthdate = birthdate.strftime("%B %-d, %Y")
+
+        # serialize user data
+        user_data = {
+            'user_id': message.user_id,
+            'username': message.username,
+            'birthday': birthdate,
+            'gender': gender
+        }
+        user_data = json.dumps(user_data)
+
+        # publish the user data to a topic exchange
+        connection = pika.BlockingConnection(pika.ConnectionParameters(
+            kwargs['publisher_host'], kwargs['publisher_port']))
+        channel = connection.channel()
+        channel.exchange_declare(exchange='parse_results',
+                                 exchange_type='topic')
+        channel.basic_publish(exchange='parse_results',
+                              routing_key='users', body=user_data)
+        print(" [x] Sent %r:%r to saver" % ('users', user_data))
+        connection.close()
+
+    elif msg_type == MSG_TYPES.SNAPSHOT:
 
         # save snapshot raw data to file system, using protobuf3
         timestamp = datetime.fromtimestamp(message.datetime/1000)
         timestamp = timestamp.strftime("%Y-%m-%d_%H-%M-%S-%f")[:-3]
-        print(timestamp)
 
         datapath = DATA_DIR / str(user_id) / timestamp
 
         packed = cortex_pb2.Snapshot()
+        packed.datetime = message.datetime
         pose = packed.pose
         translation = pose.translation
         translation.x = message.pose.translation.x
@@ -56,14 +92,39 @@ def publish(message, msg_type, user_id, **kwargs):
             f.write(packed)
 
         # publish the address of the raw snapshot to a fanout exchange
+        data = {
+            'user_id': user_id,
+            'address': str(datapath / 'snapshot.raw')
+        }
+        data = json.dumps(data)
 
         connection = pika.BlockingConnection(pika.ConnectionParameters(
             kwargs['publisher_host'], kwargs['publisher_port']))
         channel = connection.channel()
-
-        channel.exchange_declare(exchange='raw_snapshot', exchange_type='fanout')
-        message = str(datapath / 'snapshot.raw')
+        channel.exchange_declare(exchange='raw_snapshot',
+                                 exchange_type='fanout')
         channel.basic_publish(exchange='raw_snapshot', routing_key='',
-                              body=message)
-        print(" [x] Sent %r" % message)
+                              body=data)
+        print(" [x] Sent %r" % data)
+        connection.close()
+
+        # serialize snapshot metadata
+        timestamp = datetime.fromtimestamp(message.datetime/1000)
+        timestamp = timestamp.strftime("%B %-d, %Y at %H:%M:%S.%f")[:-3]
+        metadata = {
+            'id': message.datetime, # snapshot ID is based on timestamp
+            'user_id': user_id,
+            'datetime': timestamp
+        }
+        metadata = json.dumps(metadata)
+
+        # publish the metadata of the snapshot to a topic exchange
+        connection = pika.BlockingConnection(pika.ConnectionParameters(
+            kwargs['publisher_host'], kwargs['publisher_port']))
+        channel = connection.channel()
+        channel.exchange_declare(exchange='parse_results',
+                                 exchange_type='topic')
+        channel.basic_publish(exchange='parse_results',
+                              routing_key='snapshots', body=metadata)
+        print(" [x] Sent %r:%r to saver" % ('snapshots', metadata))
         connection.close()

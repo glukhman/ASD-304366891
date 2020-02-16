@@ -7,7 +7,6 @@ from pathlib import Path
 import click
 from furl import furl
 
-from . import Thought
 from .utils import Listener, UserData, Snapshot, VERSION, DATA_DIR, MSG_TYPES
 
 #EX-6

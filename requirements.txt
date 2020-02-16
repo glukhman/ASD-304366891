@@ -12,4 +12,5 @@ pytransform3d
 pymongo
 furl
 pika
+tabulate
 google-cloud-bigquery
