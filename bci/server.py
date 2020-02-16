@@ -71,6 +71,7 @@ signal.signal(signal.SIGINT, signal_handler)
 def cli():
     pass
 
+
 @cli.command()
 @click.option('-h', '--host')
 @click.option('-p', '--port', type=int)
@@ -89,6 +90,7 @@ def run_server(host, port, message_queue_url):
     except Exception as error:
         print(f'ERROR: {error}')
         return 1
+
 
 def _run_server(host, port, publish, **kwargs):
     if not host:

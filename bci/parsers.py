@@ -29,6 +29,7 @@ class BasicParser:
 def cli():
     pass
 
+
 @cli.command()
 @click.argument('parser', required=True)
 @click.argument('message-queue-url', required=True)

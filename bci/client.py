@@ -35,11 +35,13 @@ def run(filepath, port):
         snapshot_msg = Snapshot(snapshot_reader)
         connection.send_message(snapshot_msg.serialize())
 
+
 # Final project
 @click.version_option(prog_name='Michael Glukhman\'s BCI', version=VERSION)
 @click.group()
 def cli():
     pass
+
 
 @cli.command()
 @click.option('-h', '--host')
@@ -52,6 +54,7 @@ def upload_sample(host, port, path, format):
     except Exception as error:
         print(f'ERROR: {error}')
         return 1
+
 
 def _upload_sample(host, port, path, format=DEFAULT_FORMAT):
     if not host:

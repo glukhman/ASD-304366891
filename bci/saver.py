@@ -5,7 +5,7 @@ import click
 import pymongo
 from furl import furl
 
-from .utils import VERSION
+from .utils import VERSION, TOPICS
 
 
 class Saver:
@@ -16,6 +16,8 @@ class Saver:
         self.port = database_url.port
         if self.database != 'mongodb':
             raise Exception('Unsupported database service')
+
+        # TODO: initialize the appropriate db client at init (??)
 
     def save(self, topic, data):    # data is assumed to arrive in JSON format
 
@@ -34,6 +36,7 @@ class Saver:
 def cli():
     pass
 
+
 @cli.command()
 @click.argument('database-url', required=True)
 @click.argument('message-queue-url', required=True)
@@ -50,10 +53,9 @@ def run_saver(database_url, message_queue_url):
 
     result = channel.queue_declare(queue='', exclusive=True)
     queue_name = result.method.queue
-    binding_keys = ['pose', 'feelings']
-    for key in binding_keys:
+    for topic in TOPICS:
         channel.queue_bind(exchange='parse_results', queue=queue_name,
-                           routing_key=key)
+                           routing_key=topic)
     print(' [*] Waiting for logs. To exit press CTRL+C')
 
     def callback(ch, method, properties, body):
@@ -84,4 +86,4 @@ def save(database, topic, datapath):
 
 
 if __name__ == '__main__':
-    cli(prog_name='client')
+    cli(prog_name='saver')

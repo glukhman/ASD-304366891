@@ -2,6 +2,7 @@ import json
 
 from ..parsers import BasicParser
 
+
 class PoseParser(BasicParser):
     def parse(self, raw_snapshot_path):
         super().parse(raw_snapshot_path)

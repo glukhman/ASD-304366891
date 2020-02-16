@@ -4,6 +4,7 @@ from datetime import datetime
 
 from ..utils.protobuf import cortex_pb2
 
+
 class ProtobufReader:
     def __init__(self, filename):
         self.filename = filename
@@ -39,5 +40,6 @@ class ProtobufReader:
 
     def __exit__(self, exception, error, traceback):
         self.fp.close()
+
 
 reader_cls = ProtobufReader

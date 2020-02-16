@@ -7,6 +7,7 @@ from pathlib import Path
 from ..utils import DATA_DIR, MSG_TYPES
 from ..utils.protobuf import cortex_pb2
 
+
 def publish(message, msg_type, user_id, **kwargs):
     if (not kwargs['publisher_host']) or (not kwargs['publisher_port']):
         raise Exception('no host or port provided for publisher service')

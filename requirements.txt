@@ -4,6 +4,7 @@ requests==2.22.0
 click==7.0
 Pillow
 flask
+flask-restful
 flake8
 matplotlib
 protobuf3
