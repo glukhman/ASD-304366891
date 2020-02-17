@@ -19,44 +19,55 @@ def cli():
 @click.option('-f', '--format')
 def upload_sample(host, port, path, format):
     try:
-        _upload_sample(host, port, path)
+        _upload_sample(host, port, path, format)
     except Exception as error:
         print(f'ERROR: {error}')
         return 1
 
 
-def _upload_sample(host, port, path, format=DEFAULT_FORMAT):
+def _upload_sample(host, port, path, format=None):
     if not host:
         host = '127.0.0.1'
     if not port:
         port = 8000
+    if not format:
+        format=DEFAULT_FORMAT
 
     reader_module = __import__('bci.readers', globals(), locals(), [format])
     reader = getattr(reader_module, format).reader_cls(path)
-    # generator for reading snapshots from data file
-    snapshot_reader = reader.read_snapshot()
+    with reader:
 
-    # send user data to server + receive ack message from server
-    connection = Connection.connect(host, port)
-    with connection, reader:
+        # generator for reading snapshots from data file
+        snapshot_reader = reader.read_snapshot()
 
-        user_data = UserData(reader)
-        packed_user_data = user_data.serialize()
-        connection.send_message(packed_user_data)
+        # send user data to server + receive ack message from server
+        connection = Connection.connect(host, port)
+        with connection:
 
-        ack_msg = connection.receive_message()
-        print(f'User data: {ack_msg.decode()}')
+            user_data = UserData(reader)
+            packed_user_data = user_data.serialize()
+            connection.send_message(packed_user_data)
 
-    # send snapshot to server + receive ack message from server
-    connection = Connection.connect(host, port)
-    with connection, reader:
-        snapshot = Snapshot(user_data.user_id, snapshot_reader)
-        packed_snapshot = snapshot.serialize()
-        connection.send_message(packed_snapshot)
+            ack_msg = connection.receive_message()
+            print(f'User data: {ack_msg.decode()}')
 
-        # receive ack message from server
-        ack_msg = connection.receive_message()
-        print(f'Snapshot #{1}: {ack_msg.decode()}')
+        # send snapshot to server + receive ack message from server
+        i = 1
+        while True:
+            connection = Connection.connect(host, port)
+            with connection:
+                try:
+                    snapshot = Snapshot(user_data.user_id,
+                               next(snapshot_reader))
+                except StopIteration:
+                    break
+                packed_snapshot = snapshot.serialize()
+                connection.send_message(packed_snapshot)
+
+                # receive ack message from server
+                ack_msg = connection.receive_message()
+                print(f'Snapshot #{i}: {ack_msg.decode()}')
+            i += 1
 
 
 # API function aliases

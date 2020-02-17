@@ -1,10 +1,10 @@
 html { font-family:'Aleo'; font-size:16px; background: white; }
 body { max-width: 1200px; min-height:100vh; margin:0 auto; background:#eee;}
 
-#header           { font-family:'Viga'; background:#ff8069; margin:0; padding:0; border-collapse:collapse; border-spacing:0; text-shadow: 2px 2px #cc6050; width:100%;  }
+#header           { font-family:'Viga'; background:#ffa048; margin:0; padding:0; border-collapse:collapse; border-spacing:0; text-shadow: 2px 2px #cc8030; width:100%;  }
 #main_header      { font-size:70px; width:50%; text-align:right; padding-right:10px; line-height:1.2; }
 #secondary_header { font-size:32px; width:50%; text-align:left; padding-left:10px; line-height:0.85; }
-#credits          { font-size:18px; background:#cc6050; color:white; font-weight:bold; padding:3px 0; width:100%; text-align:center; }
+#credits          { font-size:18px; background:#cc8030; color:white; font-weight:bold; padding:3px 0; width:100%; text-align:center; }
 
 h1         { font-family:'Quando'; font-size:36px; color:#69f; margin:15px 0 12px 0 }
 #content   { text-align:left; padding:20px; width:100% }
@@ -19,18 +19,20 @@ h1         { font-family:'Quando'; font-size:36px; color:#69f; margin:15px 0 12p
 .users li:active { box-shadow:4px 4px #999; font-weight:bold; cursor:pointer; color:#260; background:#6f3; }
 
 .snapshots { overflow: hidden; padding-left:0; }
-.box       { float:left; position:relative; width:235px; padding-bottom:235px; }
+.box       { float:left; position:relative; width:235px; padding-bottom:200px; }
 .boxInner  { position:absolute; left:0; right:10px; top:5px; bottom:5px;  }
 .boxInner img { position:absolute; top:50px; left:0; right:0; margin-bottom:0px; padding:0; width:100%; }
 .boxInner img:hover  { box-shadow:4px 4px #999; border:1px black solid; cursor:pointer;  }
 .boxInner img:active { box-shadow:4px 4px #999; border:2px #260 solid; cursor:pointer;  }
 .boxInner .titleBox  { height:37px; background:#36c; color:#fff; padding:5px 10px; text-align:center; }
 
-.snapshot_container  { width:1160px; height:550px; background:white; box-shadow:0 0 4px #bbb; }
+.snapshot_container  { width:1160px; height:550px; background:white; box-shadow:0 0 4px #bbb; margin-top:10px; }
 .snapshot_container td { vertical-align:top; position:relative; }
-.snapshot_container td .depth { height:160px }
+.snapshot_container td .depth { height:160px; }
 .snapshot_container td .color { text-align:left; }
 .snapshot_container td div { height:190px; text-align:right;  }
 .snapshot_container td :hover + .tooltip { display: block; }
 
-.tooltip {position:absolute; top:33px; left:33px; z-index:2; background:black; opacity:0.7; color:white; border:0; border-radius:10px; padding:3px 10px; display: none;}
+.tooltip  { position:absolute; top:33px; left:33px; z-index:2; background:black; opacity:0.7; color:white; border:0; border-radius:10px; padding:3px 10px; display: none; }
+.feels    { height:20px; vertical-align:middle; }
+#taken_by { height:25px; line-height:25px; margin:0; padding:0; }

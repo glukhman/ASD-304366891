@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block header %}<h1>Snapshot from {{ snapshot['date'] }}</h1>{% endblock %}
 {% block content %}
-Taken by&ensp;<b>{{ user['username'] }}</b>&ensp;at&ensp;<b>{{ snapshot['time'] }}</b><p>
+<div id="taken_by">Taken by&ensp;<b>{{ user['username'] }}</b>&ensp;at&ensp;<b>{{ snapshot['time'] }}</b>{% block feelings %}{% endblock %}</div>
 <table class='snapshot_container'>
   <tr>
     <td rowspan=3 width=80%>

@@ -50,9 +50,9 @@ class UserData:
 
 
 class Snapshot:
-    def __init__(self, user_id=None, snapshot_reader=None):
+    def __init__(self, user_id=None, snapshot_data=None):
         self.user_id = user_id
-        self.snapshot_reader = snapshot_reader
+        self.snapshot_data = snapshot_data
         self.datetime = None
         self.pose = None
         self.color_image = None
@@ -69,7 +69,7 @@ class Snapshot:
 
         # Serialize the snapshot using protobuf3
         # Have an unsigned int with the packed snapshot size precede it
-        snapshot = next(self.snapshot_reader)
+        snapshot = self.snapshot_data
         packed = cortex_pb2.Snapshot()
         packed.datetime = snapshot.datetime
 

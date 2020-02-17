@@ -1,0 +1,8 @@
+{% extends 'snapshot.html' %}
+{% block feelings %}
+&ensp;while feeling&ensp;<b>
+<font color="#620">&nbsp;{{ hunger }}%</font>&nbsp;<img class="feels" src="/static/hungry.png" align="middle" />
+<font color="#36f">&ensp;{{ thirst }}%</font>&nbsp;<img class="feels" src="/static/thirsty.png" align="middle"/>
+<font color="#390">&ensp;{{ exhaustion }}%</font>&nbsp;<img class="feels" src="/static/exhausted.png" align="middle"/>
+<font color="#d80">&ensp;{{ happiness }}%</font>&nbsp;<img class="feels" src="/static/happy.png" align="middle"/></b>
+{% endblock %}
