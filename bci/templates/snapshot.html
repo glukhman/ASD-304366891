@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block header %}<h1>Snapshot from {{ snapshot['date'] }}</h1>{% endblock %}
+{% block content %}
+Taken by&ensp;<b>{{ user['username'] }}</b>&ensp;at&ensp;<b>{{ snapshot['time'] }}</b><p>
+<table class='snapshot_container'>
+  <tr>
+    <td rowspan=3 width=80%>
+      <img class="color" src="{{ snapshot['color_image_url'] }}" width="100%" alt="Color image"/>
+      <span class="tooltip">Color image</span>
+    <td>
+      <div class="depth"><img src="{{ snapshot['depth_image_url'] }}" height="100%" alt="Depth image"/></div>
+      <span class="tooltip">Depth image</span>
+  </tr>
+  <tr><td>
+    <div><img src="{{ snapshot['translation_url'] }}" height="100%" alt="Translation plot"/></div>
+    <span class="tooltip">Translation</span>
+  </tr>
+  <tr><td>
+    <div><img src="{{ snapshot['rotation_url'] }}" height="100%" alt="Rotation plot"/></div>
+    <span class="tooltip">Rotation</span>
+  </tr>
+</table>
+<div id="back"><div onclick="location.href='/users/{{ user['user_id'] }}'">Back to {{ user['username'] }}'s gallery</div></div>
+{% endblock %}

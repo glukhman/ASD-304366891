@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block header %}<h1>{{ user['username'] }}</h1>{% endblock %}
+{% block content %}
+{{ user['gender'].capitalize() }}. Born on {{ user['birthday'] }}<p>
+The following snapshots were taken by {{user['username']}}:
+<div class="snapshots">
+{% for snapshot in snapshots %}
+  <div class="box"><div class="boxInner">
+      <div class="titleBox">{{ snapshot['datetime'] }}</div>
+      <img src="{{ snapshot['image_url'] }}"
+           onclick="location.href='/users/{{ user['user_id'] }}/snapshots/{{ snapshot['id'] }}'"/>
+  </div></div>
+{% endfor %}
+</div>
+<div id="back"><div onclick="location.href='/'">Back to main page</div></div>
+{% endblock %}

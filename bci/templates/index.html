@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block header %}<h1>Welcome to the Cortex system!</h1>{% endblock %}
+{% block content %}
+Below is a list of our contributing users.
+Click on each user name to view the user's snapshot gallery.<br>
+<ul class='users'>
+    {% for user in users %}
+      <li onclick="location.href='/users/{{ user['user_id'] }}'">{{ user['username'] }}
+    {% endfor %}
+</ul>
+{% endblock %}
