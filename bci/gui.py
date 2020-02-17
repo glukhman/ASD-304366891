@@ -43,7 +43,7 @@ def user(user_id):
     url = f"http://{host}:{port}/users/{user_id}"
     user = json.loads(requests.get(url).json())
     url = f"http://{host}:{port}/users/{user_id}/snapshots"
-    snapshots = sorted(json.loads(requests.get(url).json()))
+    snapshots = sorted(json.loads(requests.get(url).json()), key=lambda item: item['id'])
     for snapshot in snapshots:
         url = f"http://{host}:{port}/users/{user_id}/snapshots/{snapshot['id']}"
         available_results = json.loads(requests.get(url).json())['available results'].split(',')
@@ -160,16 +160,21 @@ def snapshot(user_id, snapshot_id):
         snapshot['translation_url'] = '/static/missing.jpg'
         snapshot['rotation_url'] = '/static/missing.jpg'
 
+    template_html = 'snapshot.html'
+
     # process feelings
     if 'feelings' in available_results:
         url = f"http://{host}:{port}/users/{user_id}/snapshots/{snapshot_id}/feelings"
         feelings = json.loads(requests.get(url).json())
-        # TODO ....
-    else:
-        pass
-        # TODO ....
+        template_html = 'snapshot_with_feelings.html'
+        hunger = "{0:.1f}".format(feelings['hunger'] * 100)
+        thirst = "{0:.1f}".format(feelings['thirst'] * 100)
+        exhaustion = "{0:.1f}".format(feelings['exhaustion'] * 100)
+        happiness = "{0:.1f}".format(feelings['happiness'] * 100)
 
-    return render_template('snapshot.html', user=user, snapshot=snapshot)
+    return render_template(template_html, user=user, snapshot=snapshot,
+                           hunger=hunger,thirst=thirst, exhaustion=exhaustion,
+                           happiness=happiness)
 
 
 @website.route('/assets/<string:type>/<string:asset_id>')
