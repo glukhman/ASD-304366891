@@ -170,6 +170,8 @@ def snapshot(user_id, snapshot_id):
         thirst = "{0:.1f}".format(feelings['thirst'] * 100)
         exhaustion = "{0:.1f}".format(feelings['exhaustion'] * 100)
         happiness = "{0:.1f}".format(feelings['happiness'] * 100)
+    else:
+        hunger, thirst, exhaustion, happiness = 0, 0, 0, 0
 
     return render_template(template_html, user=user, snapshot=snapshot,
                            hunger=hunger,thirst=thirst, exhaustion=exhaustion,
