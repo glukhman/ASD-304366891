@@ -1,5 +1,6 @@
 import os
 import sys
+import subprocess
 
 import gzip
 import pytest
@@ -7,8 +8,18 @@ import struct
 
 from bci.utils.protobuf import cortex_pb2
 
-
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+WAIT_INTERVAL = .5
+
+
+def capture(command, run_in_bg=False):
+    command = [x.strip("'") for x in command.split(" ")]
+    proc = subprocess.Popen(command,
+                            stdout = subprocess.PIPE,
+                            stderr = subprocess.PIPE,
+                            close_fds=run_in_bg)
+    return proc
 
 
 @pytest.fixture

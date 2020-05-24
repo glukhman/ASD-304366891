@@ -1,0 +1,109 @@
+[2020-05-29 22:30:42,922] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:30:50,161] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:30:52,153] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:30:54,541] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:31:00,176] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:31:14,470] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:31:14,485] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:31:14,494] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:31:15,083] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:31:15,105] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:31:15,113] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:31:15,997] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:31:16,013] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:31:16,022] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:31:17,409] CRITICAL: [Errno 99] Cannot assign requested address
+[2020-05-29 22:31:31,952] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:31:31,969] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:31:31,977] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:31:35,116] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:31:36,848] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:31:39,437] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:31:44,921] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:31:52,205] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:32:05,380] CRITICAL: unknown host name "bad_hostname"
+[2020-05-29 22:32:05,772] CRITICAL: Publisher module "unknown" does not exist
+[2020-05-29 22:32:06,680] CRITICAL: no host or port provided for publisher service
+[2020-05-29 22:32:07,702] CRITICAL: no host or port provided for publisher service
+[2020-05-29 22:32:11,841] CRITICAL: could not connect to rabbitmq through host 8.8.8.8 and port 5672
+[2020-05-29 22:32:14,302] CRITICAL: could not connect to rabbitmq through host 127.0.0.1 and port 60000
+[2020-05-29 22:32:57,692] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:32:57,707] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:32:57,716] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:32:58,301] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:32:58,324] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:32:58,332] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:32:59,259] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:32:59,279] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:32:59,291] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:33:00,778] CRITICAL: [Errno 99] Cannot assign requested address
+[2020-05-29 22:33:15,322] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:33:15,340] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:33:15,349] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:33:18,524] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:33:20,307] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:33:22,788] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:33:28,507] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:33:35,804] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:33:49,078] CRITICAL: unknown host name "bad_hostname"
+[2020-05-29 22:33:49,509] CRITICAL: Publisher module "unknown" does not exist
+[2020-05-29 22:33:50,424] CRITICAL: no host or port provided for publisher service
+[2020-05-29 22:33:51,454] CRITICAL: no host or port provided for publisher service
+[2020-05-29 22:33:55,562] CRITICAL: could not connect to rabbitmq through host 8.8.8.8 and port 5672
+[2020-05-29 22:33:57,996] CRITICAL: could not connect to rabbitmq through host 127.0.0.1 and port 60000
+[2020-05-29 22:35:10,844] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:35:11,340] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:35:11,357] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:35:11,366] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:35:11,779] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:35:11,929] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:35:11,946] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:35:11,954] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:35:12,819] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:35:12,835] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:35:12,844] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:35:14,170] CRITICAL: [Errno 99] Cannot assign requested address
+[2020-05-29 22:35:28,760] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:35:28,777] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:35:28,786] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:35:31,985] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:35:33,752] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:35:36,345] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:35:41,812] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:35:49,652] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:35:49,668] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:35:49,677] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:36:02,405] CRITICAL: unknown host name "bad_hostname"
+[2020-05-29 22:36:02,846] CRITICAL: Publisher module "unknown" does not exist
+[2020-05-29 22:36:03,762] CRITICAL: no host or port provided for publisher service
+[2020-05-29 22:36:04,769] CRITICAL: no host or port provided for publisher service
+[2020-05-29 22:36:08,848] CRITICAL: could not connect to rabbitmq through host 8.8.8.8 and port 5672
+[2020-05-29 22:36:11,314] CRITICAL: could not connect to rabbitmq through host 127.0.0.1 and port 60000
+[2020-05-29 22:39:24,007] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:39:24,502] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:39:24,518] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:39:24,527] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:39:24,940] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:39:25,091] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:39:25,107] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:39:25,116] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:39:25,981] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:39:25,998] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:39:26,008] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:39:27,362] CRITICAL: [Errno 99] Cannot assign requested address
+[2020-05-29 22:39:42,034] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:39:42,052] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:39:42,069] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:39:45,348] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:39:47,195] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:39:49,731] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:39:55,257] CRITICAL: [Errno 98] Address already in use
+[2020-05-29 22:40:03,108] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-29 22:40:03,118] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-29 22:40:03,126] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-29 22:40:15,838] CRITICAL: unknown host name "bad_hostname"
+[2020-05-29 22:40:16,254] CRITICAL: Publisher module "unknown" does not exist
+[2020-05-29 22:40:17,178] CRITICAL: no host or port provided for publisher service
+[2020-05-29 22:40:18,190] CRITICAL: no host or port provided for publisher service
+[2020-05-29 22:40:22,289] CRITICAL: could not connect to rabbitmq through host 8.8.8.8 and port 5672
+[2020-05-29 22:40:24,739] CRITICAL: could not connect to rabbitmq through host 127.0.0.1 and port 60000

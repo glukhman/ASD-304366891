@@ -1,5 +1,6 @@
 import os
 import json
+import logging
 from datetime import datetime
 
 import pika
@@ -9,11 +10,21 @@ from ..utils import DATA_DIR, MSG_TYPES
 from ..utils.protobuf import cortex_pb2
 
 
-def publish(message, msg_type, user_id, **kwargs):
+def publish(message, **kwargs):
     if (not kwargs['publisher_host']) or (not kwargs['publisher_port']):
-        raise Exception('no host or port provided for publisher service')
+        raise ConnectionError('no host or port provided for publisher service')
 
-    if msg_type == MSG_TYPES.USER_DATA:
+    # first check and establish connection
+    try:
+        connection = pika.BlockingConnection(pika.ConnectionParameters(
+            kwargs['publisher_host'], kwargs['publisher_port']))
+    except pika.exceptions.AMQPConnectionError as error:
+        error_msg = f"could not connect to rabbitmq through host " \
+                    f"{kwargs['publisher_host']} and port " \
+                    f"{kwargs['publisher_port']}"
+        raise ConnectionError(error_msg)
+
+    if kwargs['msg_type'] == MSG_TYPES.USER_DATA:
 
         # gender issues :)
         user_format = cortex_pb2.User()
@@ -37,24 +48,21 @@ def publish(message, msg_type, user_id, **kwargs):
         }
         user_data = json.dumps(user_data)
 
-        # publish the user data to a topic exchange
-        connection = pika.BlockingConnection(pika.ConnectionParameters(
-            kwargs['publisher_host'], kwargs['publisher_port']))
         channel = connection.channel()
         channel.exchange_declare(exchange='parse_results',
                                  exchange_type='topic')
         channel.basic_publish(exchange='parse_results',
                               routing_key='users', body=user_data)
-        print(" [x] Sent %r:%r to saver" % ('users', user_data))
+        logging.info(f'Sent to users topic: {user_data}')
         connection.close()
 
-    elif msg_type == MSG_TYPES.SNAPSHOT:
+    elif kwargs['msg_type'] == MSG_TYPES.SNAPSHOT:
 
         # save snapshot raw data to file system, using protobuf3
         timestamp = datetime.fromtimestamp(message.datetime/1000)
         timestamp = timestamp.strftime("%Y-%m-%d_%H-%M-%S-%f")[:-3]
 
-        datapath = DATA_DIR / str(user_id) / timestamp
+        datapath = DATA_DIR / str(kwargs['user_id']) / timestamp
 
         packed = cortex_pb2.Snapshot()
         packed.datetime = message.datetime
@@ -93,19 +101,17 @@ def publish(message, msg_type, user_id, **kwargs):
 
         # publish the address of the raw snapshot to a fanout exchange
         data = {
-            'user_id': user_id,
+            'user_id': kwargs['user_id'],
             'address': str(datapath / 'snapshot.raw')
         }
         data = json.dumps(data)
 
-        connection = pika.BlockingConnection(pika.ConnectionParameters(
-            kwargs['publisher_host'], kwargs['publisher_port']))
         channel = connection.channel()
         channel.exchange_declare(exchange='raw_snapshot',
                                  exchange_type='fanout')
         channel.basic_publish(exchange='raw_snapshot', routing_key='',
                               body=data)
-        print(" [x] Sent %r" % data)
+        logging.info(f'Sent to fanout: {data}')
         connection.close()
 
         # serialize snapshot metadata
@@ -113,7 +119,7 @@ def publish(message, msg_type, user_id, **kwargs):
         timestamp = timestamp.strftime("%B %-d, %Y at %H:%M:%S.%f")[:-3]
         metadata = {
             'id': message.datetime, # snapshot ID is based on timestamp
-            'user_id': user_id,
+            'user_id': kwargs['user_id'],
             'datetime': timestamp
         }
         metadata = json.dumps(metadata)
@@ -126,5 +132,5 @@ def publish(message, msg_type, user_id, **kwargs):
                                  exchange_type='topic')
         channel.basic_publish(exchange='parse_results',
                               routing_key='snapshots', body=metadata)
-        print(" [x] Sent %r:%r to saver" % ('snapshots', metadata))
+        logging.info(f'Sent to snapshots topic: {metadata}')
         connection.close()

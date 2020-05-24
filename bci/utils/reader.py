@@ -206,30 +206,3 @@ class ProtobufReader:
 
     def __exit__(self, exception, error, traceback):
         self.fp.close()
-
-
-def read(filename, format):
-    if format == 'protobuf':
-        reader = ProtobufReader(filename)
-    else:
-        reader = BinaryReader(filename)
-    with reader:
-        birthdate = datetime.fromtimestamp(reader.birthdate)
-        if format == 'protobuf':
-            gender = reader.gender
-        else:
-            gender = 'male' if reader.gender == b'm' else 'female'
-        print(f'user {reader.user_id}: {reader.username}, '
-              f'born {birthdate.strftime("%B %-d, %Y")} ({gender})')
-
-        snapshot_reader = reader.read_snapshot('data')
-        next(snapshot_reader)
-        next(snapshot_reader)
-        next(snapshot_reader)
-
-        # THIS ALSO WORKS:
-        # while True:
-        #     try:
-        #         next(snapshot_reader)
-        #     except StopIteration:
-        #         break

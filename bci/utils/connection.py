@@ -21,7 +21,6 @@ class Connection:
     def send(self, data):
         self.socket.sendall(data)
 
-    # EX-6
     def send_message(self, message):
         if type(message) == str:
             message = message.encode('utf8')
@@ -36,7 +35,6 @@ class Connection:
             raise Exception('data is incomplete')
         return data
 
-    # EX-6
     def receive_message(self):
         msg_size = self.socket.recv(4)
         msg_size, = struct.unpack('<I', msg_size)

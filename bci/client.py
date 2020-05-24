@@ -1,11 +1,21 @@
+import sys
+import logging
+from pathlib import Path
 from datetime import datetime
 
 import click
 
 from .utils import (Connection, UserData, Snapshot, VERSION, DEFAULT_FORMAT)
 
+def logger_init(name):
+    log_dir = Path(__file__).parents[1] / "log"
+    log_dir.mkdir(exist_ok=True)
+    logging.basicConfig(format='[%(asctime)s] %(levelname)s: %(message)s',
+                        filename=log_dir / f"{name}.log",
+                        level=logging.DEBUG)
+    logging.getLogger(name).setLevel(logging.DEBUG)
 
-# Final project
+
 @click.version_option(prog_name='Michael Glukhman\'s BCI', version=VERSION)
 @click.group()
 def cli():
@@ -18,10 +28,14 @@ def cli():
 @click.argument('path')
 @click.option('-f', '--format')
 def upload_sample(host, port, path, format):
+    logger_init('client')
     try:
         _upload_sample(host, port, path, format)
     except Exception as error:
-        print(f'ERROR: {error}')
+        if 'Temporary failure in name resolution' in str(error):
+            error = f'unknown host name "{host}"'
+        print(f'ERROR: {error}', file=sys.stderr)
+        logging.critical(f'{error}')
         return 1
 
 
@@ -49,7 +63,12 @@ def _upload_sample(host, port, path, format=None):
             connection.send_message(packed_user_data)
 
             ack_msg = connection.receive_message()
-            print(f'User data: {ack_msg.decode()}')
+            if 'ERROR' in ack_msg.decode():
+                print(f'User data: {ack_msg.decode()}', file=sys.stderr)
+                logging.warning(f'{ack_msg.decode()}')
+            else:
+                print(f'User data: {ack_msg.decode()}')
+                logging.info(f'User data: {ack_msg.decode()}')
 
         # send snapshot to server + receive ack message from server
         i = 1
@@ -66,7 +85,13 @@ def _upload_sample(host, port, path, format=None):
 
                 # receive ack message from server
                 ack_msg = connection.receive_message()
-                print(f'Snapshot #{i}: {ack_msg.decode()}')
+                if 'ERROR' in ack_msg.decode():
+                    print(f'Snapshot #{i}: {ack_msg.decode()}',
+                          file=sys.stderr)
+                    logging.warning(f'{ack_msg.decode()}')
+                else:
+                    print(f'Snapshot #{i}: {ack_msg.decode()}')
+                    logging.info(f'Snapshot #{i}: {ack_msg.decode()}')
             i += 1
 
 
@@ -74,4 +99,4 @@ def _upload_sample(host, port, path, format=None):
 upload_sample = _upload_sample
 
 if __name__ == '__main__':
-    cli(prog_name='client')
+    cli(prog_name='bci.client')

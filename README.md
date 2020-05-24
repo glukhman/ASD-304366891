@@ -34,6 +34,10 @@ run the following commands to install dependencies and enter the virtual environ
     pytest tests/
     ```
 
+## Project overview
+
+#### TODO: flowchart + short description
+
 ## The client
 
 The client exposes the following Python API:
@@ -56,6 +60,9 @@ The supported snapshots file format is a gzipped binary packed with Google&apos;
 <a href="https://developers.google.com/protocol-buffers/docs/proto3">Protobuf 3</a> format.
 The structure of a correct snapshots file is:
 ...
+
+#### TODO: how to add readers for snapshot
+
 
 ## The server
 
