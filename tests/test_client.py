@@ -7,6 +7,8 @@ import pytest
 
 from bci.client import upload_sample
 
+WAIT_INTERVAL = 0.15
+
 
 def capture(command, run_in_bg=False):
     command = [x.strip("'") for x in command.split(" ")]
@@ -20,7 +22,7 @@ def capture(command, run_in_bg=False):
 def test_upload_sample(prepare_good_protofile):
     server_proc = capture("python -m bci.server run-server -h '127.0.0.1' "
                           "-p 5500 'rabbitmq://127.0.0.1:5672/'", True)
-    time.sleep(0.1)
+    time.sleep(WAIT_INTERVAL)
     client_proc = capture("python -m bci.client upload-sample -h '127.0.0.1' "
                           "-p 5500 tests/good_proto.mind.gz")
     out, err = client_proc.communicate()
@@ -34,7 +36,7 @@ def test_upload_sample(prepare_good_protofile):
 def test_upload_sample_python_api(prepare_good_protofile, capsys):
     server_proc = capture("python -m bci.server run-server -h '127.0.0.1' "
                           "-p 5500 'rabbitmq://127.0.0.1:5672/'", True)
-    time.sleep(0.1)
+    time.sleep(WAIT_INTERVAL)
     upload_sample(host='127.0.0.1', port=5500, path="tests/good_proto.mind.gz")
     out, err = capsys.readouterr()
     assert 'User data: OK!' in out
@@ -45,7 +47,7 @@ def test_upload_sample_python_api(prepare_good_protofile, capsys):
 def test_upload_sample_default_host_port(prepare_good_protofile):
     server_proc = capture("python -m bci.server run-server "
                           "'rabbitmq://127.0.0.1:5672/'", True)
-    time.sleep(0.1)
+    time.sleep(WAIT_INTERVAL)
     client_proc = capture("python -m bci.client upload-sample "
                           "tests/good_proto.mind.gz")
     out, err = client_proc.communicate()
@@ -59,7 +61,7 @@ def test_upload_sample_default_host_port(prepare_good_protofile):
 def test_upload_sample_port_mismatch(prepare_good_protofile):
     server_proc = capture("python -m bci.server run-server -p 5500 "
                           "'rabbitmq://127.0.0.1:5672/'", True)
-    time.sleep(0.1)
+    time.sleep(WAIT_INTERVAL)
     client_proc = capture("python -m bci.client upload-sample -p 5501 "
                           "tests/good_proto.mind.gz")
     out, err = client_proc.communicate()
@@ -70,7 +72,7 @@ def test_upload_sample_port_mismatch(prepare_good_protofile):
 def test_upload_sample_host_mismatch(prepare_good_protofile):
     server_proc = capture("python -m bci.server run-server -h '127.1.1.2' "
                           "'rabbitmq://127.0.0.1:5672/'", True)
-    time.sleep(0.1)
+    time.sleep(WAIT_INTERVAL)
     client_proc = capture("python -m bci.client upload-sample -h '127.0.0.1' "
                           "tests/good_proto.mind.gz")
     out, err = client_proc.communicate()
@@ -131,7 +133,7 @@ def test_upload_sample_unsupported_args():
 def test_upload_sample_supported_file_format(prepare_good_protofile):
     server_proc = capture("python -m bci.server run-server "
                           "'rabbitmq://127.0.0.1:5672/'", True)
-    time.sleep(0.1)
+    time.sleep(WAIT_INTERVAL)
     client_proc = capture("python -m bci.client upload-sample "
                           "tests/good_proto.mind.gz -f protobuf")
     out, err = client_proc.communicate()
