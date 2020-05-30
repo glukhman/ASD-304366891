@@ -98,3 +98,10 @@
 [2020-05-30 17:59:56,695] WARNING: ERROR: could not connect to rabbitmq through host 127.0.0.1 and port 5672
 [2020-05-30 17:59:56,698] CRITICAL: [Errno 104] Connection reset by peer
 [2020-05-30 18:12:26,352] CRITICAL: unknown host name "bad_hostname"
+[2020-05-30 19:16:48,163] INFO: User data: OK!
+[2020-05-30 19:16:55,669] INFO: Snapshot #1: OK!
+[2020-05-30 19:16:58,760] INFO: Snapshot #2: OK!
+[2020-05-30 19:17:02,324] INFO: Snapshot #3: OK!
+[2020-05-30 19:17:06,629] INFO: Snapshot #4: OK!
+[2020-05-30 19:17:10,861] INFO: Snapshot #5: OK!
+[2020-05-30 19:17:14,796] INFO: Snapshot #6: OK!
