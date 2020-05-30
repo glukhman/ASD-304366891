@@ -113,4 +113,4 @@ def run_api_server(host, port, database_url):
 
 
 if __name__ == '__main__':
-    cli(prog_name='REST api')
+    cli(prog_name='bci.api')

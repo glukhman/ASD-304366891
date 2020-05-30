@@ -1,0 +1,19 @@
+[2020-05-30 14:19:01,849] CRITICAL: [Errno 2] No such file or directory: 'sample_feelings.result'
+[2020-05-30 14:21:17,583] CRITICAL: Illegal JSON data format
+[2020-05-30 14:21:40,479] CRITICAL: Illegal JSON data format
+[2020-05-30 14:21:48,759] CRITICAL: Illegal JSON data format
+[2020-05-30 14:23:27,999] INFO: Saved to database table feelings: {"hunger": 0.5, "thirst": 0.3, "exhaustion": 0.15, "happiness": 0.7}
+
+[2020-05-30 14:23:48,128] INFO: Saved to database table feelings: {"hunger": 0.5, "thirst": 0.3, "exhaustion": 0.15, "happiness": 0.7}
+
+[2020-05-30 14:25:07,887] INFO: Saved to database table feelings: {"hunger": 0.5, "thirst": 0.3, "exhaustion": 0.15, "happiness": 0.7}
+
+[2020-05-30 14:26:43,830] INFO: Saved to database table feelings: {"hunger": 0.5, "thirst": 0.3, "exhaustion": 0.15, "happiness": 0.7}
+
+[2020-05-30 14:27:12,687] INFO: Saved to database table feelings: {"hunger": 0.5, "thirst": 0.3, "exhaustion": 0.15, "happiness": 0.7}
+
+[2020-05-30 14:28:21,594] INFO: Saved to database table feelings: {"hunger": 0.5, "thirst": 0.3, "exhaustion": 0.15, "happiness": 0.7}
+
+[2020-05-30 14:29:08,235] INFO: Saved to database table feelings: {"hunger": 0.5, "thirst": 0.3, "exhaustion": 0.15, "happiness": 0.7}
+[2020-05-30 14:29:25,032] INFO: Saved to database table feelings: {"hunger": 0.5, "thirst": 0.3, "exhaustion": 0.15, "happiness": 0.7}
+[2020-05-30 14:30:44,443] INFO: Saved to database table feelings: {"hunger": 0.5, "thirst": 0.3, "exhaustion": 0.15, "happiness": 0.7}

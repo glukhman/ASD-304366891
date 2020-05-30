@@ -109,4 +109,4 @@ def get_result(host, port, user_id, snapshot_id, result_name):
 
 
 if __name__ == '__main__':
-    cli(prog_name='CLI')
+    cli(prog_name='bci.cli')
