@@ -8,7 +8,8 @@ import pytest
 import requests
 from click.testing import CliRunner
 
-from bci.cli import (get_users, get_user, get_snapshots)
+from bci.cli import (get_users, get_user, get_snapshots,
+                     get_snapshot, get_result)
 from conftest import capture, WAIT_INTERVAL
 
 
@@ -24,6 +25,12 @@ class MockResponse:
         if self.entrypoint == 'users/123/snapshots':
             return '[{"id": 123456789, "datetime": "April 1, 2019"}, ' \
                    '{"id": 123456889, "datetime": "April 2, 2019"}]'
+        if self.entrypoint == 'users/123/snapshots/123456789':
+            return '{"id": 123456789, "datetime": "April 1, 2019", ' \
+                   '"available results": "pose, feelings"}'
+        if self.entrypoint == 'users/123/snapshots/123456789/pose':
+            return '{"translation": {"x": 0, "y": 0, "z": -1}, ' \
+                   '"rotation": {"x": -0.5, "y": 0.33, "z": 0, "w": 0.15}}'
 
 
 def test_get_users(monkeypatch):
@@ -59,64 +66,40 @@ def test_get_snapshots(monkeypatch):
     runner = CliRunner()
     monkeypatch.setattr(requests, "get", mock_get)
 
-    result = runner.invoke(get_user, [user_id])
-    assert "Snapshots taken by user 123:"
-    assert "user_id:   123" in result.output
-    assert "username:  Testy" in result.output
-    assert "gender:    male " in result.output
+    result = runner.invoke(get_snapshots, [user_id])
+    assert "Snapshots taken by user 123:" in result.output
+    assert "|        id | datetime      |" in result.output
+    assert "| 123456789 | April 1, 2019 |" in result.output
+    assert "| 123456889 | April 2, 2019 |" in result.output
 
-# def test_save():
-#     saver_proc = capture(f"python -m bci.saver save "
-#                          f"-d 'mongodb://127.0.0.1:27017/' "
-#                          f"'feelings' {tests_dir / 'sample_feelings.result'}")
-#     out, err = saver_proc.communicate()
-#     assert saver_proc.returncode == 0
-#     client = pymongo.MongoClient('127.0.0.1:27017')
-#     table = client.db['feelings']
-#     results = list(table.find())
-#     log = open(log_path, 'r').readlines()
-#     assert results[0]['hunger'] == 0.5
-#     assert results[0]['happiness'] == 0.7
-#     assert "Saved to database table feelings" in log[-1]
-#
-#
-#
-# def test_save_python_api():
-#     saver = Saver("mongodb://127.0.0.1:27017/")
-#     data = json.dumps({'id': '123', 'attribute': 'value'})
-#     saver.save('test_topic', data)
-#     saver.save('test_topic', data)    # should ignore 2nd insertion
-#     client = pymongo.MongoClient('127.0.0.1:27017')
-#     table = client.db['test_topic']
-#     results = list(table.find({}, {'id': 1, 'attribute': 1}))
-#     assert len(results) == 1
-#     assert results[0]['id'] == '123'
-#     assert results[0]['attribute'] == 'value'
-#
-#
-# def test_save_bad_data():
-#     saver = Saver("mongodb://127.0.0.1:27017/")
-#     with pytest.raises(Exception) as error:
-#         saver.save('bad_topic', 'bad data')
-#     assert "Illegal JSON data format" in str(error.value)
-#     client = pymongo.MongoClient('127.0.0.1:27017')
-#     table = client.db['bad_topic']
-#     results = list(table.find({}, {'id': 1, 'attribute': 1}))
-#     assert len(results) == 0
-#
-#
-# def test_save_unsupported_db_service():
-#     with pytest.raises(Exception) as error:
-#         saver = Saver("nosql://127.0.0.1:27017/")
-#     assert "Unsupported database service" in str(error.value)
-#
-#
-# def test_save_bad_db_url():
-#     saver = Saver("mongodb://8.8.8.8:27017/")
-#     with pytest.raises(Exception) as error:
-#         saver.save('test_topic', '{}')
-#     assert "Could not connect to database on URL "
-#     "8.8.8.8:27017" in str(error.value)
+
+def test_get_snapshot(monkeypatch):
+    user_id = '123'
+    snapshot_id = '123456789'
+    def mock_get(*args, **kwargs):
+        return MockResponse(f'users/{user_id}/snapshots/{snapshot_id}')
+    runner = CliRunner()
+    monkeypatch.setattr(requests, "get", mock_get)
+
+    result = runner.invoke(get_snapshot, [user_id, snapshot_id])
+    assert "Snapshot 123456789 taken by user 123:" in result.output
+    assert "id:                 123456789" in result.output
+    assert "datetime:           April 1, 2019" in result.output
+    assert "available results:  pose, feelings" in result.output
+
+
+def test_get_result(monkeypatch):
+    user_id = '123'
+    snapshot_id = '123456789'
+    def mock_get(*args, **kwargs):
+        return MockResponse(f'users/{user_id}/snapshots/{snapshot_id}/pose')
+    runner = CliRunner()
+    monkeypatch.setattr(requests, "get", mock_get)
+
+    result = runner.invoke(get_result, [user_id, snapshot_id, 'pose'])
+    assert "POSE of snapshot 123456789 taken by user 123:" in result.output
+    assert "translation:  {'x': 0, 'y': 0, 'z': -1}" in result.output
+    assert "rotation:     {'x': -0.5, 'y': 0.33, 'z': 0, 'w': 0.15}" in result.output
 
 
 def test_api_illegal_command():

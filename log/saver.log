@@ -17,3 +17,1225 @@
 [2020-05-30 14:29:08,235] INFO: Saved to database table feelings: {"hunger": 0.5, "thirst": 0.3, "exhaustion": 0.15, "happiness": 0.7}
 [2020-05-30 14:29:25,032] INFO: Saved to database table feelings: {"hunger": 0.5, "thirst": 0.3, "exhaustion": 0.15, "happiness": 0.7}
 [2020-05-30 14:30:44,443] INFO: Saved to database table feelings: {"hunger": 0.5, "thirst": 0.3, "exhaustion": 0.15, "happiness": 0.7}
+[2020-05-30 16:54:07,767] DEBUG: Using EPollPoller
+[2020-05-30 16:54:07,767] DEBUG: Created default connection workflow <pika.adapters.utils.connection_workflow.AMQPConnectionWorkflow object at 0x7f84195eb2b0>
+[2020-05-30 16:54:07,767] DEBUG: Starting AMQP Connection workflow asynchronously.
+[2020-05-30 16:54:07,767] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195eb2e0> with deadline=17442.144098228 and callback=functools.partial(<bound method AMQPConnectionWorkflow._start_new_cycle_async of <pika.adapters.utils.connection_workflow.AMQPConnectionWorkflow object at 0x7f84195eb2b0>>, first=True); now=17442.144098228; delay=0
+[2020-05-30 16:54:07,768] DEBUG: Beginning a new AMQP connection workflow cycle; attempts remaining after this: 0
+[2020-05-30 16:54:07,768] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195eb310> with deadline=17442.14423731 and callback=<bound method AMQPConnectionWorkflow._try_next_config_async of <pika.adapters.utils.connection_workflow.AMQPConnectionWorkflow object at 0x7f84195eb2b0>>; now=17442.14423731; delay=0
+[2020-05-30 16:54:07,768] DEBUG: _try_next_config_async: '127.0.0.1':5672
+[2020-05-30 16:54:07,768] DEBUG: process_timeouts: invoking callback=<bound method _AddressResolver._dispatch_result of <pika.adapters.utils.selector_ioloop_adapter._AddressResolver object at 0x7f84195eb340>>
+[2020-05-30 16:54:07,768] DEBUG: Invoking asynchronous getaddrinfo() completion callback; host='127.0.0.1'
+[2020-05-30 16:54:07,768] DEBUG: getaddrinfo returned 1 records
+[2020-05-30 16:54:07,768] DEBUG: Attempting to connect using address record (<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('127.0.0.1', 5672))
+[2020-05-30 16:54:07,768] INFO: Pika version 1.1.0 connecting to ('127.0.0.1', 5672)
+[2020-05-30 16:54:07,768] DEBUG: add_callback_threadsafe: added callback=<bound method _AddressResolver._dispatch_result of <pika.adapters.utils.selector_ioloop_adapter._AddressResolver object at 0x7f84195eb340>>
+[2020-05-30 16:54:07,768] DEBUG: add_callback_threadsafe: added callback=<bound method _AsyncSocketConnector._start_async of <pika.adapters.utils.io_services_utils._AsyncSocketConnector object at 0x7f84195dca60>>
+[2020-05-30 16:54:07,768] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcaf0> with deadline=17452.145107122 and callback=<bound method AMQPConnector._on_tcp_connection_timeout of <pika.adapters.utils.connection_workflow.AMQPConnector object at 0x7f84195dcc10>>; now=17442.145107122; delay=10.0
+[2020-05-30 16:54:07,769] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbb0> with deadline=17457.145151851 and callback=<bound method AMQPConnector._on_overall_timeout of <pika.adapters.utils.connection_workflow.AMQPConnector object at 0x7f84195dcc10>>; now=17442.145151851; delay=15.0
+[2020-05-30 16:54:07,769] DEBUG: process_timeouts: invoking callback=<bound method _AsyncSocketConnector._start_async of <pika.adapters.utils.io_services_utils._AsyncSocketConnector object at 0x7f84195dca60>>
+[2020-05-30 16:54:07,769] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncSocketConnector._on_writable of <pika.adapters.utils.io_services_utils._AsyncSocketConnector object at 0x7f84195dca60>>)
+[2020-05-30 16:54:07,769] DEBUG: set_writer(7, _) added handler Wr
+[2020-05-30 16:54:07,769] DEBUG: Connection-establishment is in progress for <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>.
+[2020-05-30 16:54:07,769] INFO: Socket connected: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,769] DEBUG: _AsyncSocketConnector._report_completion(None); <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,769] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:54:07,769] DEBUG: remove_writer(7) removed handler
+[2020-05-30 16:54:07,769] DEBUG: remove_timeout: removing timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcaf0> with deadline=17452.145107122 and callback=<bound method AMQPConnector._on_tcp_connection_timeout of <pika.adapters.utils.connection_workflow.AMQPConnector object at 0x7f84195dcc10>>
+[2020-05-30 16:54:07,770] DEBUG: TCP connection to broker established: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>.
+[2020-05-30 16:54:07,770] DEBUG: _AsyncStreamConnector.start(); <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,770] DEBUG: add_callback_threadsafe: added callback=<bound method _AsyncStreamConnector._start_async of <pika.adapters.utils.io_services_utils._AsyncStreamConnector object at 0x7f84195dcb20>>
+[2020-05-30 16:54:07,770] DEBUG: process_timeouts: invoking callback=<bound method _AsyncStreamConnector._start_async of <pika.adapters.utils.io_services_utils._AsyncStreamConnector object at 0x7f84195dcb20>>
+[2020-05-30 16:54:07,770] DEBUG: _AsyncStreamConnector._start_async(); <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,770] DEBUG: _AsyncStreamConnector._linkup()
+[2020-05-30 16:54:07,770] DEBUG: New Connection state: CLOSED (prev=CLOSED)
+[2020-05-30 16:54:07,770] DEBUG: Added: {'callback': <bound method Connection._on_connection_start of <SelectConnection CLOSED transport=None params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,770] DEBUG: Added: {'callback': <bound method Connection._on_connection_close_from_broker of <SelectConnection CLOSED transport=None params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,770] DEBUG: Added: {'callback': <bound method Connection._default_on_connection_error of <SelectConnection CLOSED transport=None params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>, 'one_shot': False, 'only': None, 'arguments': None}
+[2020-05-30 16:54:07,770] DEBUG: New Connection state: INIT (prev=CLOSED)
+[2020-05-30 16:54:07,770] DEBUG: Using external connection workflow.
+[2020-05-30 16:54:07,770] DEBUG: _AsyncTransportBase.__init__: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,770] DEBUG: SelectorIOServicesAdapter.set_reader(7, <bound method _AsyncPlaintextTransport._on_socket_readable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:54:07,770] DEBUG: set_reader(7, _) added handler Rd
+[2020-05-30 16:54:07,770] DEBUG: _linkup(): created transport <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>
+[2020-05-30 16:54:07,770] DEBUG: New Connection state: PROTOCOL (prev=INIT)
+[2020-05-30 16:54:07,770] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:54:07,770] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:54:07,770] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,771] DEBUG: _linkup(): introduced transport to protocol <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>; _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>
+[2020-05-30 16:54:07,771] DEBUG: _AsyncStreamConnector._report_completion((<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>)); <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,771] INFO: Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>).
+[2020-05-30 16:54:07,771] DEBUG: Removing callback #0: {'callback': <bound method Connection._default_on_connection_error of <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>, 'one_shot': False, 'only': None, 'arguments': None}
+[2020-05-30 16:54:07,771] DEBUG: Added: {'callback': <bound method AMQPConnector._on_amqp_handshake_done of <pika.adapters.utils.connection_workflow.AMQPConnector object at 0x7f84195dcc10>>, 'one_shot': False, 'only': None, 'arguments': None}
+[2020-05-30 16:54:07,771] DEBUG: Added: {'callback': <bound method AMQPConnector._on_amqp_handshake_done of <pika.adapters.utils.connection_workflow.AMQPConnector object at 0x7f84195dcc10>>, 'one_shot': False, 'only': None, 'arguments': None}
+[2020-05-30 16:54:07,771] DEBUG: _AsyncStreamConnector._cleanup(False)
+[2020-05-30 16:54:07,772] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:54:07,772] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:54:07,772] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,772] DEBUG: Processing 0:Connection.Start
+[2020-05-30 16:54:07,772] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,772] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,772] DEBUG: Removing callback #0: {'callback': <bound method Connection._on_connection_start of <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,772] DEBUG: Calling <bound method Connection._on_connection_start of <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>> for "0:Connection.Start"
+[2020-05-30 16:54:07,772] DEBUG: New Connection state: START (prev=PROTOCOL)
+[2020-05-30 16:54:07,772] DEBUG: Added: {'callback': <bound method Connection._on_connection_tune of <SelectConnection START transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,772] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:54:07,772] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:54:07,772] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,773] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,773] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:54:07,773] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:54:07,773] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,773] DEBUG: Processing 0:Connection.Tune
+[2020-05-30 16:54:07,773] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,773] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,773] DEBUG: Removing callback #0: {'callback': <bound method Connection._on_connection_tune of <SelectConnection START transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,773] DEBUG: Calling <bound method Connection._on_connection_tune of <SelectConnection START transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>> for "0:Connection.Tune"
+[2020-05-30 16:54:07,773] DEBUG: New Connection state: TUNE (prev=START)
+[2020-05-30 16:54:07,773] DEBUG: Creating a HeartbeatChecker: 60
+[2020-05-30 16:54:07,773] DEBUG: timeout: 60.000000 send_interval: 30.000000 check_interval: 65.000000
+[2020-05-30 16:54:07,773] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649e20> with deadline=17472.149970706 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17442.149970706; delay=30.0
+[2020-05-30 16:54:07,773] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=17507.15001873 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17442.15001873; delay=65
+[2020-05-30 16:54:07,773] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:54:07,773] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:54:07,774] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,774] DEBUG: Added: {'callback': <bound method Connection._on_connection_open_ok of <SelectConnection TUNE transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,774] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,774] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:54:07,774] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:54:07,774] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,775] DEBUG: Processing 0:Connection.OpenOk
+[2020-05-30 16:54:07,775] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,775] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,775] DEBUG: Removing callback #0: {'callback': <bound method Connection._on_connection_open_ok of <SelectConnection TUNE transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,775] DEBUG: Calling <bound method Connection._on_connection_open_ok of <SelectConnection TUNE transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>> for "0:Connection.OpenOk"
+[2020-05-30 16:54:07,775] DEBUG: New Connection state: OPEN (prev=TUNE)
+[2020-05-30 16:54:07,775] DEBUG: Processing 0:_on_connection_open_ok
+[2020-05-30 16:54:07,775] DEBUG: Calling <bound method AMQPConnector._on_amqp_handshake_done of <pika.adapters.utils.connection_workflow.AMQPConnector object at 0x7f84195dcc10>> for "0:_on_connection_open_ok"
+[2020-05-30 16:54:07,775] DEBUG: AMQPConnector: AMQP handshake attempt completed; state=3; error=None; '127.0.0.1'/(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('127.0.0.1', 5672))
+[2020-05-30 16:54:07,775] DEBUG: AMQPConnector: AMQP connection established for '127.0.0.1'/(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('127.0.0.1', 5672)): <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>
+[2020-05-30 16:54:07,775] INFO: AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>
+[2020-05-30 16:54:07,775] DEBUG: remove_timeout: removing timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbb0> with deadline=17457.145151851 and callback=<bound method AMQPConnector._on_overall_timeout of <pika.adapters.utils.connection_workflow.AMQPConnector object at 0x7f84195dcc10>>
+[2020-05-30 16:54:07,775] DEBUG: Connection attempt completed with <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>
+[2020-05-30 16:54:07,775] INFO: AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>
+[2020-05-30 16:54:07,775] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,775] INFO: Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>
+[2020-05-30 16:54:07,775] DEBUG: Added: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f8419cdd340>>, 'one_shot': False, 'only': None, 'arguments': None}
+[2020-05-30 16:54:07,775] DEBUG: Creating channel 1
+[2020-05-30 16:54:07,775] DEBUG: Added: {'callback': <bound method Connection._on_channel_cleanup of <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>, 'one_shot': True, 'only': <Channel number=1 CLOSED conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,775] DEBUG: Added: {'callback': <bound method Channel._on_getempty of <Channel number=1 OPENING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': False, 'only': None, 'arguments': None}
+[2020-05-30 16:54:07,775] DEBUG: Added: {'callback': <bound method Channel._on_cancel of <Channel number=1 OPENING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': False, 'only': None, 'arguments': None}
+[2020-05-30 16:54:07,776] DEBUG: Added: {'callback': <bound method Channel._on_flow of <Channel number=1 OPENING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': False, 'only': None, 'arguments': None}
+[2020-05-30 16:54:07,776] DEBUG: Added: {'callback': <bound method Channel._on_close_from_broker of <Channel number=1 OPENING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,776] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:54:07,776] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:54:07,776] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,776] DEBUG: Entering blocking state on frame <Channel.Open(['out_of_band='])>; acceptable_replies=[<class 'pika.spec.Channel.OpenOk'>]
+[2020-05-30 16:54:07,776] DEBUG: Adding on_synchronous_complete callback
+[2020-05-30 16:54:07,776] DEBUG: Added: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPENING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,776] DEBUG: Adding passed-in RPC response callback
+[2020-05-30 16:54:07,776] DEBUG: Added: {'callback': <bound method Channel._on_openok of <Channel number=1 OPENING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,776] DEBUG: Added: {'callback': <bound method BlockingChannel._on_consumer_cancelled_by_broker of <BlockingChannel impl=<Channel number=1 OPENING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>>, 'one_shot': False, 'only': None, 'arguments': None}
+[2020-05-30 16:54:07,776] DEBUG: Added: {'callback': <bound method _CallbackResult.signal_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841960f600>>, 'one_shot': False, 'only': None, 'arguments': None}
+[2020-05-30 16:54:07,776] DEBUG: Added: {'callback': <bound method BlockingChannel._on_channel_closed of <BlockingChannel impl=<Channel number=1 OPENING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>>, 'one_shot': False, 'only': <Channel number=1 OPENING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>, 'arguments': None}
+[2020-05-30 16:54:07,776] DEBUG: Added: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841960f9c0>>, 'one_shot': False, 'only': None, 'arguments': None}
+[2020-05-30 16:54:07,776] INFO: Created channel=1
+[2020-05-30 16:54:07,777] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:54:07,777] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:54:07,777] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,777] DEBUG: Processing 1:Channel.OpenOk
+[2020-05-30 16:54:07,777] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,777] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,777] DEBUG: Removing callback #0: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPENING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,777] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,777] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,777] DEBUG: Removing callback #0: {'callback': <bound method Channel._on_openok of <Channel number=1 OPENING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,777] DEBUG: Calling <bound method Channel._on_synchronous_complete of <Channel number=1 OPENING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>> for "1:Channel.OpenOk"
+[2020-05-30 16:54:07,777] DEBUG: 0 blocked frames
+[2020-05-30 16:54:07,777] DEBUG: Calling <bound method Channel._on_openok of <Channel number=1 OPENING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>> for "1:Channel.OpenOk"
+[2020-05-30 16:54:07,778] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,778] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:54:07,778] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:54:07,778] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,778] DEBUG: Entering blocking state on frame <Exchange.Declare(['arguments={}', 'auto_delete=False', 'durable=False', 'exchange=parse_results', 'internal=False', 'nowait=False', 'passive=False', 'ticket=0', 'type=topic'])>; acceptable_replies=[<class 'pika.spec.Exchange.DeclareOk'>]
+[2020-05-30 16:54:07,778] DEBUG: Adding on_synchronous_complete callback
+[2020-05-30 16:54:07,778] DEBUG: Added: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,778] DEBUG: Adding passed-in RPC response callback
+[2020-05-30 16:54:07,778] DEBUG: Added: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,779] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:54:07,779] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:54:07,779] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,779] DEBUG: Processing 1:Exchange.DeclareOk
+[2020-05-30 16:54:07,779] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,779] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,779] DEBUG: Removing callback #0: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,779] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,779] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,779] DEBUG: Removing callback #0: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,779] DEBUG: Calling <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>> for "1:Exchange.DeclareOk"
+[2020-05-30 16:54:07,779] DEBUG: 0 blocked frames
+[2020-05-30 16:54:07,779] DEBUG: Calling <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>> for "1:Exchange.DeclareOk"
+[2020-05-30 16:54:07,779] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,779] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:54:07,779] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:54:07,779] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,779] DEBUG: Entering blocking state on frame <Queue.Declare(['arguments={}', 'auto_delete=False', 'durable=False', 'exclusive=True', 'nowait=False', 'passive=False', 'queue=', 'ticket=0'])>; acceptable_replies=[<class 'pika.spec.Queue.DeclareOk'>]
+[2020-05-30 16:54:07,779] DEBUG: Adding on_synchronous_complete callback
+[2020-05-30 16:54:07,780] DEBUG: Added: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,780] DEBUG: Adding passed-in RPC response callback
+[2020-05-30 16:54:07,780] DEBUG: Added: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,781] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:54:07,781] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:54:07,781] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,781] DEBUG: Processing 1:Queue.DeclareOk
+[2020-05-30 16:54:07,781] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,781] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,781] DEBUG: Removing callback #0: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,781] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,781] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,781] DEBUG: Removing callback #0: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,781] DEBUG: Calling <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>> for "1:Queue.DeclareOk"
+[2020-05-30 16:54:07,781] DEBUG: 0 blocked frames
+[2020-05-30 16:54:07,781] DEBUG: Calling <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>> for "1:Queue.DeclareOk"
+[2020-05-30 16:54:07,781] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,781] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:54:07,781] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:54:07,781] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,781] DEBUG: Entering blocking state on frame <Queue.Bind(['arguments={}', 'exchange=parse_results', 'nowait=False', 'queue=amq.gen-9y1dPGNSx_2Q4r1AufoSiA', 'routing_key=feelings', 'ticket=0'])>; acceptable_replies=[<class 'pika.spec.Queue.BindOk'>]
+[2020-05-30 16:54:07,782] DEBUG: Adding on_synchronous_complete callback
+[2020-05-30 16:54:07,782] DEBUG: Added: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,782] DEBUG: Adding passed-in RPC response callback
+[2020-05-30 16:54:07,782] DEBUG: Added: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,782] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:54:07,782] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:54:07,782] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,782] DEBUG: Processing 1:Queue.BindOk
+[2020-05-30 16:54:07,782] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,782] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,783] DEBUG: Removing callback #0: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,783] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,783] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,783] DEBUG: Removing callback #0: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,783] DEBUG: Calling <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>> for "1:Queue.BindOk"
+[2020-05-30 16:54:07,783] DEBUG: 0 blocked frames
+[2020-05-30 16:54:07,783] DEBUG: Calling <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>> for "1:Queue.BindOk"
+[2020-05-30 16:54:07,783] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,783] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:54:07,783] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:54:07,783] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,783] DEBUG: Entering blocking state on frame <Queue.Bind(['arguments={}', 'exchange=parse_results', 'nowait=False', 'queue=amq.gen-9y1dPGNSx_2Q4r1AufoSiA', 'routing_key=pose', 'ticket=0'])>; acceptable_replies=[<class 'pika.spec.Queue.BindOk'>]
+[2020-05-30 16:54:07,783] DEBUG: Adding on_synchronous_complete callback
+[2020-05-30 16:54:07,783] DEBUG: Added: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,783] DEBUG: Adding passed-in RPC response callback
+[2020-05-30 16:54:07,783] DEBUG: Added: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,784] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:54:07,784] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:54:07,784] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,784] DEBUG: Processing 1:Queue.BindOk
+[2020-05-30 16:54:07,784] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,784] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,784] DEBUG: Removing callback #0: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,784] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,784] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,784] DEBUG: Removing callback #0: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,784] DEBUG: Calling <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>> for "1:Queue.BindOk"
+[2020-05-30 16:54:07,784] DEBUG: 0 blocked frames
+[2020-05-30 16:54:07,784] DEBUG: Calling <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>> for "1:Queue.BindOk"
+[2020-05-30 16:54:07,784] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,784] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:54:07,785] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:54:07,785] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,785] DEBUG: Entering blocking state on frame <Queue.Bind(['arguments={}', 'exchange=parse_results', 'nowait=False', 'queue=amq.gen-9y1dPGNSx_2Q4r1AufoSiA', 'routing_key=color_image', 'ticket=0'])>; acceptable_replies=[<class 'pika.spec.Queue.BindOk'>]
+[2020-05-30 16:54:07,785] DEBUG: Adding on_synchronous_complete callback
+[2020-05-30 16:54:07,785] DEBUG: Added: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,785] DEBUG: Adding passed-in RPC response callback
+[2020-05-30 16:54:07,785] DEBUG: Added: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,785] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:54:07,785] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:54:07,785] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,785] DEBUG: Processing 1:Queue.BindOk
+[2020-05-30 16:54:07,786] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,786] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,786] DEBUG: Removing callback #0: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,786] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,786] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,786] DEBUG: Removing callback #0: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,786] DEBUG: Calling <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>> for "1:Queue.BindOk"
+[2020-05-30 16:54:07,786] DEBUG: 0 blocked frames
+[2020-05-30 16:54:07,786] DEBUG: Calling <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>> for "1:Queue.BindOk"
+[2020-05-30 16:54:07,786] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,786] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:54:07,786] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:54:07,786] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,786] DEBUG: Entering blocking state on frame <Queue.Bind(['arguments={}', 'exchange=parse_results', 'nowait=False', 'queue=amq.gen-9y1dPGNSx_2Q4r1AufoSiA', 'routing_key=depth_image', 'ticket=0'])>; acceptable_replies=[<class 'pika.spec.Queue.BindOk'>]
+[2020-05-30 16:54:07,786] DEBUG: Adding on_synchronous_complete callback
+[2020-05-30 16:54:07,786] DEBUG: Added: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,786] DEBUG: Adding passed-in RPC response callback
+[2020-05-30 16:54:07,786] DEBUG: Added: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,787] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:54:07,787] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:54:07,787] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,787] DEBUG: Processing 1:Queue.BindOk
+[2020-05-30 16:54:07,787] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,787] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,787] DEBUG: Removing callback #0: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,787] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,787] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,787] DEBUG: Removing callback #0: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,787] DEBUG: Calling <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>> for "1:Queue.BindOk"
+[2020-05-30 16:54:07,787] DEBUG: 0 blocked frames
+[2020-05-30 16:54:07,787] DEBUG: Calling <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>> for "1:Queue.BindOk"
+[2020-05-30 16:54:07,787] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,787] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:54:07,788] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:54:07,788] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,788] DEBUG: Entering blocking state on frame <Queue.Bind(['arguments={}', 'exchange=parse_results', 'nowait=False', 'queue=amq.gen-9y1dPGNSx_2Q4r1AufoSiA', 'routing_key=users', 'ticket=0'])>; acceptable_replies=[<class 'pika.spec.Queue.BindOk'>]
+[2020-05-30 16:54:07,788] DEBUG: Adding on_synchronous_complete callback
+[2020-05-30 16:54:07,788] DEBUG: Added: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,788] DEBUG: Adding passed-in RPC response callback
+[2020-05-30 16:54:07,788] DEBUG: Added: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,788] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:54:07,788] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:54:07,788] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,789] DEBUG: Processing 1:Queue.BindOk
+[2020-05-30 16:54:07,789] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,789] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,789] DEBUG: Removing callback #0: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,789] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,789] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,789] DEBUG: Removing callback #0: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,789] DEBUG: Calling <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>> for "1:Queue.BindOk"
+[2020-05-30 16:54:07,789] DEBUG: 0 blocked frames
+[2020-05-30 16:54:07,789] DEBUG: Calling <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>> for "1:Queue.BindOk"
+[2020-05-30 16:54:07,789] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,789] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:54:07,789] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:54:07,789] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,789] DEBUG: Entering blocking state on frame <Queue.Bind(['arguments={}', 'exchange=parse_results', 'nowait=False', 'queue=amq.gen-9y1dPGNSx_2Q4r1AufoSiA', 'routing_key=snapshots', 'ticket=0'])>; acceptable_replies=[<class 'pika.spec.Queue.BindOk'>]
+[2020-05-30 16:54:07,789] DEBUG: Adding on_synchronous_complete callback
+[2020-05-30 16:54:07,789] DEBUG: Added: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,789] DEBUG: Adding passed-in RPC response callback
+[2020-05-30 16:54:07,789] DEBUG: Added: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 1}
+[2020-05-30 16:54:07,790] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:54:07,790] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:54:07,790] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,790] DEBUG: Processing 1:Queue.BindOk
+[2020-05-30 16:54:07,790] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,790] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,790] DEBUG: Removing callback #0: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,790] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,790] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,790] DEBUG: Removing callback #0: {'callback': <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>>, 'one_shot': True, 'only': None, 'arguments': None, 'calls': 0}
+[2020-05-30 16:54:07,790] DEBUG: Calling <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>> for "1:Queue.BindOk"
+[2020-05-30 16:54:07,790] DEBUG: 0 blocked frames
+[2020-05-30 16:54:07,790] DEBUG: Calling <bound method _CallbackResult.set_value_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841b1a0d80>> for "1:Queue.BindOk"
+[2020-05-30 16:54:07,790] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,791] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:54:07,791] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:54:07,791] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,791] DEBUG: Entering blocking state on frame <Basic.Consume(['arguments={}', 'consumer_tag=ctag1.18f72e2f08f34f77bde70dcefbab0cdb', 'exclusive=False', 'no_ack=True', 'no_local=False', 'nowait=False', 'queue=amq.gen-9y1dPGNSx_2Q4r1AufoSiA', 'ticket=0'])>; acceptable_replies=[(<class 'pika.spec.Basic.ConsumeOk'>, {'consumer_tag': 'ctag1.18f72e2f08f34f77bde70dcefbab0cdb'})]
+[2020-05-30 16:54:07,791] DEBUG: Adding on_synchronous_complete callback
+[2020-05-30 16:54:07,791] DEBUG: Added: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': {'consumer_tag': 'ctag1.18f72e2f08f34f77bde70dcefbab0cdb'}, 'calls': 1}
+[2020-05-30 16:54:07,791] DEBUG: Adding passed-in RPC response callback
+[2020-05-30 16:54:07,791] DEBUG: Added: {'callback': <bound method Channel._on_eventok of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': {'consumer_tag': 'ctag1.18f72e2f08f34f77bde70dcefbab0cdb'}, 'calls': 1}
+[2020-05-30 16:54:07,791] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:54:07,791] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:54:07,791] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:07,791] DEBUG: Processing 1:Basic.ConsumeOk
+[2020-05-30 16:54:07,792] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,792] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,792] DEBUG: Comparing {'consumer_tag': 'ctag1.18f72e2f08f34f77bde70dcefbab0cdb'} to {'consumer_tag': 'ctag1.18f72e2f08f34f77bde70dcefbab0cdb'}
+[2020-05-30 16:54:07,792] DEBUG: Removing callback #1: {'callback': <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': {'consumer_tag': 'ctag1.18f72e2f08f34f77bde70dcefbab0cdb'}, 'calls': 0}
+[2020-05-30 16:54:07,792] DEBUG: Processing use of oneshot callback
+[2020-05-30 16:54:07,792] DEBUG: 0 registered uses left
+[2020-05-30 16:54:07,792] DEBUG: Comparing {'consumer_tag': 'ctag1.18f72e2f08f34f77bde70dcefbab0cdb'} to {'consumer_tag': 'ctag1.18f72e2f08f34f77bde70dcefbab0cdb'}
+[2020-05-30 16:54:07,792] DEBUG: Removing callback #1: {'callback': <bound method Channel._on_eventok of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>>, 'one_shot': True, 'only': None, 'arguments': {'consumer_tag': 'ctag1.18f72e2f08f34f77bde70dcefbab0cdb'}, 'calls': 0}
+[2020-05-30 16:54:07,792] DEBUG: Calling <bound method _CallbackResult.signal_once of <pika.adapters.blocking_connection._CallbackResult object at 0x7f841960f600>> for "1:Basic.ConsumeOk"
+[2020-05-30 16:54:07,792] DEBUG: Calling <bound method Channel._on_synchronous_complete of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>> for "1:Basic.ConsumeOk"
+[2020-05-30 16:54:07,792] DEBUG: 0 blocked frames
+[2020-05-30 16:54:07,792] DEBUG: Calling <bound method Channel._on_eventok of <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0> params=<ConnectionParameters host=127.0.0.1 port=5672 virtual_host=/ ssl=False>>>> for "1:Basic.ConsumeOk"
+[2020-05-30 16:54:07,792] DEBUG: Discarding frame <METHOD(['channel_number=1', 'frame_type=1', "method=<Basic.ConsumeOk(['consumer_tag=ctag1.18f72e2f08f34f77bde70dcefbab0cdb'])>"])>
+[2020-05-30 16:54:07,792] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:37,776] DEBUG: Received heartbeat frame
+[2020-05-30 16:54:37,777] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:37,777] DEBUG: Sending heartbeat frame
+[2020-05-30 16:54:37,777] DEBUG: Sending heartbeat frame
+[2020-05-30 16:54:37,777] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:54:37,778] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:54:37,778] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:54:37,778] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbb0> with deadline=17502.154745881 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17472.154745881; delay=30.0
+[2020-05-30 16:54:37,781] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:54:37,782] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:54:37,783] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:55:02,652] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:55:02,670] INFO: Saved to database table users: b'{"user_id": 42, "username": "Dan Gittik", "birthday": "March 5, 1992", "gender": "male"}'
+[2020-05-30 16:55:07,779] DEBUG: Sending heartbeat frame
+[2020-05-30 16:55:07,780] DEBUG: Sending heartbeat frame
+[2020-05-30 16:55:07,780] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:55:07,780] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:55:07,780] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:55:07,780] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcaf0> with deadline=17532.156432617 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17502.156432617; delay=30.0
+[2020-05-30 16:55:07,780] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:55:07,780] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:55:07,780] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:55:07,881] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:55:07,897] INFO: Saved to database table feelings: b'{"id": 1575446887339, "hunger": 0.0, "thirst": 0.0, "exhaustion": 0.0, "happiness": 0.0, "user_id": 42}'
+[2020-05-30 16:55:07,897] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:55:07,913] INFO: Saved to database table pose: b'{"id": 1575446887339, "translation": {"x": 0.4873843491077423, "y": 0.007090016733855009, "z": -1.1306129693984985}, "rotation": {"x": -0.10888676356214629, "y": -0.26755994585035286, "z": -0.021271118915446748, "w": 0.9571326384559261}, "user_id": 42}'
+[2020-05-30 16:55:07,924] INFO: Saved to database table snapshots: b'{"id": 1575446887339, "user_id": 42, "datetime": "December 4, 2019 at 10:08:07.339"}'
+[2020-05-30 16:55:09,863] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:55:09,875] INFO: Saved to database table pose: b'{"id": 1575446887412, "translation": {"x": 0.15600797533988953, "y": 0.08133671432733536, "z": -0.49068963527679443}, "rotation": {"x": -0.2959017411322204, "y": -0.16749024140672616, "z": -0.04752900380336424, "w": 0.9392178514199446}, "user_id": 42}'
+[2020-05-30 16:55:09,876] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:55:09,889] INFO: Saved to database table feelings: b'{"id": 1575446887412, "hunger": 0.0010000000474974513, "thirst": 0.003000000026077032, "exhaustion": 0.0020000000949949026, "happiness": 0.0, "user_id": 42}'
+[2020-05-30 16:55:09,895] INFO: Saved to database table snapshots: b'{"id": 1575446887412, "user_id": 42, "datetime": "December 4, 2019 at 10:08:07.412"}'
+[2020-05-30 16:55:11,625] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:55:11,637] INFO: Saved to database table pose: b'{"id": 1575446887476, "translation": {"x": -0.05690298229455948, "y": 0.09136273711919785, "z": -0.1454082578420639}, "rotation": {"x": -0.30262250114734884, "y": 0.024984587319575428, "z": 0.01379476785565966, "w": 0.9526831039624887}, "user_id": 42}'
+[2020-05-30 16:55:11,637] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:55:11,652] INFO: Saved to database table feelings: b'{"id": 1575446887476, "hunger": 0.0020000000949949026, "thirst": 0.006000000052154064, "exhaustion": 0.004000000189989805, "happiness": 0.0, "user_id": 42}'
+[2020-05-30 16:55:11,658] INFO: Saved to database table snapshots: b'{"id": 1575446887476, "user_id": 42, "datetime": "December 4, 2019 at 10:08:07.476"}'
+[2020-05-30 16:55:12,775] DEBUG: Received 1 heartbeat frames, sent 2, idle intervals 0
+[2020-05-30 16:55:12,775] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dca90> with deadline=17572.151847845 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17507.151847845; delay=65
+[2020-05-30 16:55:13,373] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:55:13,384] INFO: Saved to database table pose: b'{"id": 1575446887541, "translation": {"x": -0.06873919069766998, "y": 0.06515509635210037, "z": 0.20628340542316437}, "rotation": {"x": -0.2268025104015529, "y": 0.016296475938769883, "z": 0.034513309202044845, "w": 0.9731926210342198}, "user_id": 42}'
+[2020-05-30 16:55:13,385] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:55:13,399] INFO: Saved to database table feelings: b'{"id": 1575446887541, "hunger": 0.003000000026077032, "thirst": 0.008999999612569809, "exhaustion": 0.006000000052154064, "happiness": 0.0, "user_id": 42}'
+[2020-05-30 16:55:13,405] INFO: Saved to database table snapshots: b'{"id": 1575446887541, "user_id": 42, "datetime": "December 4, 2019 at 10:08:07.541"}'
+[2020-05-30 16:55:15,107] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:55:15,122] INFO: Saved to database table pose: b'{"id": 1575446887603, "translation": {"x": -0.08363257348537445, "y": 0.03274262696504593, "z": 0.44446834921836853}, "rotation": {"x": -0.18523385018409705, "y": -0.011889715927864218, "z": 0.01159230178272562, "w": 0.9825541582734808}, "user_id": 42}'
+[2020-05-30 16:55:15,123] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:55:15,137] INFO: Saved to database table feelings: b'{"id": 1575446887603, "hunger": 0.004000000189989805, "thirst": 0.012000000104308128, "exhaustion": 0.00800000037997961, "happiness": 0.30000001192092896, "user_id": 42}'
+[2020-05-30 16:55:15,144] INFO: Saved to database table snapshots: b'{"id": 1575446887603, "user_id": 42, "datetime": "December 4, 2019 at 10:08:07.603"}'
+[2020-05-30 16:55:17,043] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:55:17,058] INFO: Saved to database table pose: b'{"id": 1575446887662, "translation": {"x": -0.14546413719654083, "y": 0.04411502927541733, "z": 0.6741152405738831}, "rotation": {"x": -0.14703597056264828, "y": -0.07644212208443549, "z": -0.0010371202319277395, "w": 0.9861723732256713}, "user_id": 42}'
+[2020-05-30 16:55:17,058] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:55:17,064] INFO: Saved to database table feelings: b'{"id": 1575446887662, "hunger": 0.004999999888241291, "thirst": 0.014999999664723873, "exhaustion": 0.009999999776482582, "happiness": 0.6000000238418579, "user_id": 42}'
+[2020-05-30 16:55:17,070] INFO: Saved to database table snapshots: b'{"id": 1575446887662, "user_id": 42, "datetime": "December 4, 2019 at 10:08:07.662"}'
+[2020-05-30 16:55:37,781] DEBUG: Sending heartbeat frame
+[2020-05-30 16:55:37,781] DEBUG: Sending heartbeat frame
+[2020-05-30 16:55:37,782] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:55:37,782] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:55:37,782] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:55:37,782] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbb0> with deadline=17562.158399913 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17532.158399913; delay=30.0
+[2020-05-30 16:55:37,782] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:55:37,782] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:55:37,782] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:56:07,780] DEBUG: Received heartbeat frame
+[2020-05-30 16:56:07,780] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:56:07,783] DEBUG: Sending heartbeat frame
+[2020-05-30 16:56:07,783] DEBUG: Sending heartbeat frame
+[2020-05-30 16:56:07,783] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:56:07,784] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:56:07,784] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:56:07,784] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=17592.160852359 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17562.160852359; delay=30.0
+[2020-05-30 16:56:07,785] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:56:07,786] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:56:07,786] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:56:17,781] DEBUG: Received 2 heartbeat frames, sent 4, idle intervals 0
+[2020-05-30 16:56:17,781] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbb0> with deadline=17637.157992555 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17572.157992555; delay=65
+[2020-05-30 16:56:37,781] DEBUG: Received heartbeat frame
+[2020-05-30 16:56:37,781] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:56:37,785] DEBUG: Sending heartbeat frame
+[2020-05-30 16:56:37,785] DEBUG: Sending heartbeat frame
+[2020-05-30 16:56:37,786] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:56:37,786] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:56:37,786] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:56:37,786] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dca90> with deadline=17622.163102644 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17592.163102644; delay=30.0
+[2020-05-30 16:56:37,787] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:56:37,789] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:56:37,789] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:57:07,782] DEBUG: Received heartbeat frame
+[2020-05-30 16:57:07,783] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:57:07,788] DEBUG: Sending heartbeat frame
+[2020-05-30 16:57:07,788] DEBUG: Sending heartbeat frame
+[2020-05-30 16:57:07,788] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:57:07,789] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:57:07,789] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:57:07,789] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcaf0> with deadline=17652.165724166 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17622.165724166; delay=30.0
+[2020-05-30 16:57:07,790] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:57:07,790] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:57:07,791] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:57:22,787] DEBUG: Received 4 heartbeat frames, sent 6, idle intervals 0
+[2020-05-30 16:57:22,787] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=17702.163840567 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17637.163840567; delay=65
+[2020-05-30 16:57:37,784] DEBUG: Received heartbeat frame
+[2020-05-30 16:57:37,784] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:57:37,790] DEBUG: Sending heartbeat frame
+[2020-05-30 16:57:37,790] DEBUG: Sending heartbeat frame
+[2020-05-30 16:57:37,790] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:57:37,790] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:57:37,790] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:57:37,791] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dca90> with deadline=17682.167479815 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17652.167479815; delay=30.0
+[2020-05-30 16:57:37,792] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:57:37,792] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:57:37,792] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:58:07,784] DEBUG: Received heartbeat frame
+[2020-05-30 16:58:07,785] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:58:07,792] DEBUG: Sending heartbeat frame
+[2020-05-30 16:58:07,792] DEBUG: Sending heartbeat frame
+[2020-05-30 16:58:07,792] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:58:07,793] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:58:07,793] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:58:07,793] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbb0> with deadline=17712.169780523 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17682.169780523; delay=30.0
+[2020-05-30 16:58:07,794] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:58:07,795] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:58:07,795] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:58:27,788] DEBUG: Received 6 heartbeat frames, sent 8, idle intervals 0
+[2020-05-30 16:58:27,788] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dca90> with deadline=17767.164889746 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17702.164889746; delay=65
+[2020-05-30 16:58:37,786] DEBUG: Received heartbeat frame
+[2020-05-30 16:58:37,786] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:58:37,794] DEBUG: Sending heartbeat frame
+[2020-05-30 16:58:37,794] DEBUG: Sending heartbeat frame
+[2020-05-30 16:58:37,795] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:58:37,795] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:58:37,796] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:58:37,796] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=17742.172597649 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17712.172597649; delay=30.0
+[2020-05-30 16:58:37,797] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:58:37,797] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:58:37,798] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:59:07,787] DEBUG: Received heartbeat frame
+[2020-05-30 16:59:07,787] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:59:07,797] DEBUG: Sending heartbeat frame
+[2020-05-30 16:59:07,797] DEBUG: Sending heartbeat frame
+[2020-05-30 16:59:07,797] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:59:07,797] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:59:07,797] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:59:07,797] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcaf0> with deadline=17772.173877824 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17742.173877824; delay=30.0
+[2020-05-30 16:59:07,798] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:59:07,798] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:59:07,798] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:59:32,795] DEBUG: Received 8 heartbeat frames, sent 10, idle intervals 0
+[2020-05-30 16:59:32,796] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbb0> with deadline=17832.172206863 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17767.172206863; delay=65
+[2020-05-30 16:59:37,788] DEBUG: Received heartbeat frame
+[2020-05-30 16:59:37,789] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:59:37,799] DEBUG: Sending heartbeat frame
+[2020-05-30 16:59:37,800] DEBUG: Sending heartbeat frame
+[2020-05-30 16:59:37,801] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 16:59:37,801] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 16:59:37,801] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 16:59:37,802] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=17802.178513409 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17772.178513409; delay=30.0
+[2020-05-30 16:59:37,803] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 16:59:37,803] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 16:59:37,803] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:00:07,790] DEBUG: Received heartbeat frame
+[2020-05-30 17:00:07,790] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:00:07,803] DEBUG: Sending heartbeat frame
+[2020-05-30 17:00:07,804] DEBUG: Sending heartbeat frame
+[2020-05-30 17:00:07,804] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:00:07,804] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:00:07,805] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:00:07,805] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dca90> with deadline=17832.181638575 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17802.181638575; delay=30.0
+[2020-05-30 17:00:07,806] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:00:07,807] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:00:07,807] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:00:37,792] DEBUG: Received heartbeat frame
+[2020-05-30 17:00:37,792] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:00:37,796] DEBUG: Received 11 heartbeat frames, sent 12, idle intervals 0
+[2020-05-30 17:00:37,796] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcaf0> with deadline=17897.172867075 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17832.172867075; delay=65
+[2020-05-30 17:00:37,806] DEBUG: Sending heartbeat frame
+[2020-05-30 17:00:37,806] DEBUG: Sending heartbeat frame
+[2020-05-30 17:00:37,806] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:00:37,807] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:00:37,807] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:00:37,807] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbb0> with deadline=17862.183434385 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17832.183434385; delay=30.0
+[2020-05-30 17:00:37,807] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:00:37,808] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:00:37,808] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:01:07,793] DEBUG: Received heartbeat frame
+[2020-05-30 17:01:07,793] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:01:07,808] DEBUG: Sending heartbeat frame
+[2020-05-30 17:01:07,808] DEBUG: Sending heartbeat frame
+[2020-05-30 17:01:07,808] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:01:07,808] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:01:07,808] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:01:07,808] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=17892.184799387 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17862.184799387; delay=30.0
+[2020-05-30 17:01:07,808] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:01:07,808] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:01:07,808] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:01:37,794] DEBUG: Received heartbeat frame
+[2020-05-30 17:01:37,795] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:01:37,810] DEBUG: Sending heartbeat frame
+[2020-05-30 17:01:37,810] DEBUG: Sending heartbeat frame
+[2020-05-30 17:01:37,810] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:01:37,811] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:01:37,811] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:01:37,811] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dca90> with deadline=17922.187867859 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17892.187867859; delay=30.0
+[2020-05-30 17:01:37,812] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:01:37,813] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:01:37,813] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:01:42,802] DEBUG: Received 13 heartbeat frames, sent 15, idle intervals 0
+[2020-05-30 17:01:42,802] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbb0> with deadline=17962.178632497 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17897.178632497; delay=65
+[2020-05-30 17:02:07,796] DEBUG: Received heartbeat frame
+[2020-05-30 17:02:07,796] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:02:07,813] DEBUG: Sending heartbeat frame
+[2020-05-30 17:02:07,813] DEBUG: Sending heartbeat frame
+[2020-05-30 17:02:07,813] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:02:07,814] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:02:07,814] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:02:07,814] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=17952.190997758 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17922.190997758; delay=30.0
+[2020-05-30 17:02:07,815] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:02:07,816] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:02:07,816] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:02:37,796] DEBUG: Received heartbeat frame
+[2020-05-30 17:02:37,797] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:02:37,816] DEBUG: Sending heartbeat frame
+[2020-05-30 17:02:37,816] DEBUG: Sending heartbeat frame
+[2020-05-30 17:02:37,816] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:02:37,817] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:02:37,817] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:02:37,817] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcaf0> with deadline=17982.19390708 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17952.19390708; delay=30.0
+[2020-05-30 17:02:37,818] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:02:37,819] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:02:37,819] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:02:47,805] DEBUG: Received 15 heartbeat frames, sent 17, idle intervals 0
+[2020-05-30 17:02:47,805] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=18027.181681759 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17962.181681759; delay=65
+[2020-05-30 17:02:49,654] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:02:49,661] INFO: Saved to database table users: b'{"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}'
+[2020-05-30 17:02:49,678] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:02:49,685] INFO: Saved to database table pose: b'{"id": 60000, "translation": {"x": 1.0, "y": 2.0, "z": 3.0}, "rotation": {"x": -1.0, "y": -2.0, "z": -3.0, "w": -4.0}, "user_id": 123}'
+[2020-05-30 17:02:49,686] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:02:49,700] INFO: Saved to database table feelings: b'{"id": 60000, "hunger": 0.5, "thirst": 0.30000001192092896, "exhaustion": 0.20000000298023224, "happiness": 1.0, "user_id": 123}'
+[2020-05-30 17:02:49,701] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:02:49,713] INFO: Saved to database table snapshots: b'{"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}'
+[2020-05-30 17:03:07,822] DEBUG: Sending heartbeat frame
+[2020-05-30 17:03:07,822] DEBUG: Sending heartbeat frame
+[2020-05-30 17:03:07,823] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:03:07,823] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:03:07,823] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:03:07,823] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbb0> with deadline=18012.199336586 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=17982.199336586; delay=30.0
+[2020-05-30 17:03:07,823] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:03:07,823] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:03:07,823] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:03:37,798] DEBUG: Received heartbeat frame
+[2020-05-30 17:03:37,798] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:03:37,823] DEBUG: Sending heartbeat frame
+[2020-05-30 17:03:37,823] DEBUG: Sending heartbeat frame
+[2020-05-30 17:03:37,824] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:03:37,824] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:03:37,824] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:03:37,824] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dc040> with deadline=18042.200368213 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18012.200368213; delay=30.0
+[2020-05-30 17:03:37,824] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:03:37,824] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:03:37,824] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:03:52,807] DEBUG: Received 16 heartbeat frames, sent 19, idle intervals 0
+[2020-05-30 17:03:52,807] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcaf0> with deadline=18092.18363736 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18027.18363736; delay=65
+[2020-05-30 17:04:07,799] DEBUG: Received heartbeat frame
+[2020-05-30 17:04:07,800] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:04:07,825] DEBUG: Sending heartbeat frame
+[2020-05-30 17:04:07,825] DEBUG: Sending heartbeat frame
+[2020-05-30 17:04:07,825] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:04:07,826] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:04:07,826] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:04:07,826] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbb0> with deadline=18072.202711148 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18042.202711148; delay=30.0
+[2020-05-30 17:04:07,827] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:04:07,827] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:04:07,828] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:04:37,801] DEBUG: Received heartbeat frame
+[2020-05-30 17:04:37,802] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:04:37,827] DEBUG: Sending heartbeat frame
+[2020-05-30 17:04:37,827] DEBUG: Sending heartbeat frame
+[2020-05-30 17:04:37,828] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:04:37,828] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:04:37,828] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:04:37,829] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=18102.205180742 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18072.205180742; delay=30.0
+[2020-05-30 17:04:37,830] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:04:37,830] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:04:37,830] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:04:57,814] DEBUG: Received 18 heartbeat frames, sent 21, idle intervals 0
+[2020-05-30 17:04:57,814] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbb0> with deadline=18157.190540554 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18092.190540554; delay=65
+[2020-05-30 17:05:07,802] DEBUG: Received heartbeat frame
+[2020-05-30 17:05:07,802] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:05:07,830] DEBUG: Sending heartbeat frame
+[2020-05-30 17:05:07,830] DEBUG: Sending heartbeat frame
+[2020-05-30 17:05:07,830] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:05:07,830] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:05:07,830] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:05:07,830] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcaf0> with deadline=18132.206583046 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18102.206583046; delay=30.0
+[2020-05-30 17:05:07,830] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:05:07,830] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:05:07,830] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:05:37,803] DEBUG: Received heartbeat frame
+[2020-05-30 17:05:37,803] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:05:37,832] DEBUG: Sending heartbeat frame
+[2020-05-30 17:05:37,832] DEBUG: Sending heartbeat frame
+[2020-05-30 17:05:37,832] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:05:37,832] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:05:37,833] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:05:37,833] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dc040> with deadline=18162.209455015 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18132.209455015; delay=30.0
+[2020-05-30 17:05:37,833] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:05:37,834] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:05:37,834] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:06:02,816] DEBUG: Received 20 heartbeat frames, sent 23, idle intervals 0
+[2020-05-30 17:06:02,816] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=18222.193025281 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18157.193025281; delay=65
+[2020-05-30 17:06:04,057] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:06:04,063] INFO: Saved to database table users: b'{"user_id": 97, "username": "Test Testerman", "birthday": "July 1, 1970", "gender": "male"}'
+[2020-05-30 17:06:04,079] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:06:04,089] INFO: Saved to database table pose: b'{"id": 0, "translation": {"x": 0.0, "y": 0.0, "z": 0.0}, "rotation": {"x": 0.0, "y": 0.0, "z": 0.0, "w": 0.0}, "user_id": 97}'
+[2020-05-30 17:06:04,090] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:06:04,101] INFO: Saved to database table feelings: b'{"id": 0, "hunger": 0.0, "thirst": 0.0, "exhaustion": 0.0, "happiness": 0.0, "user_id": 97}'
+[2020-05-30 17:06:04,102] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:06:04,114] INFO: Saved to database table snapshots: b'{"id": 0, "user_id": 97, "datetime": "January 1, 1970 at 02:00:00.000"}'
+[2020-05-30 17:06:07,837] DEBUG: Sending heartbeat frame
+[2020-05-30 17:06:07,837] DEBUG: Sending heartbeat frame
+[2020-05-30 17:06:07,837] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:06:07,837] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:06:07,837] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:06:07,837] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649d30> with deadline=18192.214059701 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18162.214059701; delay=30.0
+[2020-05-30 17:06:07,838] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:06:07,838] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:06:07,838] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:06:37,806] DEBUG: Received heartbeat frame
+[2020-05-30 17:06:37,806] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:06:37,839] DEBUG: Sending heartbeat frame
+[2020-05-30 17:06:37,839] DEBUG: Sending heartbeat frame
+[2020-05-30 17:06:37,839] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:06:37,839] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:06:37,840] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:06:37,840] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=18222.216589569 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18192.216589569; delay=30.0
+[2020-05-30 17:06:37,841] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:06:37,841] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:06:37,842] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:07:07,806] DEBUG: Received heartbeat frame
+[2020-05-30 17:07:07,806] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:07:07,818] DEBUG: Received 22 heartbeat frames, sent 25, idle intervals 0
+[2020-05-30 17:07:07,818] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dc040> with deadline=18287.194872461 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18222.194872461; delay=65
+[2020-05-30 17:07:07,841] DEBUG: Sending heartbeat frame
+[2020-05-30 17:07:07,841] DEBUG: Sending heartbeat frame
+[2020-05-30 17:07:07,841] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:07:07,841] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:07:07,841] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:07:07,841] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=18252.217898885 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18222.217898885; delay=30.0
+[2020-05-30 17:07:07,842] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:07:07,842] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:07:07,842] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:07:37,807] DEBUG: Received heartbeat frame
+[2020-05-30 17:07:37,808] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:07:37,843] DEBUG: Sending heartbeat frame
+[2020-05-30 17:07:37,843] DEBUG: Sending heartbeat frame
+[2020-05-30 17:07:37,843] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:07:37,844] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:07:37,844] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:07:37,844] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649d30> with deadline=18282.220868677 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18252.220868677; delay=30.0
+[2020-05-30 17:07:37,845] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:07:37,846] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:07:37,846] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:08:07,808] DEBUG: Received heartbeat frame
+[2020-05-30 17:08:07,808] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:08:07,845] DEBUG: Sending heartbeat frame
+[2020-05-30 17:08:07,845] DEBUG: Sending heartbeat frame
+[2020-05-30 17:08:07,845] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:08:07,846] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:08:07,846] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:08:07,846] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=18312.222327133 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18282.222327133; delay=30.0
+[2020-05-30 17:08:07,846] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:08:07,846] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:08:07,846] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:08:12,821] DEBUG: Received 24 heartbeat frames, sent 28, idle intervals 0
+[2020-05-30 17:08:12,821] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=18352.197358454 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18287.197358454; delay=65
+[2020-05-30 17:08:24,706] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:08:24,712] INFO: Saved to database table users: b'{"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}'
+[2020-05-30 17:08:24,728] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:08:24,736] INFO: Saved to database table pose: b'{"id": 60000, "translation": {"x": 1.0, "y": 2.0, "z": 3.0}, "rotation": {"x": -1.0, "y": -2.0, "z": -3.0, "w": -4.0}, "user_id": 123}'
+[2020-05-30 17:08:24,737] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:08:24,750] INFO: Saved to database table feelings: b'{"id": 60000, "hunger": 0.5, "thirst": 0.30000001192092896, "exhaustion": 0.20000000298023224, "happiness": 1.0, "user_id": 123}'
+[2020-05-30 17:08:24,751] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:08:24,763] INFO: Saved to database table snapshots: b'{"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}'
+[2020-05-30 17:08:37,850] DEBUG: Sending heartbeat frame
+[2020-05-30 17:08:37,851] DEBUG: Sending heartbeat frame
+[2020-05-30 17:08:37,851] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:08:37,851] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:08:37,852] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:08:37,852] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649f70> with deadline=18342.228464591 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18312.228464591; delay=30.0
+[2020-05-30 17:08:37,854] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:08:37,854] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:08:37,854] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:09:07,810] DEBUG: Received heartbeat frame
+[2020-05-30 17:09:07,811] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:09:07,853] DEBUG: Sending heartbeat frame
+[2020-05-30 17:09:07,853] DEBUG: Sending heartbeat frame
+[2020-05-30 17:09:07,853] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:09:07,853] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:09:07,853] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:09:07,853] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dc040> with deadline=18372.230139725 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18342.230139725; delay=30.0
+[2020-05-30 17:09:07,854] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:09:07,854] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:09:07,854] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:09:17,827] DEBUG: Received 25 heartbeat frames, sent 30, idle intervals 0
+[2020-05-30 17:09:17,827] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649f70> with deadline=18417.204098835 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18352.204098835; delay=65
+[2020-05-30 17:09:37,811] DEBUG: Received heartbeat frame
+[2020-05-30 17:09:37,812] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:09:37,855] DEBUG: Sending heartbeat frame
+[2020-05-30 17:09:37,855] DEBUG: Sending heartbeat frame
+[2020-05-30 17:09:37,855] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:09:37,856] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:09:37,856] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:09:37,856] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=18402.23274872 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18372.23274872; delay=30.0
+[2020-05-30 17:09:37,857] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:09:37,858] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:09:37,858] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:10:07,813] DEBUG: Received heartbeat frame
+[2020-05-30 17:10:07,813] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:10:07,857] DEBUG: Sending heartbeat frame
+[2020-05-30 17:10:07,857] DEBUG: Sending heartbeat frame
+[2020-05-30 17:10:07,857] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:10:07,857] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:10:07,857] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:10:07,857] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=18432.233800831 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18402.233800831; delay=30.0
+[2020-05-30 17:10:07,857] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:10:07,857] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:10:07,857] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:10:22,833] DEBUG: Received 27 heartbeat frames, sent 32, idle intervals 0
+[2020-05-30 17:10:22,833] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dc040> with deadline=18482.209980165 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18417.209980165; delay=65
+[2020-05-30 17:10:37,814] DEBUG: Received heartbeat frame
+[2020-05-30 17:10:37,815] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:10:37,859] DEBUG: Sending heartbeat frame
+[2020-05-30 17:10:37,859] DEBUG: Sending heartbeat frame
+[2020-05-30 17:10:37,859] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:10:37,859] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:10:37,859] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:10:37,859] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649f70> with deadline=18462.2358341 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18432.2358341; delay=30.0
+[2020-05-30 17:10:37,860] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:10:37,860] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:10:37,860] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:11:07,815] DEBUG: Received heartbeat frame
+[2020-05-30 17:11:07,815] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:11:07,861] DEBUG: Sending heartbeat frame
+[2020-05-30 17:11:07,861] DEBUG: Sending heartbeat frame
+[2020-05-30 17:11:07,861] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:11:07,861] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:11:07,861] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:11:07,861] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=18492.237644052 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18462.237644052; delay=30.0
+[2020-05-30 17:11:07,861] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:11:07,861] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:11:07,862] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:11:27,836] DEBUG: Received 29 heartbeat frames, sent 34, idle intervals 0
+[2020-05-30 17:11:27,836] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649f70> with deadline=18547.2127314 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18482.2127314; delay=65
+[2020-05-30 17:11:37,816] DEBUG: Received heartbeat frame
+[2020-05-30 17:11:37,817] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:11:37,862] DEBUG: Sending heartbeat frame
+[2020-05-30 17:11:37,862] DEBUG: Sending heartbeat frame
+[2020-05-30 17:11:37,863] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:11:37,863] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:11:37,863] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:11:37,865] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dc040> with deadline=18522.240366225 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18492.240366225; delay=30.0
+[2020-05-30 17:11:37,866] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:11:37,866] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:11:37,866] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:12:07,817] DEBUG: Received heartbeat frame
+[2020-05-30 17:12:07,818] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:12:07,865] DEBUG: Sending heartbeat frame
+[2020-05-30 17:12:07,865] DEBUG: Sending heartbeat frame
+[2020-05-30 17:12:07,865] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:12:07,866] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:12:07,866] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:12:07,866] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=18552.24291395 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18522.24291395; delay=30.0
+[2020-05-30 17:12:07,867] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:12:07,868] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:12:07,868] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:12:32,842] DEBUG: Received 31 heartbeat frames, sent 36, idle intervals 0
+[2020-05-30 17:12:32,843] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=18612.219715717 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18547.219715717; delay=65
+[2020-05-30 17:12:37,818] DEBUG: Received heartbeat frame
+[2020-05-30 17:12:37,818] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:12:37,868] DEBUG: Sending heartbeat frame
+[2020-05-30 17:12:37,868] DEBUG: Sending heartbeat frame
+[2020-05-30 17:12:37,868] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:12:37,868] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:12:37,868] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:12:37,869] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649f70> with deadline=18582.24532843 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18552.24532843; delay=30.0
+[2020-05-30 17:12:37,870] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:12:37,870] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:12:37,870] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:13:07,819] DEBUG: Received heartbeat frame
+[2020-05-30 17:13:07,820] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:13:07,870] DEBUG: Sending heartbeat frame
+[2020-05-30 17:13:07,870] DEBUG: Sending heartbeat frame
+[2020-05-30 17:13:07,870] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:13:07,870] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:13:07,870] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:13:07,870] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dc040> with deadline=18612.246956755 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18582.246956755; delay=30.0
+[2020-05-30 17:13:07,871] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:13:07,871] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:13:07,871] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:13:37,821] DEBUG: Received heartbeat frame
+[2020-05-30 17:13:37,822] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:13:37,844] DEBUG: Received 34 heartbeat frames, sent 38, idle intervals 0
+[2020-05-30 17:13:37,845] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=18677.221406698 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18612.221406698; delay=65
+[2020-05-30 17:13:37,871] DEBUG: Sending heartbeat frame
+[2020-05-30 17:13:37,871] DEBUG: Sending heartbeat frame
+[2020-05-30 17:13:37,872] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:13:37,872] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:13:37,872] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:13:37,872] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=18642.248477585 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18612.248477585; delay=30.0
+[2020-05-30 17:13:37,873] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:13:37,873] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:13:37,873] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:14:07,822] DEBUG: Received heartbeat frame
+[2020-05-30 17:14:07,822] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:14:07,873] DEBUG: Sending heartbeat frame
+[2020-05-30 17:14:07,873] DEBUG: Sending heartbeat frame
+[2020-05-30 17:14:07,873] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:14:07,874] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:14:07,874] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:14:07,874] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649f70> with deadline=18672.250880686 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18642.250880686; delay=30.0
+[2020-05-30 17:14:07,875] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:14:07,875] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:14:07,876] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:14:37,823] DEBUG: Received heartbeat frame
+[2020-05-30 17:14:37,824] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:14:37,876] DEBUG: Sending heartbeat frame
+[2020-05-30 17:14:37,877] DEBUG: Sending heartbeat frame
+[2020-05-30 17:14:37,877] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:14:37,877] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:14:37,877] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:14:37,878] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dc040> with deadline=18702.254401015 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18672.254401015; delay=30.0
+[2020-05-30 17:14:37,879] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:14:37,879] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:14:37,879] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:14:42,851] DEBUG: Received 36 heartbeat frames, sent 41, idle intervals 0
+[2020-05-30 17:14:42,851] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=18742.227884921 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18677.227884921; delay=65
+[2020-05-30 17:15:07,826] DEBUG: Received heartbeat frame
+[2020-05-30 17:15:07,827] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:15:07,879] DEBUG: Sending heartbeat frame
+[2020-05-30 17:15:07,879] DEBUG: Sending heartbeat frame
+[2020-05-30 17:15:07,879] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:15:07,879] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:15:07,879] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:15:07,880] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649f70> with deadline=18732.256142847 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18702.256142847; delay=30.0
+[2020-05-30 17:15:07,880] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:15:07,880] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:15:07,880] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:15:37,826] DEBUG: Received heartbeat frame
+[2020-05-30 17:15:37,827] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:15:37,881] DEBUG: Sending heartbeat frame
+[2020-05-30 17:15:37,881] DEBUG: Sending heartbeat frame
+[2020-05-30 17:15:37,881] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:15:37,882] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:15:37,882] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:15:37,882] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=18762.258816142 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18732.258816142; delay=30.0
+[2020-05-30 17:15:37,883] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:15:37,884] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:15:37,884] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:15:47,856] DEBUG: Received 38 heartbeat frames, sent 43, idle intervals 0
+[2020-05-30 17:15:47,856] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649f70> with deadline=18807.232572076 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18742.232572076; delay=65
+[2020-05-30 17:16:07,827] DEBUG: Received heartbeat frame
+[2020-05-30 17:16:07,827] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:16:07,883] DEBUG: Sending heartbeat frame
+[2020-05-30 17:16:07,883] DEBUG: Sending heartbeat frame
+[2020-05-30 17:16:07,883] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:16:07,883] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:16:07,883] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:16:07,883] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=18792.259855498 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18762.259855498; delay=30.0
+[2020-05-30 17:16:07,883] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:16:07,884] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:16:07,884] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:16:37,829] DEBUG: Received heartbeat frame
+[2020-05-30 17:16:37,830] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:16:37,884] DEBUG: Sending heartbeat frame
+[2020-05-30 17:16:37,884] DEBUG: Sending heartbeat frame
+[2020-05-30 17:16:37,884] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:16:37,885] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:16:37,885] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:16:37,885] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dc040> with deadline=18822.261729142 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18792.261729142; delay=30.0
+[2020-05-30 17:16:37,886] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:16:37,886] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:16:37,886] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:16:52,857] DEBUG: Received 40 heartbeat frames, sent 45, idle intervals 0
+[2020-05-30 17:16:52,857] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=18872.233869031 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18807.233869031; delay=65
+[2020-05-30 17:17:07,831] DEBUG: Received heartbeat frame
+[2020-05-30 17:17:07,831] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:17:07,886] DEBUG: Sending heartbeat frame
+[2020-05-30 17:17:07,886] DEBUG: Sending heartbeat frame
+[2020-05-30 17:17:07,887] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:17:07,887] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:17:07,887] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:17:07,887] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649f70> with deadline=18852.264110571 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18822.264110571; delay=30.0
+[2020-05-30 17:17:07,888] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:17:07,889] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:17:07,889] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:17:37,831] DEBUG: Received heartbeat frame
+[2020-05-30 17:17:37,831] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:17:37,888] DEBUG: Sending heartbeat frame
+[2020-05-30 17:17:37,889] DEBUG: Sending heartbeat frame
+[2020-05-30 17:17:37,889] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:17:37,889] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:17:37,889] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:17:37,889] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=18882.265731353 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18852.265731353; delay=30.0
+[2020-05-30 17:17:37,890] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:17:37,890] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:17:37,890] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:17:57,860] DEBUG: Received 42 heartbeat frames, sent 47, idle intervals 0
+[2020-05-30 17:17:57,861] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649f70> with deadline=18937.23732146 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18872.23732146; delay=65
+[2020-05-30 17:18:07,832] DEBUG: Received heartbeat frame
+[2020-05-30 17:18:07,833] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:18:07,890] DEBUG: Sending heartbeat frame
+[2020-05-30 17:18:07,890] DEBUG: Sending heartbeat frame
+[2020-05-30 17:18:07,890] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:18:07,891] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:18:07,891] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:18:07,891] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=18912.267315504 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18882.267315504; delay=30.0
+[2020-05-30 17:18:07,891] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:18:07,891] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:18:07,891] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:18:37,834] DEBUG: Received heartbeat frame
+[2020-05-30 17:18:37,834] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:18:37,893] DEBUG: Sending heartbeat frame
+[2020-05-30 17:18:37,893] DEBUG: Sending heartbeat frame
+[2020-05-30 17:18:37,894] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:18:37,894] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:18:37,894] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:18:37,894] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dc040> with deadline=18942.270905651 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18912.270905651; delay=30.0
+[2020-05-30 17:18:37,895] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:18:37,896] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:18:37,896] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:19:02,867] DEBUG: Received 44 heartbeat frames, sent 49, idle intervals 0
+[2020-05-30 17:19:02,868] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=19002.244173025 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18937.244173025; delay=65
+[2020-05-30 17:19:07,835] DEBUG: Received heartbeat frame
+[2020-05-30 17:19:07,835] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:19:07,895] DEBUG: Sending heartbeat frame
+[2020-05-30 17:19:07,895] DEBUG: Sending heartbeat frame
+[2020-05-30 17:19:07,895] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:19:07,895] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:19:07,895] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:19:07,895] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=18972.271972465 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18942.271972465; delay=30.0
+[2020-05-30 17:19:07,896] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:19:07,896] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:19:07,896] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:19:37,837] DEBUG: Received heartbeat frame
+[2020-05-30 17:19:37,837] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:19:37,897] DEBUG: Sending heartbeat frame
+[2020-05-30 17:19:37,897] DEBUG: Sending heartbeat frame
+[2020-05-30 17:19:37,897] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:19:37,898] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:19:37,898] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:19:37,898] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649f70> with deadline=19002.274690654 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=18972.274690654; delay=30.0
+[2020-05-30 17:19:37,899] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:19:37,899] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:19:37,900] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:20:07,839] DEBUG: Received heartbeat frame
+[2020-05-30 17:20:07,839] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:20:07,868] DEBUG: Received 47 heartbeat frames, sent 51, idle intervals 0
+[2020-05-30 17:20:07,868] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=19067.244944793 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19002.244944793; delay=65
+[2020-05-30 17:20:07,899] DEBUG: Sending heartbeat frame
+[2020-05-30 17:20:07,899] DEBUG: Sending heartbeat frame
+[2020-05-30 17:20:07,900] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:20:07,900] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:20:07,900] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:20:07,901] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=19032.277387867 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19002.277387867; delay=30.0
+[2020-05-30 17:20:07,902] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:20:07,902] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:20:07,902] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:20:37,840] DEBUG: Received heartbeat frame
+[2020-05-30 17:20:37,841] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:20:37,902] DEBUG: Sending heartbeat frame
+[2020-05-30 17:20:37,902] DEBUG: Sending heartbeat frame
+[2020-05-30 17:20:37,902] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:20:37,903] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:20:37,903] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:20:37,903] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dc040> with deadline=19062.279878713 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19032.279878713; delay=30.0
+[2020-05-30 17:20:37,910] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:20:37,910] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:20:37,911] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:21:07,841] DEBUG: Received heartbeat frame
+[2020-05-30 17:21:07,841] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:21:07,904] DEBUG: Sending heartbeat frame
+[2020-05-30 17:21:07,904] DEBUG: Sending heartbeat frame
+[2020-05-30 17:21:07,904] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:21:07,904] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:21:07,904] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:21:07,905] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649f70> with deadline=19092.281191187 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19062.281191187; delay=30.0
+[2020-05-30 17:21:07,905] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:21:07,905] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:21:07,905] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:21:12,875] DEBUG: Received 49 heartbeat frames, sent 54, idle intervals 0
+[2020-05-30 17:21:12,875] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=19132.252095941 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19067.252095941; delay=65
+[2020-05-30 17:21:37,842] DEBUG: Received heartbeat frame
+[2020-05-30 17:21:37,843] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:21:37,906] DEBUG: Sending heartbeat frame
+[2020-05-30 17:21:37,906] DEBUG: Sending heartbeat frame
+[2020-05-30 17:21:37,906] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:21:37,907] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:21:37,907] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:21:37,908] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=19122.284299773 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19092.284299773; delay=30.0
+[2020-05-30 17:21:37,909] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:21:37,909] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:21:37,910] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:22:07,844] DEBUG: Received heartbeat frame
+[2020-05-30 17:22:07,844] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:22:07,910] DEBUG: Sending heartbeat frame
+[2020-05-30 17:22:07,910] DEBUG: Sending heartbeat frame
+[2020-05-30 17:22:07,910] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:22:07,910] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:22:07,911] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:22:07,911] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dc040> with deadline=19152.287585933 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19122.287585933; delay=30.0
+[2020-05-30 17:22:07,913] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:22:07,913] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:22:07,913] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:22:17,882] DEBUG: Received 51 heartbeat frames, sent 56, idle intervals 0
+[2020-05-30 17:22:17,882] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=19197.258628601 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19132.258628601; delay=65
+[2020-05-30 17:22:37,845] DEBUG: Received heartbeat frame
+[2020-05-30 17:22:37,846] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:22:37,912] DEBUG: Sending heartbeat frame
+[2020-05-30 17:22:37,912] DEBUG: Sending heartbeat frame
+[2020-05-30 17:22:37,912] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:22:37,913] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:22:37,913] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:22:37,913] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=19182.289485934 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19152.289485934; delay=30.0
+[2020-05-30 17:22:37,913] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:22:37,914] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:22:37,914] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:23:07,845] DEBUG: Received heartbeat frame
+[2020-05-30 17:23:07,845] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:23:07,914] DEBUG: Sending heartbeat frame
+[2020-05-30 17:23:07,914] DEBUG: Sending heartbeat frame
+[2020-05-30 17:23:07,914] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:23:07,914] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:23:07,914] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:23:07,914] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649f70> with deadline=19212.290818788 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19182.290818788; delay=30.0
+[2020-05-30 17:23:07,915] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:23:07,915] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:23:07,915] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:23:22,887] DEBUG: Received 53 heartbeat frames, sent 58, idle intervals 0
+[2020-05-30 17:23:22,888] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dc040> with deadline=19262.264201292 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19197.264201292; delay=65
+[2020-05-30 17:23:37,847] DEBUG: Received heartbeat frame
+[2020-05-30 17:23:37,847] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:23:37,915] DEBUG: Sending heartbeat frame
+[2020-05-30 17:23:37,916] DEBUG: Sending heartbeat frame
+[2020-05-30 17:23:37,916] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:23:37,916] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:23:37,916] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:23:37,916] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=19242.292420265 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19212.292420265; delay=30.0
+[2020-05-30 17:23:37,916] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:23:37,916] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:23:37,916] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:24:07,849] DEBUG: Received heartbeat frame
+[2020-05-30 17:24:07,849] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:24:07,918] DEBUG: Sending heartbeat frame
+[2020-05-30 17:24:07,918] DEBUG: Sending heartbeat frame
+[2020-05-30 17:24:07,918] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:24:07,918] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:24:07,919] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:24:07,919] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=19272.295442939 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19242.295442939; delay=30.0
+[2020-05-30 17:24:07,920] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:24:07,920] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:24:07,921] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:24:27,893] DEBUG: Received 55 heartbeat frames, sent 60, idle intervals 0
+[2020-05-30 17:24:27,894] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=19327.270364632 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19262.270364632; delay=65
+[2020-05-30 17:24:37,849] DEBUG: Received heartbeat frame
+[2020-05-30 17:24:37,849] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:24:37,920] DEBUG: Sending heartbeat frame
+[2020-05-30 17:24:37,920] DEBUG: Sending heartbeat frame
+[2020-05-30 17:24:37,920] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:24:37,921] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:24:37,921] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:24:37,921] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dc040> with deadline=19302.297250043 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19272.297250043; delay=30.0
+[2020-05-30 17:24:37,923] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:24:37,923] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:24:37,923] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:25:07,849] DEBUG: Received heartbeat frame
+[2020-05-30 17:25:07,850] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:25:07,921] DEBUG: Sending heartbeat frame
+[2020-05-30 17:25:07,921] DEBUG: Sending heartbeat frame
+[2020-05-30 17:25:07,921] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:25:07,921] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:25:07,921] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:25:07,921] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649f70> with deadline=19332.298103219 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19302.298103219; delay=30.0
+[2020-05-30 17:25:07,922] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:25:07,922] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:25:07,922] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:25:32,900] DEBUG: Received 57 heartbeat frames, sent 62, idle intervals 0
+[2020-05-30 17:25:32,901] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=19392.277241067 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19327.277241067; delay=65
+[2020-05-30 17:25:37,851] DEBUG: Received heartbeat frame
+[2020-05-30 17:25:37,852] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:25:37,923] DEBUG: Sending heartbeat frame
+[2020-05-30 17:25:37,923] DEBUG: Sending heartbeat frame
+[2020-05-30 17:25:37,923] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:25:37,924] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:25:37,924] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:25:37,924] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=19362.300746478 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19332.300746478; delay=30.0
+[2020-05-30 17:25:37,927] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:25:37,928] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:25:37,928] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:26:07,853] DEBUG: Received heartbeat frame
+[2020-05-30 17:26:07,854] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:26:07,926] DEBUG: Sending heartbeat frame
+[2020-05-30 17:26:07,926] DEBUG: Sending heartbeat frame
+[2020-05-30 17:26:07,926] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:26:07,927] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:26:07,927] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:26:07,927] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dc040> with deadline=19392.30363911 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19362.30363911; delay=30.0
+[2020-05-30 17:26:07,928] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:26:07,928] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:26:07,929] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:26:37,854] DEBUG: Received heartbeat frame
+[2020-05-30 17:26:37,855] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:26:37,902] DEBUG: Received 60 heartbeat frames, sent 64, idle intervals 0
+[2020-05-30 17:26:37,902] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649f70> with deadline=19457.27843392 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19392.27843392; delay=65
+[2020-05-30 17:26:37,928] DEBUG: Sending heartbeat frame
+[2020-05-30 17:26:37,928] DEBUG: Sending heartbeat frame
+[2020-05-30 17:26:37,928] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:26:37,928] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:26:37,928] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:26:37,928] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=19422.30478991 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19392.30478991; delay=30.0
+[2020-05-30 17:26:37,928] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:26:37,928] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:26:37,928] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:27:07,855] DEBUG: Received heartbeat frame
+[2020-05-30 17:27:07,856] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:27:07,930] DEBUG: Sending heartbeat frame
+[2020-05-30 17:27:07,930] DEBUG: Sending heartbeat frame
+[2020-05-30 17:27:07,930] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:27:07,930] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:27:07,930] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:27:07,930] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=19452.307137253 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19422.307137253; delay=30.0
+[2020-05-30 17:27:07,931] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:27:07,931] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:27:07,931] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:27:18,428] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:27:18,436] INFO: Saved to database table users: b'{"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}'
+[2020-05-30 17:27:18,453] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:27:18,460] INFO: Saved to database table feelings: b'{"id": 60000, "hunger": 0.5, "thirst": 0.30000001192092896, "exhaustion": 0.20000000298023224, "happiness": 1.0, "user_id": 123}'
+[2020-05-30 17:27:18,461] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:27:18,476] INFO: Saved to database table pose: b'{"id": 60000, "translation": {"x": 1.0, "y": 2.0, "z": 3.0}, "rotation": {"x": -1.0, "y": -2.0, "z": -3.0, "w": -4.0}, "user_id": 123}'
+[2020-05-30 17:27:18,476] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:27:18,486] INFO: Saved to database table snapshots: b'{"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}'
+[2020-05-30 17:27:19,070] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:27:19,079] INFO: Saved to database table users: b'{"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}'
+[2020-05-30 17:27:19,100] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:27:19,108] INFO: Saved to database table pose: b'{"id": 60000, "translation": {"x": 1.0, "y": 2.0, "z": 3.0}, "rotation": {"x": -1.0, "y": -2.0, "z": -3.0, "w": -4.0}, "user_id": 123}'
+[2020-05-30 17:27:19,109] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:27:19,123] INFO: Saved to database table feelings: b'{"id": 60000, "hunger": 0.5, "thirst": 0.30000001192092896, "exhaustion": 0.20000000298023224, "happiness": 1.0, "user_id": 123}'
+[2020-05-30 17:27:19,123] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:27:19,134] INFO: Saved to database table snapshots: b'{"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}'
+[2020-05-30 17:27:37,932] DEBUG: Sending heartbeat frame
+[2020-05-30 17:27:37,932] DEBUG: Sending heartbeat frame
+[2020-05-30 17:27:37,932] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:27:37,933] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:27:37,933] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:27:37,933] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dc220> with deadline=19482.309573194 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19452.309573194; delay=30.0
+[2020-05-30 17:27:37,934] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:27:37,934] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:27:37,934] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:27:42,907] DEBUG: Received 61 heartbeat frames, sent 67, idle intervals 0
+[2020-05-30 17:27:42,908] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f84195dcbe0> with deadline=19522.284136455 and callback=<bound method HeartbeatChecker._check_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19457.284136455; delay=65
+[2020-05-30 17:28:07,857] DEBUG: Received heartbeat frame
+[2020-05-30 17:28:07,858] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:28:07,933] DEBUG: Sending heartbeat frame
+[2020-05-30 17:28:07,934] DEBUG: Sending heartbeat frame
+[2020-05-30 17:28:07,934] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:28:07,934] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:28:07,934] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:28:07,935] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649fd0> with deadline=19512.311382612 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19482.311382612; delay=30.0
+[2020-05-30 17:28:07,936] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:28:07,936] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:28:07,936] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:28:37,858] DEBUG: Received heartbeat frame
+[2020-05-30 17:28:37,859] DEBUG: Recv would block on <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:28:37,936] DEBUG: Sending heartbeat frame
+[2020-05-30 17:28:37,936] DEBUG: Sending heartbeat frame
+[2020-05-30 17:28:37,937] DEBUG: SelectorIOServicesAdapter.set_writer(7, <bound method _AsyncPlaintextTransport._on_socket_writable of <pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f84195dc8e0>>)
+[2020-05-30 17:28:37,937] DEBUG: set_writer(7, _) updated handler RdWr
+[2020-05-30 17:28:37,937] DEBUG: Turned on writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:28:37,937] DEBUG: call_later: added timeout <pika.adapters.select_connection._Timeout object at 0x7f8419649f70> with deadline=19542.314104087 and callback=<bound method HeartbeatChecker._send_heartbeat of <pika.heartbeat.HeartbeatChecker object at 0x7f8421df1e50>>; now=19512.314104087; delay=30.0
+[2020-05-30 17:28:37,939] DEBUG: SelectorIOServicesAdapter.remove_writer(7)
+[2020-05-30 17:28:37,939] DEBUG: remove_writer(7) updated handler Rd
+[2020-05-30 17:28:37,939] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
+[2020-05-30 17:30:14,128] INFO: Saved to database table feelings: {"hunger": 0.5, "thirst": 0.3, "exhaustion": 0.15, "happiness": 0.7}
+[2020-05-30 18:00:51,801] CRITICAL: Could not connect to database on URLmongodb://127.0.0.1:27017/

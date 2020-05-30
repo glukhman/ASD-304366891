@@ -6,11 +6,10 @@ import gzip
 import pytest
 import struct
 
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from bci.utils.protobuf import cortex_pb2
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-WAIT_INTERVAL = .5
+WAIT_INTERVAL = 1
 
 
 def capture(command, run_in_bg=False):

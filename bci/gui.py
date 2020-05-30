@@ -30,7 +30,7 @@ def _html(title, content):
 def index_():
 
     url = f"http://{website.config['api_host']}:{website.config['api_port']}/users"
-    users = sorted(json.loads(requests.get(url).json()))
+    users = sorted(json.loads(requests.get(url).json()), key=lambda item: item['user_id'])
     return render_template('index.html', users=users)
 
 

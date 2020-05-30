@@ -59,6 +59,7 @@ def test_run_server_custom_publisher_func(prepare_good_protofile):
     client_proc = capture("python -m bci.client upload-sample -h '127.0.0.1' "
                           "-p 5501 tests/good_proto.mind.gz")
     client_proc.communicate()
+    time.sleep(WAIT_INTERVAL)
     log = open('/tmp/test.log', 'r').read()
     assert client_proc.returncode == 0
     assert 'utils.protocol.UserData object' in log
@@ -127,7 +128,7 @@ def test_run_server_bad_publisher_host(prepare_good_protofile):
     time.sleep(WAIT_INTERVAL)
     client_proc = capture("python -m bci.client upload-sample -h '127.0.0.1' "
                           "tests/good_proto.mind.gz")
-    time.sleep(5)         # enough time for error to be logged
+    time.sleep(10)         # enough time for error to be logged
     log = open(log_path, 'r').readlines()
     assert 'CRITICAL: could not connect to rabbitmq through host 8.8.8.8 ' \
                 'and port 5672' in log[-1]
@@ -140,7 +141,7 @@ def test_run_server_bad_publisher_port(prepare_good_protofile):
     time.sleep(WAIT_INTERVAL)
     client_proc = capture("python -m bci.client upload-sample -h '127.0.0.1' "
                           "tests/good_proto.mind.gz", True)
-    time.sleep(5)         # enough time for error to be logged
+    time.sleep(10)         # enough time for error to be logged
     log = open(log_path, 'r').readlines()
     assert 'CRITICAL: could not connect to rabbitmq through host 127.0.0.1 ' \
                 'and port 60000' in log[-1]

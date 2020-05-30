@@ -10,3 +10,91 @@
 [2020-05-30 14:09:39,705] INFO: Snapshot #1: OK!
 [2020-05-30 14:10:55,994] INFO: User data: OK!
 [2020-05-30 14:10:56,029] INFO: Snapshot #1: OK!
+[2020-05-30 16:37:42,333] CRITICAL: [Errno 111] Connection refused
+[2020-05-30 16:37:48,068] CRITICAL: [Errno 111] Connection refused
+[2020-05-30 16:38:03,139] WARNING: ERROR: -2
+[2020-05-30 16:38:03,527] WARNING: ERROR: -2
+[2020-05-30 16:43:45,361] INFO: User data: OK!
+[2020-05-30 16:43:45,382] INFO: Snapshot #1: OK!
+[2020-05-30 16:43:51,503] INFO: User data: OK!
+[2020-05-30 16:43:51,523] INFO: Snapshot #1: OK!
+[2020-05-30 16:44:57,011] INFO: User data: OK!
+[2020-05-30 16:45:04,780] INFO: Snapshot #1: OK!
+[2020-05-30 16:45:06,590] INFO: Snapshot #2: OK!
+[2020-05-30 16:45:08,377] INFO: Snapshot #3: OK!
+[2020-05-30 16:45:10,157] INFO: Snapshot #4: OK!
+[2020-05-30 16:45:11,924] INFO: Snapshot #5: OK!
+[2020-05-30 16:45:13,713] INFO: Snapshot #6: OK!
+[2020-05-30 16:55:02,656] INFO: User data: OK!
+[2020-05-30 16:55:07,899] INFO: Snapshot #1: OK!
+[2020-05-30 16:55:09,877] INFO: Snapshot #2: OK!
+[2020-05-30 16:55:11,639] INFO: Snapshot #3: OK!
+[2020-05-30 16:55:13,387] INFO: Snapshot #4: OK!
+[2020-05-30 16:55:15,125] INFO: Snapshot #5: OK!
+[2020-05-30 17:02:49,658] INFO: User data: OK!
+[2020-05-30 17:02:49,704] INFO: Snapshot #1: OK!
+[2020-05-30 17:06:04,060] INFO: User data: OK!
+[2020-05-30 17:06:04,104] INFO: Snapshot #1: OK!
+[2020-05-30 17:08:24,709] INFO: User data: OK!
+[2020-05-30 17:08:24,755] INFO: Snapshot #1: OK!
+[2020-05-30 17:27:18,432] INFO: User data: OK!
+[2020-05-30 17:27:18,478] INFO: Snapshot #1: OK!
+[2020-05-30 17:28:03,166] CRITICAL: [Errno 111] Connection refused
+[2020-05-30 17:28:05,035] CRITICAL: Not a gzipped file (b'ga')
+[2020-05-30 17:29:36,245] INFO: User data: OK!
+[2020-05-30 17:29:36,264] INFO: Snapshot #1: OK!
+[2020-05-30 17:29:37,730] INFO: User data: OK!
+[2020-05-30 17:29:37,748] INFO: Snapshot #1: OK!
+[2020-05-30 17:29:38,661] CRITICAL: [Errno 111] Connection refused
+[2020-05-30 17:29:39,560] CRITICAL: [Errno 111] Connection refused
+[2020-05-30 17:29:50,409] CRITICAL: unknown host name "bad_hostname"
+[2020-05-30 17:29:50,837] CRITICAL: Error parsing message
+[2020-05-30 17:29:51,236] CRITICAL: Not a gzipped file (b'ga')
+[2020-05-30 17:29:51,628] CRITICAL: [Errno 2] No such file or directory: 'tests/nosuch_file.gz'
+[2020-05-30 17:29:53,723] INFO: User data: OK!
+[2020-05-30 17:29:53,741] INFO: Snapshot #1: OK!
+[2020-05-30 17:29:54,142] CRITICAL: module 'bci.readers' has no attribute 'unknown'
+[2020-05-30 17:29:57,218] INFO: User data: OK!
+[2020-05-30 17:29:57,239] INFO: Snapshot #1: OK!
+[2020-05-30 17:29:58,973] INFO: User data: OK!
+[2020-05-30 17:29:58,991] INFO: Snapshot #1: OK!
+[2020-05-30 17:30:01,521] INFO: User data: OK!
+[2020-05-30 17:30:01,542] INFO: Snapshot #1: OK!
+[2020-05-30 17:30:07,112] INFO: User data: OK!
+[2020-05-30 17:30:07,130] INFO: Snapshot #1: OK!
+[2020-05-30 17:30:46,804] INFO: User data: OK!
+[2020-05-30 17:30:46,822] INFO: Snapshot #1: OK!
+[2020-05-30 17:30:47,733] INFO: User data: OK!
+[2020-05-30 17:30:47,745] INFO: Snapshot #1: OK!
+[2020-05-30 17:30:48,646] INFO: User data: OK!
+[2020-05-30 17:30:48,647] INFO: Snapshot #1: OK!
+[2020-05-30 17:31:00,784] WARNING: ERROR: no host or port provided for publisher service
+[2020-05-30 17:31:00,787] CRITICAL: [Errno 104] Connection reset by peer
+[2020-05-30 17:31:01,807] WARNING: ERROR: no host or port provided for publisher service
+[2020-05-30 17:31:01,809] CRITICAL: [Errno 104] Connection reset by peer
+[2020-05-30 17:31:05,986] WARNING: ERROR: could not connect to rabbitmq through host 8.8.8.8 and port 5672
+[2020-05-30 17:31:05,989] CRITICAL: [Errno 104] Connection reset by peer
+[2020-05-30 17:31:08,598] WARNING: ERROR: could not connect to rabbitmq through host 127.0.0.1 and port 60000
+[2020-05-30 17:31:08,600] CRITICAL: [Errno 104] Connection reset by peer
+[2020-05-30 17:58:45,365] WARNING: ERROR: could not connect to rabbitmq through host 127.0.0.1 and port 5672
+[2020-05-30 17:58:45,367] CRITICAL: [Errno 104] Connection reset by peer
+[2020-05-30 17:58:46,846] WARNING: ERROR: could not connect to rabbitmq through host 127.0.0.1 and port 5672
+[2020-05-30 17:58:46,849] CRITICAL: [Errno 104] Connection reset by peer
+[2020-05-30 17:58:47,737] CRITICAL: [Errno 111] Connection refused
+[2020-05-30 17:58:48,645] CRITICAL: [Errno 111] Connection refused
+[2020-05-30 17:58:59,473] CRITICAL: unknown host name "bad_hostname"
+[2020-05-30 17:58:59,857] CRITICAL: Error parsing message
+[2020-05-30 17:59:00,249] CRITICAL: Not a gzipped file (b'ga')
+[2020-05-30 17:59:00,628] CRITICAL: [Errno 2] No such file or directory: 'tests/nosuch_file.gz'
+[2020-05-30 17:59:02,690] WARNING: ERROR: could not connect to rabbitmq through host 127.0.0.1 and port 5672
+[2020-05-30 17:59:02,693] CRITICAL: [Errno 104] Connection reset by peer
+[2020-05-30 17:59:03,073] CRITICAL: module 'bci.readers' has no attribute 'unknown'
+[2020-05-30 17:59:46,946] WARNING: ERROR: could not connect to rabbitmq through host 127.0.0.1 and port 5672
+[2020-05-30 17:59:46,949] CRITICAL: [Errno 104] Connection reset by peer
+[2020-05-30 17:59:48,651] WARNING: ERROR: could not connect to rabbitmq through host 127.0.0.1 and port 5672
+[2020-05-30 17:59:48,654] CRITICAL: [Errno 104] Connection reset by peer
+[2020-05-30 17:59:51,147] WARNING: ERROR: could not connect to rabbitmq through host 127.0.0.1 and port 5672
+[2020-05-30 17:59:51,150] CRITICAL: [Errno 104] Connection reset by peer
+[2020-05-30 17:59:56,695] WARNING: ERROR: could not connect to rabbitmq through host 127.0.0.1 and port 5672
+[2020-05-30 17:59:56,698] CRITICAL: [Errno 104] Connection reset by peer
+[2020-05-30 18:12:26,352] CRITICAL: unknown host name "bad_hostname"

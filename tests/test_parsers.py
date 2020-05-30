@@ -69,7 +69,7 @@ def test_run_parser_bad_publisher_port(prepare_good_protofile):
     time.sleep(WAIT_INTERVAL)
     client_proc = capture("python -m bci.client upload-sample -h '127.0.0.1' "
                           "-p 5501 tests/good_proto.mind.gz")
-    time.sleep(5)
+    time.sleep(10)
     log = open(log_path, 'r').readlines()
     assert 'could not connect to rabbitmq through host 127.0.0.1 ' \
                 'and port 60000' in log[-1]

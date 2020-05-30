@@ -1,6 +1,12 @@
-# Michael Glukhman's BCI
+# Cortex
+
+Cortex is a client-server system......................
 
 Michael Glukhman's project for Advanced System Design
+
+## System workflow
+
+![system workflow](docs/flowchart.jpeg)
 
 ## Installation and deployment
 run the following commands to install dependencies and enter the virtual environment:

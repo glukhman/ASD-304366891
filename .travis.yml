@@ -2,13 +2,16 @@ language: python
 python:
   - "3.8"
   - "3.8-dev"  # 3.8 development branch
-  - "nightly"  # nightly build
 # command to install dependencies
+services:
+  - docker
 before_install:
   - export TZ=Asia/Jerusalem
 install:
   - pip install -r requirements.txt
   - pip install codecov
+  - docker run -d --name rabbit -p 5672:5672 rabbitmq
+  - docker run -d --name mongo -p 27017:27017 mongo
 # command to run tests
 script:
   - pytest -v --cov=./
