@@ -240,7 +240,7 @@ The website consists of three mutually-navigable parts:
 3. Detailed graphical representation for each snapshot.
 
 Screenshots:
-![index](docs/site-1.png) ![snapshot data](docs/site-2.png)
+![index](docs/site-1.png){:width=50%} ![snapshot data](docs/site-2.png){:width=50%}
 
 
 #### TODO:: add screenshots
