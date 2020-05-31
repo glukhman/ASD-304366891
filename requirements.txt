@@ -6,6 +6,7 @@ Pillow
 flask
 flask-restful
 flake8
+scipy
 matplotlib
 mpld3
 protobuf3

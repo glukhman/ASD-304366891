@@ -6,9 +6,9 @@ import numpy as np
 from flask import Flask
 from flask import render_template
 from flask import send_from_directory
-import matplotlib.pyplot as plt, mpld3   # noqa
-from mpl_toolkits.mplot3d import Axes3D  # noqa
-import pytransform3d.rotations as pr
+import matplotlib.pyplot as plt, mpld3   # noqa: this is needed for 3D plot
+from mpl_toolkits.mplot3d import Axes3D  # noqa: this is needed for 3D plot
+from scipy.spatial.transform import Rotation as R
 from pathlib import Path
 
 from .utils import VERSION, DATA_DIR
@@ -112,13 +112,15 @@ def snapshot(user_id, snapshot_id):
         z = pose['translation']['z']
         xline = np.linspace(x, 2, 100)
         yline = np.linspace(-2, y, 100)
-        zline = np.linspace(-2, z, 100)
+        zline = np.linspace(z, 2, 100)
+        translation = f'<br>x={x:.2f}, y={y:.2f}, z={z:.2f}'
 
-        ax.scatter(x, y, z, zdir='z', s=1000, c='b', depthshade=True)
-        ax.plot(xline, [y]*100, [z]*100, c='b', alpha=0.7, ls='--')
-        ax.plot([x]*100, yline, [z]*100, c='b', alpha=0.7, ls='--')
-        ax.plot([x]*100, [y]*100, zline, c='b', alpha=0.7, ls='--')
+        ax.scatter(x, y, z, zdir='y', s=1000, c='b', depthshade=True)
+        ax.plot(xline, [y]*100, [z]*100, zdir='y', c='b', alpha=0.7, ls='--')
+        ax.plot([x]*100, yline, [z]*100, zdir='y', c='b', alpha=0.7, ls='--')
+        ax.plot([x]*100, [y]*100, zline, zdir='y', c='b', alpha=0.7, ls='--')
 
+        plt.ylim(plt.ylim()[::-1])
         ax.view_init(elev=20, azim=120)
 
         datapath = DATA_DIR / 'translations'
@@ -147,17 +149,19 @@ def snapshot(user_id, snapshot_id):
         y = np.outer(np.sin(u), np.sin(v))
         z = np.outer(np.ones(np.size(u)), np.cos(v))
 
-        ax.plot_surface(x, y, z, color='cyan', lw=1, alpha=0.3)
+        ax.plot_surface(x, z, y, color='cyan', lw=1, alpha=0.3)
         ax.plot(np.sin(a), np.cos(a), 0, c='b', alpha=0.3, ls='--')
         ax.plot(np.sin(b), np.cos(b), 0, c='b', alpha=0.7)
         ax.plot([0]*100, np.sin(v), np.cos(v), c='b', alpha=0.7)
-        ax.plot([0]*100, np.sin(c), np.cos(c), c='b', alpha=0.3,
-                ls='--')
+        ax.plot([0]*100, np.sin(c), np.cos(c), c='b', alpha=0.3, ls='--')
 
         rotation = [pose['rotation']['x'], pose['rotation']['y'],
                     pose['rotation']['z'], pose['rotation']['w']]
-        vector = pr.q_prod_vector(np.array(rotation),
-                                  np.array([0, 0, 1]))
+
+        rotation_vector = R.from_quat(rotation)
+        vector = rotation_vector.apply([0,1,0])
+        vector[1] = -vector[1]  # invert depth axis
+
         ax.quiver(0, 0, 0, *vector, length=1, linewidth=5, color='k')
         ax.view_init(elev=20, azim=120)
 
@@ -166,7 +170,12 @@ def snapshot(user_id, snapshot_id):
         plt.savefig(f"{datapath}/{snapshot['id']}.png",
                     bbox_inches='tight', pad_inches=0, dpi=48)
         snapshot['rotation_url'] = f"/assets/rotations/{snapshot['id']}.png"
+
+        x, y, z, w = rotation
+        rotation = f'<br>x={x:.2f}, y={y:.2f}, z={z:.2f}, w={w:.2f}'
     else:
+        translation = ''
+        rotation = ''
         snapshot['translation_url'] = '/static/missing.jpg'
         snapshot['rotation_url'] = '/static/missing.jpg'
 
@@ -187,7 +196,8 @@ def snapshot(user_id, snapshot_id):
 
     return render_template(template_html, user=user, snapshot=snapshot,
                            hunger=hunger, thirst=thirst, exhaustion=exhaustion,
-                           happiness=happiness)
+                           happiness=happiness, translation=translation,
+                           rotation=rotation)
 
 
 @website.route('/assets/<string:type>/<string:asset_id>')

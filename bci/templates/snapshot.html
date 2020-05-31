@@ -13,11 +13,11 @@
   </tr>
   <tr><td>
     <div><img src="{{ snapshot['translation_url'] }}" height="100%" alt="Translation plot"/></div>
-    <span class="tooltip">Translation</span>
+    <span class="tooltip">Translation{{ translation }}</span>
   </tr>
   <tr><td>
     <div><img src="{{ snapshot['rotation_url'] }}" height="100%" alt="Rotation plot"/></div>
-    <span class="tooltip">Rotation</span>
+    <span class="tooltip">Rotation{{ rotation }}</span>
   </tr>
 </table>
 <div id="back"><div onclick="location.href='/users/{{ user['user_id'] }}'">Back to {{ user['username'] }}'s gallery</div></div>

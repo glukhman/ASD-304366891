@@ -236,7 +236,9 @@ The default arguments for both API's are the ones presented in the examples abov
 The website consists of three mutually-navigable parts:
 1. An index of snapshot galleries uploaded by users;
 2. A snapshot gallery for each user, complete with preview of each snapshot's color image;
-3. Detailed graphical representation for each snapshot.
+3. Detailed graphical representation for each snapshot. The _pose_ is represented by two plots generated using the **pyplot** library:
+    - _translation_ is a point in 3D space;
+    - _rotation_ is an arrow inside a 3D sphere, pointing to the direction viewed by the camera.
 
 Screenshots:<br>
 <img src="docs/site-1.png" alt="index" width="40%"/>&emsp;<img src="docs/site-2.png" alt="snapshot data" width="40%"/>
@@ -267,7 +269,7 @@ The tests are also integrated with TravisCI, and are run with each push to Githu
 The system has a simple logging service, which stores logs under _log/<component_name>.log_ for debug purposes.
 
 ### Deploying the entire system with Docker containers
-A script is provided with the project which enables a quick deployment of the entire Cortex system in one command, using Docker containers, by running the script `./run-pipeline.sh` from the main directory of the project.
+A script is provided with the project which enables a quick deployment of the entire Cortex system in one command, using Docker containers, by running the script `./run-pipeline.sh` from the main directory of the project (`sudo` might be needed, depending on the Docker installation).
 
 The script requires:
 1. Docker insatlled;
