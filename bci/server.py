@@ -117,7 +117,7 @@ def _run_server(host=None, port=None, publish=None, **kwargs):
     if not host:
         host = '127.0.0.1'
     if not port:
-        port = 8000
+        port = 5000
     if not publish:
         error = 'no publisher function provided'
         print(f'ERROR: {error}', file=sys.stderr)

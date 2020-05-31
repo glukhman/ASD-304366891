@@ -62,3 +62,8 @@
 [2020-05-31 12:44:53,433] CRITICAL: [feelings] could not connect to rabbitmq through host 8.8.8.8 and port 5672
 [2020-05-31 12:44:55,843] CRITICAL: [feelings] could not connect to rabbitmq through host 127.0.0.1 and port 60000
 [2020-05-31 12:45:06,473] CRITICAL: Publisher module "unknown" does not exist
+[2020-05-31 14:06:21,944] INFO: Sent to feelings topic: {"id": 60000, "hunger": 0.5, "thirst": 0.30000001192092896, "exhaustion": 0.20000000298023224, "happiness": 1.0, "user_id": 123}
+[2020-05-31 14:06:23,790] CRITICAL: [feelings] no host or port provided for publisher service
+[2020-05-31 14:06:47,912] CRITICAL: [feelings] could not connect to rabbitmq through host 8.8.8.8 and port 5672
+[2020-05-31 14:07:05,912] CRITICAL: [feelings] could not connect to rabbitmq through host 127.0.0.1 and port 60000
+[2020-05-31 14:07:26,631] CRITICAL: Publisher module "unknown" does not exist

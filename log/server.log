@@ -116,3 +116,36 @@
 [2020-05-31 12:46:39,643] CRITICAL: [Errno 98] Address already in use
 [2020-05-31 12:46:41,698] CRITICAL: [Errno 98] Address already in use
 [2020-05-31 12:47:02,722] CRITICAL: [Errno 98] Address already in use
+[2020-05-31 14:05:41,541] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-31 14:05:41,555] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-31 14:05:41,646] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-31 14:05:43,839] CRITICAL: [Errno 99] Cannot assign requested address
+[2020-05-31 14:06:08,152] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-31 14:06:08,163] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-31 14:06:08,179] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-31 14:06:09,257] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-31 14:06:09,271] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-31 14:06:09,283] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-31 14:06:09,667] CRITICAL: [Errno 98] Address already in use
+[2020-05-31 14:06:12,603] CRITICAL: [Errno 99] Cannot assign requested address
+[2020-05-31 14:06:17,218] CRITICAL: [Errno 98] Address already in use
+[2020-05-31 14:06:21,928] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-31 14:06:21,946] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-31 14:06:21,957] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-31 14:06:24,418] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-31 14:06:24,444] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-31 14:06:24,467] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-31 14:06:45,555] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-31 14:06:45,566] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-31 14:06:45,581] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-31 14:07:06,520] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-31 14:07:06,531] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-31 14:07:06,542] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-31 14:08:02,678] INFO: Sent to users topic: {"user_id": 123, "username": "Test Testenson", "birthday": "January 1, 1970", "gender": "other"}
+[2020-05-31 14:08:02,691] INFO: Sent to fanout: {"user_id": 123, "address": "/home/myke/gittik/project-304366891/data/123/1970-01-01_02-01-00-000/snapshot.raw"}
+[2020-05-31 14:08:02,705] INFO: Sent to snapshots topic: {"id": 60000, "user_id": 123, "datetime": "January 1, 1970 at 02:01:00.000"}
+[2020-05-31 14:08:07,820] CRITICAL: Publisher module "unknown" does not exist
+[2020-05-31 14:08:08,335] CRITICAL: [Errno 98] Address already in use
+[2020-05-31 14:08:10,307] CRITICAL: [Errno 98] Address already in use
+[2020-05-31 14:08:12,344] CRITICAL: [Errno 98] Address already in use
+[2020-05-31 14:08:33,427] CRITICAL: [Errno 98] Address already in use

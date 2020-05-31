@@ -43,7 +43,7 @@ def _upload_sample(host, port, path, format=None):
     if not host:
         host = '127.0.0.1'
     if not port:
-        port = 8000
+        port = 5000
     if not format:
         format = DEFAULT_FORMAT
 
