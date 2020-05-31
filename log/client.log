@@ -152,3 +152,38 @@
 [2020-05-31 12:55:37,803] CRITICAL: unpack requires a buffer of 4 bytes
 [2020-05-31 12:55:37,809] CRITICAL: unpack requires a buffer of 4 bytes
 [2020-05-31 12:55:37,817] CRITICAL: unpack requires a buffer of 4 bytes
+[2020-05-31 13:04:44,148] INFO: User data: OK!
+[2020-05-31 13:04:52,132] INFO: Snapshot #1: OK!
+[2020-05-31 13:04:56,061] INFO: Snapshot #2: OK!
+[2020-05-31 13:04:59,713] INFO: Snapshot #3: OK!
+[2020-05-31 13:05:03,166] INFO: Snapshot #4: OK!
+[2020-05-31 13:05:06,232] INFO: Snapshot #5: OK!
+[2020-05-31 13:05:09,270] INFO: Snapshot #6: OK!
+[2020-05-31 13:05:12,291] INFO: Snapshot #7: OK!
+[2020-05-31 13:05:15,465] INFO: Snapshot #8: OK!
+[2020-05-31 13:05:18,551] INFO: Snapshot #9: OK!
+[2020-05-31 13:05:21,626] INFO: Snapshot #10: OK!
+[2020-05-31 13:05:24,650] INFO: Snapshot #11: OK!
+[2020-05-31 13:05:27,704] INFO: Snapshot #12: OK!
+[2020-05-31 13:05:30,761] INFO: Snapshot #13: OK!
+[2020-05-31 13:05:33,843] INFO: Snapshot #14: OK!
+[2020-05-31 13:05:36,898] INFO: Snapshot #15: OK!
+[2020-05-31 13:05:39,979] INFO: Snapshot #16: OK!
+[2020-05-31 13:05:43,130] INFO: Snapshot #17: OK!
+[2020-05-31 13:05:46,243] INFO: Snapshot #18: OK!
+[2020-05-31 13:05:49,343] INFO: Snapshot #19: OK!
+[2020-05-31 13:05:52,590] INFO: Snapshot #20: OK!
+[2020-05-31 13:05:55,735] INFO: Snapshot #21: OK!
+[2020-05-31 13:05:58,877] INFO: Snapshot #22: OK!
+[2020-05-31 13:06:02,056] INFO: Snapshot #23: OK!
+[2020-05-31 13:06:05,230] INFO: Snapshot #24: OK!
+[2020-05-31 13:06:08,409] INFO: Snapshot #25: OK!
+[2020-05-31 13:06:11,571] INFO: Snapshot #26: OK!
+[2020-05-31 13:06:14,723] INFO: Snapshot #27: OK!
+[2020-05-31 13:06:17,970] INFO: Snapshot #28: OK!
+[2020-05-31 13:06:21,233] INFO: Snapshot #29: OK!
+[2020-05-31 13:06:24,539] INFO: Snapshot #30: OK!
+[2020-05-31 13:06:27,773] INFO: Snapshot #31: OK!
+[2020-05-31 13:06:31,038] INFO: Snapshot #32: OK!
+[2020-05-31 13:21:00,632] INFO: User data: OK!
+[2020-05-31 13:21:00,700] INFO: Snapshot #1: OK!

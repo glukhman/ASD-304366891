@@ -191,7 +191,7 @@ The following REST endpoints are supported:
 
 The API server exposes the following Python API:
 ```python
-from bci.api import import run_api_server
+from bci.api import run_api_server
 run_api_server(host='127.0.0.1', port=8080, database_url='mongodb://127.0.0.1:27017')
 ```
 which starts the server and runs it continuously;
@@ -218,7 +218,29 @@ where, in commands with arguments, the first argument is the user ID, the second
 For each of the above commands, `-h/--host` and `-p/--port` arguments are available for providing the address of the API server with which the CLI client connects. Default arguments are: host = <b>'127.0.0.1'</b>, port = <b>8000</b>.
 
 ## The GUI (graphical user interface)<a name="gui"></a>
+The GUI is a website run by a Flask server which receives REST calls from an HTTP client with graphical user interface - such as a web browser - and generates HTML pages according to the provided REST endpoint, based on results collected from the database service provided in the <b>run-server</b> function's URL scheme (currently, only <i>mongodb</i> is supported).
 
+The GUI exposes the following Python API:
+```python
+from bci.gui import run_server
+run_server(host='127.0.0.1', port=8000, database_url='mongodb://127.0.0.1:27017')
+```
+which starts the web server and runs it continuously;
+
+And the following command line interface:
+```bash
+python -m bci.gui run-server -h/--host '127.0.0.1' -p/--port 8000 -d/--database 'mongodb://127.0.0.1:27017'
+```
+which does the same.<br>
+The default arguments for both API's are: host = <b>'127.0.0.1'</b>, port = <b>8000</b>, database_url = <b>'mongodb://127.0.0.1:27017'</b>.
+
+The website consists of three mutually-navigable parts:
+1. An index of snapshot galleries uploaded by users;
+2. A snapshot gallery for each user, complete with preview of each snapshot's color image;
+3. Detailed graphical representation for each snapshot.
+
+Screenshots:
+![index](docs/site-1.png) ![snapshot data](docs/site-2.png)
 
 
 #### TODO:: add screenshots
