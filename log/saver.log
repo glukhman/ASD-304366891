@@ -1239,3 +1239,4 @@
 [2020-05-30 17:28:37,939] DEBUG: Turned off writability watcher: <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56046), raddr=('127.0.0.1', 5672)>
 [2020-05-30 17:30:14,128] INFO: Saved to database table feelings: {"hunger": 0.5, "thirst": 0.3, "exhaustion": 0.15, "happiness": 0.7}
 [2020-05-30 18:00:51,801] CRITICAL: Could not connect to database on URLmongodb://127.0.0.1:27017/
+[2020-05-31 12:45:39,152] CRITICAL: Could not connect to database on URLmongodb://127.0.0.1:27017/

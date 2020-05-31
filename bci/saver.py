@@ -39,7 +39,7 @@ class Saver:
             if not identical_items:
                 table.insert_one(json.loads(data))
         except json.decoder.JSONDecodeError:
-            raise Exception(f"Illegal JSON data format")
+            raise Exception("Illegal JSON data format")
         except pymongo.errors.ServerSelectionTimeoutError:
             raise Exception(f"Could not connect to database on URL"
                             f"{self.database_url}")
@@ -77,8 +77,7 @@ def run_saver(database_url, message_queue_url):
     print('Press CTRL+C to exit')
 
     def callback(ch, method, properties, body):
-         # save result to database
-         saver.save(method.routing_key, body)
+        saver.save(method.routing_key, body)   # save result to database
 
     channel.basic_consume(queue=queue_name, auto_ack=True,
                           on_message_callback=callback)

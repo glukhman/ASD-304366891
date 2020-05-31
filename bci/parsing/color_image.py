@@ -21,7 +21,7 @@ class ColorImageParser(BasicParser):
         pixel = []
         for byte in self.snapshot.color_image.data:
             pixel.append(byte)
-            if len(pixel)==3:
+            if len(pixel) == 3:
                 color_pixels.append(tuple(pixel))
                 pixel = []
         image = Image.new('RGB', (self.snapshot.color_image.width,
@@ -31,7 +31,7 @@ class ColorImageParser(BasicParser):
 
         # return metadata
         color_image = {
-            'id': self.snapshot.datetime, # snapshot ID is based on timestamp
+            'id': self.snapshot.datetime,  # snapshot ID is based on timestamp
             'height': self.snapshot.color_image.height,
             'width': self.snapshot.color_image.width,
             'image_url': f'/assets/color_images/{image_name}'
@@ -39,5 +39,6 @@ class ColorImageParser(BasicParser):
         result = json.dumps(color_image)
         print(result)
         return result
+
 
 parser_cls = ColorImageParser

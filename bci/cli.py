@@ -3,7 +3,7 @@ import click
 import requests
 from tabulate import tabulate
 
-from .utils import VERSION, TOPICS
+from .utils import VERSION
 
 
 def common_options(f):
@@ -11,12 +11,14 @@ def common_options(f):
         click.option('-h', '--host'),
         click.option('-p', '--port', type=int)
     ]
+
     def check_host_port(host=None, port=None, *args, **kwargs):
         if not host:
             host = '127.0.0.1'
         if not port:
             port = 8000
         return f(host, port, *args, **kwargs)
+
     for option in reversed(options):
         check_host_port = option(check_host_port)
     check_host_port.__name__ = f.__name__
@@ -97,7 +99,8 @@ def get_snapshot(host, port, user_id, snapshot_id):
 @common_options
 def get_result(host, port, user_id, snapshot_id, result_name):
     try:
-        url = f'http://{host}:{port}/users/{user_id}/snapshots/{snapshot_id}/{result_name}'
+        url = f'http://{host}:{port}/users/{user_id}/snapshots/' \
+              f'{snapshot_id}/{result_name}'
         response = json.loads(requests.get(url).json())
         items = [[item[0]+":", item[1]] for item in response.items()]
         print(f'\n{result_name.upper()} of snapshot {snapshot_id} taken by '

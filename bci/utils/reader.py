@@ -1,15 +1,15 @@
 import gzip
 import struct
-import random
 from datetime import datetime
 
 import numpy as np
 from PIL import Image
-import matplotlib.pyplot as plt, mpld3
-from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt, mpld3  # noqa
+from mpl_toolkits.mplot3d import Axes3D # noqa
 import pytransform3d.rotations as pr
 
 from ..utils.protobuf import cortex_pb2
+
 
 class BinaryReader:
     def __init__(self, filename):
@@ -27,26 +27,29 @@ class BinaryReader:
         idx = 0
         while True:
             try:
-                #parse snapshot header
+                # parse snapshot header
                 timestamp, = struct.unpack('Q', self.fp.read(8))
                 translation = struct.unpack('ddd', self.fp.read(24))
                 rotation = struct.unpack('dddd', self.fp.read(32))
-                color_height, color_width = struct.unpack('II', self.fp.read(8))
+                color_height, color_width = struct.unpack('II',
+                                                          self.fp.read(8))
                 # parse color image
                 color_pixels = []
                 for _ in range(color_height):
                     for _ in range(color_width):
                         B, G, R = struct.unpack('BBB', self.fp.read(3))
-                        color_pixels.append((R, G, B))  # fix byte order within pixel
+                        color_pixels.append((R, G, B))  # fix pixel byte order
                 image = Image.new('RGB', (color_width, color_height))
                 image.putdata(color_pixels)
                 image.save(f'{save_dir}/color_image_{idx}.jpg')
                 # parse depth image
-                depth_height, depth_width = struct.unpack('II', self.fp.read(8))
+                depth_height, depth_width = struct.unpack('II',
+                                                          self.fp.read(8))
                 depth_pixels = []
                 for _ in range(depth_height):
                     for _ in range(depth_width):
-                        depth_pixels.append(struct.unpack('f', self.fp.read(4)), )
+                        depth_pixels.append(struct.unpack('f',
+                                                          self.fp.read(4)), )
                 # parse feelings
                 hunger, thirst, exhaustion, happiness = \
                     struct.unpack('ffff', self.fp.read(16))
@@ -54,14 +57,16 @@ class BinaryReader:
                 timestamp = datetime.fromtimestamp(timestamp/1000)
                 print('\nSnapshot from {time} on {trans} / {rot} with a '
                       '{color_dim} color image and a {depth_dim} depth image.'
-                      f'\nfeelings={hunger}, {thirst}, {exhaustion}, {happiness}'
-                      .format(
-                      time=timestamp.strftime("%B %-d, %Y at %H:%M:%S.%f")[:-3],
-                      trans=tuple(f'{x:.2f}' for x in translation),
-                      rot=tuple(f'{x:.2f}' for x in rotation),
-                      color_dim=f'{color_height}x{color_width}',
-                      depth_dim=f'{depth_height}x{depth_width}',
-                ))
+                      '\nfeelings={hunger}, {thirst}, {exhaustion},'
+                      '{happiness}'.format(
+                          time=timestamp.strftime("%B %-d, %Y at %H:%M:%S.%f")[:-3],    # noqa
+                          trans=tuple(f'{x:.2f}' for x in translation),
+                          rot=tuple(f'{x:.2f}' for x in rotation),
+                          color_dim=f'{color_height}x{color_width}',
+                          depth_dim=f'{depth_height}x{depth_width}',
+                          hunger=hunger, thirst=thirst, exhaustion=exhaustion,
+                          happiness=happiness
+                      ))
                 idx += 1
                 yield
             except struct.error:
@@ -94,7 +99,7 @@ class ProtobufReader:
         idx = 0
         while True:
             try:
-                #parse snapshot header
+                # parse snapshot header
                 msg_size, = struct.unpack('I', self.fp.read(4))
                 snapshot = cortex_pb2.Snapshot()
                 snapshot.ParseFromString(self.fp.read(msg_size))
@@ -104,7 +109,7 @@ class ProtobufReader:
                 pixel = []
                 for byte in snapshot.color_image.data:
                     pixel.append(byte)
-                    if len(pixel)==3:
+                    if len(pixel) == 3:
                         color_pixels.append(tuple(pixel))
                         pixel = []
                 image = Image.new('RGB', (snapshot.color_image.width,
@@ -113,7 +118,7 @@ class ProtobufReader:
                 image.save(f'{save_dir}/color_image_{idx}.jpg')
 
                 # parse depth image
-                fig = plt.figure(figsize=(12,12), dpi=72)
+                fig = plt.figure(figsize=(12, 12), dpi=72)
                 image = np.array(snapshot.depth_image.data).reshape(
                     snapshot.depth_image.height, snapshot.depth_image.width
                 )
@@ -123,11 +128,11 @@ class ProtobufReader:
                             bbox_inches='tight', pad_inches=0, dpi=48)
 
                 # parse translation
-                fig = plt.figure(figsize=(12,12), dpi=72)
+                fig = plt.figure(figsize=(12, 12), dpi=72)
                 ax = fig.add_subplot(111, projection='3d')
-                ax.set_xlim3d(-2,2)
-                ax.set_ylim3d(-2,2)
-                ax.set_zlim3d(-2,2)
+                ax.set_xlim3d(-2, 2)
+                ax.set_ylim3d(-2, 2)
+                ax.set_zlim3d(-2, 2)
 
                 x = snapshot.pose.translation.x
                 y = snapshot.pose.translation.y
@@ -142,16 +147,16 @@ class ProtobufReader:
                 ax.plot([x]*100, yline, [z]*100, c='b', alpha=0.7, ls='--')
                 ax.plot([x]*100, [y]*100, zline, c='b', alpha=0.7, ls='--')
 
-                ax.view_init(elev = 20, azim = 120)
+                ax.view_init(elev=20, azim=120)
                 plt.savefig(f'{save_dir}/translation_{idx}.png',
                             bbox_inches='tight', pad_inches=0, dpi=48)
 
                 # parse rotation
-                fig = plt.figure(figsize=(12,12), dpi=72)
+                fig = plt.figure(figsize=(12, 12), dpi=72)
                 ax = fig.add_subplot(111, projection='3d')
-                ax.set_xlim3d(-1,1)
-                ax.set_ylim3d(-1,1)
-                ax.set_zlim3d(-1,1)
+                ax.set_xlim3d(-1, 1)
+                ax.set_ylim3d(-1, 1)
+                ax.set_zlim3d(-1, 1)
                 ax.set_xticks([])
                 ax.set_yticks([])
                 ax.set_zticks([])
@@ -175,10 +180,10 @@ class ProtobufReader:
                 rotation = [snapshot.pose.rotation.x, snapshot.pose.rotation.y,
                             snapshot.pose.rotation.z, snapshot.pose.rotation.w]
                 vector = pr.q_prod_vector(np.array(rotation),
-                                          np.array([0,0,1]))
-                ax.quiver(0,0,0,*vector, length=1, linewidth=5,color='k')
+                                          np.array([0, 0, 1]))
+                ax.quiver(0, 0, 0, *vector, length=1, linewidth=5, color='k')
 
-                ax.view_init(elev = 20, azim = 120)
+                ax.view_init(elev=20, azim=120)
                 plt.savefig(f'{save_dir}/rotation_{idx}.png',
                             bbox_inches='tight', pad_inches=0, dpi=48)
 
@@ -191,14 +196,14 @@ class ProtobufReader:
                       f'{snapshot.feelings.exhaustion}, '
                       f'{snapshot.feelings.happiness}'
                       .format(
-                      time=timestamp.strftime("%B %-d, %Y at %H:%M:%S.%f")[:-3],
-                      trans=tuple([f'{x:.2f}' for x in translation]),
-                      rot=tuple([f'{x:.2f}' for x in rotation]),
-                      color_dim=f'{snapshot.color_image.height}x'
-                                f'{snapshot.color_image.width}',
-                      depth_dim=f'{snapshot.depth_image.height}x'
-                                f'{snapshot.depth_image.width}',
-                ))
+                          time=timestamp.strftime("%B %-d, %Y at %H:%M:%S.%f")[:-3],    # noqa
+                          trans=tuple([f'{x:.2f}' for x in translation]),
+                          rot=tuple([f'{x:.2f}' for x in rotation]),
+                          color_dim=f'{snapshot.color_image.height}x'
+                                    f'{snapshot.color_image.width}',
+                          depth_dim=f'{snapshot.depth_image.height}x'
+                                    f'{snapshot.depth_image.width}',
+                      ))
                 idx += 1
                 yield
             except struct.error:

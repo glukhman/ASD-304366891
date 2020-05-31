@@ -6,8 +6,8 @@ import numpy as np
 from flask import Flask
 from flask import render_template
 from flask import send_from_directory
-import matplotlib.pyplot as plt, mpld3
-from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt, mpld3   # noqa
+from mpl_toolkits.mplot3d import Axes3D  # noqa
 import pytransform3d.rotations as pr
 from pathlib import Path
 
@@ -29,8 +29,10 @@ def _html(title, content):
 @website.route('/')
 def index_():
 
-    url = f"http://{website.config['api_host']}:{website.config['api_port']}/users"
-    users = sorted(json.loads(requests.get(url).json()), key=lambda item: item['user_id'])
+    url = f"http://{website.config['api_host']}:" \
+          f"{website.config['api_port']}/users"
+    users = sorted(json.loads(requests.get(url).json()),
+                   key=lambda item: item['user_id'])
     return render_template('index.html', users=users)
 
 
@@ -42,13 +44,17 @@ def user(user_id):
     url = f"http://{host}:{port}/users/{user_id}"
     user = json.loads(requests.get(url).json())
     url = f"http://{host}:{port}/users/{user_id}/snapshots"
-    snapshots = sorted(json.loads(requests.get(url).json()), key=lambda item: item['id'])
+    snapshots = sorted(json.loads(requests.get(url).json()),
+                       key=lambda item: item['id'])
     for snapshot in snapshots:
-        url = f"http://{host}:{port}/users/{user_id}/snapshots/{snapshot['id']}"
-        available_results = json.loads(requests.get(url).json())['available results'].split(',')
+        url = f"http://{host}:{port}/users/{user_id}/snapshots" \
+              f"/{snapshot['id']}"
+        available_results = json.loads(
+            requests.get(url).json())['available results'].split(',')
         available_results = [result.strip() for result in available_results]
         if 'color_image' in available_results:
-            url = f"http://{host}:{port}/users/{user_id}/snapshots/{snapshot['id']}/color_image"
+            url = f"http://{host}:{port}/users/{user_id}/snapshots" \
+                  f"/{snapshot['id']}/color_image"
             image_data = json.loads(requests.get(url).json())
             snapshot['image_url'] = image_data['image_url']
         else:
@@ -66,12 +72,14 @@ def snapshot(user_id, snapshot_id):
     url = f"http://{host}:{port}/users/{user_id}/snapshots/{snapshot_id}"
     snapshot = json.loads(requests.get(url).json())
     snapshot['date'], snapshot['time'] = snapshot['datetime'].split('at')
-    available_results = json.loads(requests.get(url).json())['available results'].split(',')
+    available_results = json.loads(
+        requests.get(url).json())['available results'].split(',')
     available_results = [result.strip() for result in available_results]
 
     # process color image
     if 'color_image' in available_results:
-        url = f"http://{host}:{port}/users/{user_id}/snapshots/{snapshot['id']}/color_image"
+        url = f"http://{host}:{port}/users/{user_id}/snapshots" \
+              f"/{snapshot['id']}/color_image"
         image_data = json.loads(requests.get(url).json())
         snapshot['color_image_url'] = image_data['image_url']
     else:
@@ -79,7 +87,8 @@ def snapshot(user_id, snapshot_id):
 
     # process depth image
     if 'depth_image' in available_results:
-        url = f"http://{host}:{port}/users/{user_id}/snapshots/{snapshot_id}/depth_image"
+        url = f"http://{host}:{port}/users/{user_id}/snapshots" \
+              f"/{snapshot_id}/depth_image"
         image_data = json.loads(requests.get(url).json())
         snapshot['depth_image_url'] = image_data['image_url']
     else:
@@ -87,15 +96,16 @@ def snapshot(user_id, snapshot_id):
 
     # process pose
     if 'pose' in available_results:
-        url = f"http://{host}:{port}/users/{user_id}/snapshots/{snapshot_id}/pose"
+        url = f"http://{host}:{port}/users/{user_id}/snapshots" \
+              f"/{snapshot_id}/pose"
         pose = json.loads(requests.get(url).json())
 
         # translation
-        fig = plt.figure(figsize=(12,12), dpi=72)
+        fig = plt.figure(figsize=(12, 12), dpi=72)
         ax = fig.add_subplot(111, projection='3d')
-        ax.set_xlim3d(-2,2)
-        ax.set_ylim3d(-2,2)
-        ax.set_zlim3d(-2,2)
+        ax.set_xlim3d(-2, 2)
+        ax.set_ylim3d(-2, 2)
+        ax.set_zlim3d(-2, 2)
 
         x = pose['translation']['x']
         y = pose['translation']['y']
@@ -109,20 +119,21 @@ def snapshot(user_id, snapshot_id):
         ax.plot([x]*100, yline, [z]*100, c='b', alpha=0.7, ls='--')
         ax.plot([x]*100, [y]*100, zline, c='b', alpha=0.7, ls='--')
 
-        ax.view_init(elev = 20, azim = 120)
+        ax.view_init(elev=20, azim=120)
 
         datapath = DATA_DIR / 'translations'
         Path(datapath).mkdir(parents=True, exist_ok=True)
         plt.savefig(f"{datapath}/{snapshot['id']}.png",
                     bbox_inches='tight', pad_inches=0, dpi=48)
-        snapshot['translation_url'] = f"/assets/translations/{snapshot['id']}.png"
+        snapshot['translation_url'] = f"/assets/translations" \
+                                      f"/{snapshot['id']}.png"
 
         # rotation
-        fig = plt.figure(figsize=(12,12), dpi=72)
+        fig = plt.figure(figsize=(12, 12), dpi=72)
         ax = fig.add_subplot(111, projection='3d')
-        ax.set_xlim3d(-1,1)
-        ax.set_ylim3d(-1,1)
-        ax.set_zlim3d(-1,1)
+        ax.set_xlim3d(-1, 1)
+        ax.set_ylim3d(-1, 1)
+        ax.set_zlim3d(-1, 1)
         ax.set_xticks([])
         ax.set_yticks([])
         ax.set_zticks([])
@@ -146,9 +157,9 @@ def snapshot(user_id, snapshot_id):
         rotation = [pose['rotation']['x'], pose['rotation']['y'],
                     pose['rotation']['z'], pose['rotation']['w']]
         vector = pr.q_prod_vector(np.array(rotation),
-                                  np.array([0,0,1]))
-        ax.quiver(0,0,0,*vector, length=1, linewidth=5,color='k')
-        ax.view_init(elev = 20, azim = 120)
+                                  np.array([0, 0, 1]))
+        ax.quiver(0, 0, 0, *vector, length=1, linewidth=5, color='k')
+        ax.view_init(elev=20, azim=120)
 
         datapath = DATA_DIR / 'rotations'
         Path(datapath).mkdir(parents=True, exist_ok=True)
@@ -163,7 +174,8 @@ def snapshot(user_id, snapshot_id):
 
     # process feelings
     if 'feelings' in available_results:
-        url = f"http://{host}:{port}/users/{user_id}/snapshots/{snapshot_id}/feelings"
+        url = f"http://{host}:{port}/users/{user_id}/snapshots" \
+              f"/{snapshot_id}/feelings"
         feelings = json.loads(requests.get(url).json())
         template_html = 'snapshot_with_feelings.html'
         hunger = "{0:.1f}".format(feelings['hunger'] * 100)
@@ -174,7 +186,7 @@ def snapshot(user_id, snapshot_id):
         hunger, thirst, exhaustion, happiness = 0, 0, 0, 0
 
     return render_template(template_html, user=user, snapshot=snapshot,
-                           hunger=hunger,thirst=thirst, exhaustion=exhaustion,
+                           hunger=hunger, thirst=thirst, exhaustion=exhaustion,
                            happiness=happiness)
 
 
@@ -218,7 +230,7 @@ def _run_server(host, port, api_host, api_port):
 
 
 # API function aliases
-run_server = _run_server
+run_server = _run_server    # noqa
 
 if __name__ == '__main__':
     cli(prog_name='REST api')

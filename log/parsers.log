@@ -57,3 +57,8 @@
 [2020-05-30 17:59:54,000] CRITICAL: [feelings] could not connect to rabbitmq through host 8.8.8.8 and port 5672
 [2020-05-30 17:59:56,425] CRITICAL: [feelings] could not connect to rabbitmq through host 127.0.0.1 and port 60000
 [2020-05-30 18:00:01,474] CRITICAL: Publisher module "unknown" does not exist
+[2020-05-31 12:44:26,327] CRITICAL: [feelings] could not connect to rabbitmq through host 127.0.0.1 and port 5672
+[2020-05-31 12:44:29,997] CRITICAL: [feelings] no host or port provided for publisher service
+[2020-05-31 12:44:53,433] CRITICAL: [feelings] could not connect to rabbitmq through host 8.8.8.8 and port 5672
+[2020-05-31 12:44:55,843] CRITICAL: [feelings] could not connect to rabbitmq through host 127.0.0.1 and port 60000
+[2020-05-31 12:45:06,473] CRITICAL: Publisher module "unknown" does not exist

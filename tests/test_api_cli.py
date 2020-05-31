@@ -1,16 +1,9 @@
-import os
-import time
-import json
-import signal
-from pathlib import Path
-
-import pytest
 import requests
 from click.testing import CliRunner
 
 from bci.cli import (get_users, get_user, get_snapshots,
                      get_snapshot, get_result)
-from conftest import capture, WAIT_INTERVAL
+from conftest import capture
 
 
 class MockResponse:
@@ -47,8 +40,10 @@ def test_get_users(monkeypatch):
 
 def test_get_user(monkeypatch):
     user_id = '123'
+
     def mock_get(*args, **kwargs):
         return MockResponse(f'users/{user_id}')
+
     runner = CliRunner()
     monkeypatch.setattr(requests, "get", mock_get)
 
@@ -61,8 +56,10 @@ def test_get_user(monkeypatch):
 
 def test_get_snapshots(monkeypatch):
     user_id = '123'
+
     def mock_get(*args, **kwargs):
         return MockResponse(f'users/{user_id}/snapshots')
+
     runner = CliRunner()
     monkeypatch.setattr(requests, "get", mock_get)
 
@@ -76,8 +73,10 @@ def test_get_snapshots(monkeypatch):
 def test_get_snapshot(monkeypatch):
     user_id = '123'
     snapshot_id = '123456789'
+
     def mock_get(*args, **kwargs):
         return MockResponse(f'users/{user_id}/snapshots/{snapshot_id}')
+
     runner = CliRunner()
     monkeypatch.setattr(requests, "get", mock_get)
 
@@ -91,15 +90,18 @@ def test_get_snapshot(monkeypatch):
 def test_get_result(monkeypatch):
     user_id = '123'
     snapshot_id = '123456789'
+
     def mock_get(*args, **kwargs):
         return MockResponse(f'users/{user_id}/snapshots/{snapshot_id}/pose')
+
     runner = CliRunner()
     monkeypatch.setattr(requests, "get", mock_get)
 
     result = runner.invoke(get_result, [user_id, snapshot_id, 'pose'])
     assert "POSE of snapshot 123456789 taken by user 123:" in result.output
     assert "translation:  {'x': 0, 'y': 0, 'z': -1}" in result.output
-    assert "rotation:     {'x': -0.5, 'y': 0.33, 'z': 0, 'w': 0.15}" in result.output
+    assert "rotation:     {'x': -0.5, 'y': 0.33, 'z': 0, 'w': 0.15}" \
+           in result.output
 
 
 def test_api_illegal_command():

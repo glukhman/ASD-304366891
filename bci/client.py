@@ -1,11 +1,11 @@
 import sys
 import logging
 from pathlib import Path
-from datetime import datetime
 
 import click
 
 from .utils import (Connection, UserData, Snapshot, VERSION, DEFAULT_FORMAT)
+
 
 def logger_init(name):
     log_dir = Path(__file__).parents[1] / "log"
@@ -45,7 +45,7 @@ def _upload_sample(host, port, path, format=None):
     if not port:
         port = 8000
     if not format:
-        format=DEFAULT_FORMAT
+        format = DEFAULT_FORMAT
 
     reader_module = __import__('bci.readers', globals(), locals(), [format])
     reader = getattr(reader_module, format).reader_cls(path)
@@ -77,7 +77,7 @@ def _upload_sample(host, port, path, format=None):
             with connection:
                 try:
                     snapshot = Snapshot(user_data.user_id,
-                               next(snapshot_reader))
+                                        next(snapshot_reader))
                 except StopIteration:
                     break
                 packed_snapshot = snapshot.serialize()
@@ -96,7 +96,7 @@ def _upload_sample(host, port, path, format=None):
 
 
 # API function aliases
-upload_sample = _upload_sample
+upload_sample = _upload_sample  # noqa
 
 if __name__ == '__main__':
     cli(prog_name='bci.client')

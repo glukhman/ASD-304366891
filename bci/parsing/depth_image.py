@@ -17,8 +17,6 @@ class DepthImageParser(BasicParser):
         datapath = DATA_DIR / 'depth_images'
         image_name = f'{uuid.uuid4().hex}.png'
         Path(datapath).mkdir(parents=True, exist_ok=True)
-
-        fig = plt.figure(figsize=(12,12), dpi=72)
         image = np.array(self.snapshot.depth_image.data).reshape(
             self.snapshot.depth_image.height, self.snapshot.depth_image.width
         )
@@ -29,7 +27,7 @@ class DepthImageParser(BasicParser):
 
         # return metadata
         depth_image = {
-            'id': self.snapshot.datetime, # snapshot ID is based on timestamp
+            'id': self.snapshot.datetime,  # snapshot ID is based on timestamp
             'height': self.snapshot.depth_image.height,
             'width': self.snapshot.depth_image.width,
             'image_url': f'/assets/depth_images/{image_name}'
@@ -37,5 +35,6 @@ class DepthImageParser(BasicParser):
         result = json.dumps(depth_image)
         print(result)
         return result
+
 
 parser_cls = DepthImageParser

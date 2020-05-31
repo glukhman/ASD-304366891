@@ -1,11 +1,11 @@
 import time
-import pytest
 from pathlib import Path
 
 from bci.client import upload_sample
 from conftest import capture, WAIT_INTERVAL
 
 log_path = Path(__file__).parents[1] / "log" / "client.log"
+
 
 def test_upload_sample(prepare_good_protofile):
     server_proc = capture("python -m bci.server run-server -h '127.0.0.1' "
@@ -77,13 +77,6 @@ def test_upload_sample_bad_port(prepare_good_protofile):
     out, err = client_proc.communicate()
     assert b'Usage: bci.client upload-sample' in err
     assert b'bad_port is not a valid integer' in err
-
-
-def test_upload_sample_bad_hostname(prepare_good_protofile):
-    client_proc = capture("python -m bci.client upload-sample -h 'bad_hostname' "
-                          "tests/good_proto.mind.gz")
-    out, err = client_proc.communicate()
-    assert b'unknown host name "bad_hostname"' in err
 
 
 def test_upload_sample_damaged_data(prepare_bad_protofile):

@@ -6,17 +6,17 @@ import gzip
 import pytest
 import struct
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from bci.utils.protobuf import cortex_pb2
-
 WAIT_INTERVAL = 1
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from bci.utils.protobuf import cortex_pb2   # noqa
 
 
 def capture(command, run_in_bg=False):
     command = [x.strip("'") for x in command.split(" ")]
     proc = subprocess.Popen(command,
-                            stdout = subprocess.PIPE,
-                            stderr = subprocess.PIPE,
+                            stdout=subprocess.PIPE,
+                            stderr=subprocess.PIPE,
                             close_fds=run_in_bg)
     return proc
 

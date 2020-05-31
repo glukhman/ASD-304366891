@@ -105,3 +105,50 @@
 [2020-05-30 19:17:06,629] INFO: Snapshot #4: OK!
 [2020-05-30 19:17:10,861] INFO: Snapshot #5: OK!
 [2020-05-30 19:17:14,796] INFO: Snapshot #6: OK!
+[2020-05-31 12:44:02,424] WARNING: ERROR: could not connect to rabbitmq through host 127.0.0.1 and port 5672
+[2020-05-31 12:44:02,427] CRITICAL: [Errno 104] Connection reset by peer
+[2020-05-31 12:44:04,914] WARNING: ERROR: could not connect to rabbitmq through host 127.0.0.1 and port 5672
+[2020-05-31 12:44:04,917] CRITICAL: [Errno 104] Connection reset by peer
+[2020-05-31 12:44:06,362] CRITICAL: [Errno 111] Connection refused
+[2020-05-31 12:44:07,762] CRITICAL: [Errno 111] Connection refused
+[2020-05-31 12:44:18,636] CRITICAL: unknown host name "bad_hostname"
+[2020-05-31 12:44:19,094] CRITICAL: Error parsing message
+[2020-05-31 12:44:19,551] CRITICAL: Not a gzipped file (b'ga')
+[2020-05-31 12:44:20,013] CRITICAL: [Errno 2] No such file or directory: 'tests/nosuch_file.gz'
+[2020-05-31 12:44:22,916] WARNING: ERROR: could not connect to rabbitmq through host 127.0.0.1 and port 5672
+[2020-05-31 12:44:22,920] CRITICAL: [Errno 104] Connection reset by peer
+[2020-05-31 12:44:23,453] CRITICAL: module 'bci.readers' has no attribute 'unknown'
+[2020-05-31 12:44:26,890] WARNING: ERROR: could not connect to rabbitmq through host 127.0.0.1 and port 5672
+[2020-05-31 12:44:26,893] CRITICAL: [Errno 104] Connection reset by peer
+[2020-05-31 12:44:30,569] WARNING: ERROR: could not connect to rabbitmq through host 127.0.0.1 and port 5672
+[2020-05-31 12:44:30,574] CRITICAL: [Errno 104] Connection reset by peer
+[2020-05-31 12:44:50,417] INFO: User data: OK!
+[2020-05-31 12:44:50,442] INFO: Snapshot #1: OK!
+[2020-05-31 12:44:56,498] INFO: User data: OK!
+[2020-05-31 12:44:56,521] INFO: Snapshot #1: OK!
+[2020-05-31 12:46:21,988] INFO: User data: OK!
+[2020-05-31 12:46:22,086] INFO: Snapshot #1: OK!
+[2020-05-31 12:46:23,574] INFO: User data: OK!
+[2020-05-31 12:46:23,590] INFO: Snapshot #1: OK!
+[2020-05-31 12:46:24,984] INFO: User data: OK!
+[2020-05-31 12:46:24,984] INFO: Snapshot #1: OK!
+[2020-05-31 12:51:04,528] INFO: User data: OK!
+[2020-05-31 12:51:11,629] INFO: Snapshot #1: OK!
+[2020-05-31 12:51:13,519] INFO: Snapshot #2: OK!
+[2020-05-31 12:51:16,058] INFO: Snapshot #3: OK!
+[2020-05-31 12:51:18,665] INFO: Snapshot #4: OK!
+[2020-05-31 12:51:21,752] INFO: Snapshot #5: OK!
+[2020-05-31 12:51:25,461] INFO: Snapshot #6: OK!
+[2020-05-31 12:51:29,204] INFO: Snapshot #7: OK!
+[2020-05-31 12:51:31,532] INFO: Snapshot #8: OK!
+[2020-05-31 12:51:33,670] INFO: Snapshot #9: OK!
+[2020-05-31 12:51:35,654] INFO: Snapshot #10: OK!
+[2020-05-31 12:51:37,925] INFO: Snapshot #11: OK!
+[2020-05-31 12:51:40,253] INFO: Snapshot #12: OK!
+[2020-05-31 12:51:42,277] INFO: Snapshot #13: OK!
+[2020-05-31 12:51:44,512] INFO: Snapshot #14: OK!
+[2020-05-31 12:51:46,296] INFO: Snapshot #15: OK!
+[2020-05-31 12:55:37,794] CRITICAL: unpack requires a buffer of 4 bytes
+[2020-05-31 12:55:37,803] CRITICAL: unpack requires a buffer of 4 bytes
+[2020-05-31 12:55:37,809] CRITICAL: unpack requires a buffer of 4 bytes
+[2020-05-31 12:55:37,817] CRITICAL: unpack requires a buffer of 4 bytes

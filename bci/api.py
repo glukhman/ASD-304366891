@@ -2,7 +2,6 @@ import json
 
 import click
 import pymongo
-from furl import furl
 from flask import Flask
 from flask_restful import Resource, Api
 
@@ -78,8 +77,10 @@ class SnapshotResults(Resource):
 api.add_resource(Users, '/users')
 api.add_resource(UserData, '/users/<string:user_id>')
 api.add_resource(Snapshots, '/users/<string:user_id>/snapshots')
-api.add_resource(SnapshotData, '/users/<string:user_id>/snapshots/<string:snapshot_id>')
-api.add_resource(SnapshotResults, '/users/<string:user_id>/snapshots/<string:snapshot_id>/<string:result_name>')
+api.add_resource(SnapshotData, '/users/<string:user_id>/snapshots/'
+                               '<string:snapshot_id>')
+api.add_resource(SnapshotResults, '/users/<string:user_id>/snapshots/'
+                                  '<string:snapshot_id>/<string:result_name>')
 
 
 @click.version_option(prog_name='Michael Glukhman\'s BCI', version=VERSION)

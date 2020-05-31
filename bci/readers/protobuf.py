@@ -1,6 +1,5 @@
 import gzip
 import struct
-from datetime import datetime
 
 from ..utils.protobuf import cortex_pb2
 
@@ -27,9 +26,6 @@ class ProtobufReader:
     def read_snapshot(self):
         while True:
             try:
-                pack_data = bytes()
-
-                #parse snapshot header
                 msg_size, = struct.unpack('I', self.fp.read(4))
                 snapshot = cortex_pb2.Snapshot()
                 snapshot.ParseFromString(self.fp.read(msg_size))

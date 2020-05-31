@@ -1,15 +1,12 @@
-import os
 import time
-import signal
 import threading
 from pathlib import Path
-
-import pytest
 
 from bci.server import run_server
 from conftest import capture, WAIT_INTERVAL
 
 log_path = Path(__file__).parents[1] / "log" / "server.log"
+
 
 def test_run_server(prepare_good_protofile, capsys):
     server_proc = capture("python -m bci.server run-server -h '127.0.0.1' "
@@ -29,7 +26,7 @@ def test_run_server(prepare_good_protofile, capsys):
 
 
 def test_run_server_python_api(prepare_good_protofile):
-    publisher = __import__(f'bci.publishers.rabbitmq', globals(), locals(),
+    publisher = __import__('bci.publishers.rabbitmq', globals(), locals(),
                            'rabbitmq')
     server_proc = threading.Thread(target=run_server, args=(), kwargs={
         'host': '127.0.0.1', 'port': 5502, 'publish': publisher.publish,
@@ -50,7 +47,7 @@ def test_run_server_python_api(prepare_good_protofile):
 
 def test_run_server_custom_publisher_func(prepare_good_protofile):
     def log_message(message, **kwargs):
-        print(message, file=open('/tmp/test.log', 'a'))
+        print(message, file=open('custom_publisher_test.log', 'a'))
     server_proc = threading.Thread(target=run_server, args=(), kwargs={
         'host': '127.0.0.1', 'port': 5501, 'publish': log_message
     }, daemon=True)
@@ -60,7 +57,7 @@ def test_run_server_custom_publisher_func(prepare_good_protofile):
                           "-p 5501 tests/good_proto.mind.gz")
     client_proc.communicate()
     time.sleep(WAIT_INTERVAL)
-    log = open('/tmp/test.log', 'r').read()
+    log = open('custom_publisher_test.log', 'r').read()
     assert client_proc.returncode == 0
     assert 'utils.protocol.UserData object' in log
     assert 'utils.protocol.Snapshot object' in log
@@ -80,15 +77,6 @@ def test_run_server_bad_port(prepare_good_protofile):
     assert b'bad_port is not a valid integer' in err
 
 
-def test_run_server_bad_hostname():
-    server_proc = capture("python -m bci.server run-server -h 'bad_hostname' "
-                          "'rabbitmq://127.0.0.1:5672/'")
-    out, err = server_proc.communicate()
-    log = open(log_path, 'r').readlines()
-    assert b'unknown host name "bad_hostname"' in err
-    assert 'CRITICAL: unknown host name "bad_hostname"' in log[-1]
-
-
 def test_run_server_unknown_publisher_module():
     server_proc = capture("python -m bci.server run-server "
                           "'unknown://127.0.0.1:5672/'")
@@ -102,8 +90,8 @@ def test_run_server_no_publisher_host(prepare_good_protofile):
     server_proc = capture("python -m bci.server run-server "
                           "'rabbitmq://:5672/'", True)
     time.sleep(WAIT_INTERVAL)
-    client_proc = capture("python -m bci.client upload-sample -h '127.0.0.1' "
-                          "tests/good_proto.mind.gz")
+    capture("python -m bci.client upload-sample -h '127.0.0.1' "
+            "tests/good_proto.mind.gz")
     time.sleep(WAIT_INTERVAL)
     log = open(log_path, 'r').readlines()
     assert 'CRITICAL: no host or port provided for publisher' in log[-1]
@@ -114,8 +102,8 @@ def test_run_server_no_publisher_port(prepare_good_protofile):
     server_proc = capture("python -m bci.server run-server "
                           "'rabbitmq://127.0.0.1/'", True)
     time.sleep(WAIT_INTERVAL)
-    client_proc = capture("python -m bci.client upload-sample -h '127.0.0.1' "
-                          "tests/good_proto.mind.gz")
+    capture("python -m bci.client upload-sample -h '127.0.0.1' "
+            "tests/good_proto.mind.gz")
     time.sleep(WAIT_INTERVAL)
     log = open(log_path, 'r').readlines()
     assert 'CRITICAL: no host or port provided for publisher' in log[-1]
@@ -126,12 +114,12 @@ def test_run_server_bad_publisher_host(prepare_good_protofile):
     server_proc = capture("python -m bci.server run-server "
                           "'rabbitmq://8.8.8.8:5672/'", True)
     time.sleep(WAIT_INTERVAL)
-    client_proc = capture("python -m bci.client upload-sample -h '127.0.0.1' "
-                          "tests/good_proto.mind.gz")
-    time.sleep(10)         # enough time for error to be logged
+    capture("python -m bci.client upload-sample -h '127.0.0.1' "
+            "tests/good_proto.mind.gz")
+    time.sleep(20)         # enough time for error to be logged
     log = open(log_path, 'r').readlines()
     assert 'CRITICAL: could not connect to rabbitmq through host 8.8.8.8 ' \
-                'and port 5672' in log[-1]
+           'and port 5672' in log[-1]
     server_proc.terminate()
 
 
@@ -139,14 +127,13 @@ def test_run_server_bad_publisher_port(prepare_good_protofile):
     server_proc = capture("python -m bci.server run-server "
                           "'rabbitmq://127.0.0.1:60000/'", True)
     time.sleep(WAIT_INTERVAL)
-    client_proc = capture("python -m bci.client upload-sample -h '127.0.0.1' "
-                          "tests/good_proto.mind.gz", True)
-    time.sleep(10)         # enough time for error to be logged
+    capture("python -m bci.client upload-sample -h '127.0.0.1' "
+            "tests/good_proto.mind.gz", True)
+    time.sleep(20)         # enough time for error to be logged
     log = open(log_path, 'r').readlines()
     assert 'CRITICAL: could not connect to rabbitmq through host 127.0.0.1 ' \
-                'and port 60000' in log[-1]
+           'and port 60000' in log[-1]
     server_proc.terminate()
-
 
 
 def test_run_server_missing_mq_url():

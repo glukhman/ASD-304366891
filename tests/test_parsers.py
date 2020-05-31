@@ -1,10 +1,5 @@
-import os
 import time
-import signal
-import threading
 from pathlib import Path
-
-import pytest
 
 from bci.parsers import run_parser
 from conftest import capture, WAIT_INTERVAL
@@ -36,9 +31,9 @@ def test_run_parser_no_publisher_host(prepare_good_protofile):
     server_proc = capture("python -m bci.server run-server -h '127.0.0.1' "
                           "-p 5501 'rabbitmq://127.0.0.1:5672/'")
     time.sleep(WAIT_INTERVAL)
-    client_proc = capture("python -m bci.client upload-sample -h '127.0.0.1' "
-                          "-p 5501 tests/good_proto.mind.gz")
-    time.sleep(2)
+    capture("python -m bci.client upload-sample -h '127.0.0.1' "
+            "-p 5501 tests/good_proto.mind.gz")
+    time.sleep(20)
     log = open(log_path, 'r').readlines()
     assert 'no host or port provided for publisher service' in log[-1]
     server_proc.terminate()
@@ -51,12 +46,12 @@ def test_run_parser_bad_publisher_host(prepare_good_protofile):
     server_proc = capture("python -m bci.server run-server -h '127.0.0.1' "
                           "-p 5501 'rabbitmq://127.0.0.1:5672/'")
     time.sleep(WAIT_INTERVAL)
-    client_proc = capture("python -m bci.client upload-sample -h '127.0.0.1' "
-                          "-p 5501 tests/good_proto.mind.gz")
-    time.sleep(5)
+    capture("python -m bci.client upload-sample -h '127.0.0.1' "
+            "-p 5501 tests/good_proto.mind.gz")
+    time.sleep(20)
     log = open(log_path, 'r').readlines()
     assert 'could not connect to rabbitmq through host 8.8.8.8 ' \
-                'and port 5672' in log[-1]
+           'and port 5672' in log[-1]
     server_proc.terminate()
     parser_proc.terminate()
 
@@ -67,12 +62,12 @@ def test_run_parser_bad_publisher_port(prepare_good_protofile):
     server_proc = capture("python -m bci.server run-server -h '127.0.0.1' "
                           "-p 5501 'rabbitmq://127.0.0.1:5672/'")
     time.sleep(WAIT_INTERVAL)
-    client_proc = capture("python -m bci.client upload-sample -h '127.0.0.1' "
-                          "-p 5501 tests/good_proto.mind.gz")
-    time.sleep(10)
+    capture("python -m bci.client upload-sample -h '127.0.0.1' "
+            "-p 5501 tests/good_proto.mind.gz")
+    time.sleep(20)
     log = open(log_path, 'r').readlines()
     assert 'could not connect to rabbitmq through host 127.0.0.1 ' \
-                'and port 60000' in log[-1]
+           'and port 60000' in log[-1]
     server_proc.terminate()
     parser_proc.terminate()
 

@@ -1,4 +1,3 @@
-import os
 import json
 import logging
 from datetime import datetime
@@ -18,14 +17,13 @@ def publish(message, **kwargs):
     try:
         connection = pika.BlockingConnection(pika.ConnectionParameters(
             kwargs['publisher_host'], kwargs['publisher_port']))
-    except pika.exceptions.AMQPConnectionError as error:
+    except pika.exceptions.AMQPConnectionError:
         error_msg = f"could not connect to rabbitmq through host " \
                     f"{kwargs['publisher_host']} and port " \
                     f"{kwargs['publisher_port']}"
         raise ConnectionError(error_msg)
 
     if kwargs['msg_type'] == MSG_TYPES.USER_DATA:
-
         # gender issues :)
         user_format = cortex_pb2.User()
         if message.gender == user_format.MALE:
@@ -118,7 +116,7 @@ def publish(message, **kwargs):
         timestamp = datetime.fromtimestamp(message.datetime/1000)
         timestamp = timestamp.strftime("%B %-d, %Y at %H:%M:%S.%f")[:-3]
         metadata = {
-            'id': message.datetime, # snapshot ID is based on timestamp
+            'id': message.datetime,  # snapshot ID is based on timestamp
             'user_id': kwargs['user_id'],
             'datetime': timestamp
         }

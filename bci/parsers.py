@@ -2,13 +2,12 @@ import sys
 import json
 import logging
 from pathlib import Path
-from datetime import datetime
 
 import pika
 import click
 from furl import furl
 
-from .utils import VERSION, DATA_DIR, MSG_TYPES
+from .utils import VERSION
 from .utils.protobuf import cortex_pb2
 
 
@@ -60,12 +59,10 @@ def run_parser(parser, message_queue_url):
         logging.critical(f'{error}')
         return 1
 
-
     try:
         _run_parser(parser, publish=publisher,
                     publisher_host=message_queue_url.host,
                     publisher_port=message_queue_url.port)
-
     except Exception as error:
         print(f'ERROR: {error}', file=sys.stderr)
         logging.critical(f'{error}')
@@ -80,7 +77,8 @@ def _run_parser(parser, publish, **kwargs):
 
     # retrieve parser class
     try:
-        parser_module = __import__('bci.parsing', globals(), locals(), [parser])
+        parser_module = __import__('bci.parsing', globals(), locals(),
+                                   [parser])
         parser_engine = getattr(parser_module, parser).parser_cls()
     except ModuleNotFoundError:
         error = f'Parsing module "{parser_module}" does not exist'
@@ -90,7 +88,7 @@ def _run_parser(parser, publish, **kwargs):
     try:
         connection = pika.BlockingConnection(pika.ConnectionParameters(
             kwargs['publisher_host'], kwargs['publisher_port']))
-    except pika.exceptions.AMQPConnectionError as error:
+    except pika.exceptions.AMQPConnectionError:
         error_msg = f"could not connect to rabbitmq through host " \
                     f"{kwargs['publisher_host']} and port " \
                     f"{kwargs['publisher_port']}"
@@ -156,7 +154,7 @@ def _parse(parser, raw_data_path):
 
 
 # API function aliases
-run_parser = _parse
+run_parser = _parse # noqa
 
 if __name__ == '__main__':
     cli(prog_name='bci.parsers')

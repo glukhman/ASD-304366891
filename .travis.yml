@@ -10,9 +10,11 @@ before_install:
 install:
   - pip install -r requirements.txt
   - pip install codecov
+  - pip install flake8
   - docker run -d --name rabbit -p 5672:5672 rabbitmq
   - docker run -d --name mongo -p 27017:27017 mongo
 # command to run tests
 script:
+  - flake8 bci tests --exclude=bci/utils/protobuf
   - pytest -v --cov=./
   - codecov

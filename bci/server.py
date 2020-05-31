@@ -11,6 +11,7 @@ from furl import furl
 
 from .utils import Listener, UserData, Snapshot, VERSION, DATA_DIR, MSG_TYPES
 
+
 def logger_init(name):
     log_dir = Path(__file__).parents[1] / "log"
     log_dir.mkdir(exist_ok=True)
@@ -19,6 +20,7 @@ def logger_init(name):
                         level=logging.DEBUG)
     logging.getLogger(name).setLevel(logging.DEBUG)
     logging.getLogger("pika").propagate = False
+
 
 class Handler(threading.Thread):
     lock = threading.Lock()
@@ -44,9 +46,9 @@ class Handler(threading.Thread):
             elif msg_type == MSG_TYPES.SNAPSHOT:
                 message = Snapshot.deserialize(message[12:])
             else:
-                self.connection.send_message(f'ERROR: Unknown message type')
-        except Exception as e:
-            self.connection.send_message(f'ERROR deserializing message')
+                self.connection.send_message('ERROR: Unknown message type')
+        except Exception:
+            self.connection.send_message('ERROR deserializing message')
             return
 
         # publish message using the provided publish service
@@ -132,7 +134,7 @@ def _run_server(host=None, port=None, publish=None, **kwargs):
 
 
 # API function aliases
-run_server = _run_server
+run_server = _run_server  # noqa
 
 if __name__ == '__main__':
     cli(prog_name='bci.server')

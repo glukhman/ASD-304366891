@@ -7,7 +7,7 @@ class Connection:
         self.socket = socket
 
     def __repr__(self):
-        return f'<Connection from %s to %s>' % (
+        return '<Connection from %s to %s>' % (
             ':'.join(str(arg) for arg in self.socket.getsockname()),
             ':'.join(str(arg) for arg in self.socket.getpeername()),
         )

@@ -1,8 +1,6 @@
 import io
 import struct
-from datetime import datetime
 
-from PIL import Image
 from ..utils.constants import MSG_TYPES
 from ..utils.protobuf import cortex_pb2
 

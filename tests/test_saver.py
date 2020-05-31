@@ -1,14 +1,11 @@
-import os
-import time
 import json
-import signal
 from pathlib import Path
 
 import pytest
 import pymongo
 
 from bci.saver import Saver
-from conftest import capture, WAIT_INTERVAL
+from conftest import capture
 
 log_path = Path(__file__).parents[1] / "log" / "saver.log"
 tests_dir = Path(__file__).parents[1] / "tests"
@@ -27,7 +24,6 @@ def test_save():
     assert results[0]['hunger'] == 0.5
     assert results[0]['happiness'] == 0.7
     assert "Saved to database table feelings" in log[-1]
-
 
 
 def test_save_python_api():
@@ -56,7 +52,7 @@ def test_save_bad_data():
 
 def test_save_unsupported_db_service():
     with pytest.raises(Exception) as error:
-        saver = Saver("nosql://127.0.0.1:27017/")
+        Saver("nosql://127.0.0.1:27017/")
     assert "Unsupported database service" in str(error.value)
 
 

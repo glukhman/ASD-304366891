@@ -7,7 +7,7 @@ class PoseParser(BasicParser):
     def parse(self, raw_snapshot_path):
         super().parse(raw_snapshot_path)
         pose = {
-            'id': self.snapshot.datetime, # snapshot ID is based on timestamp
+            'id': self.snapshot.datetime,  # snapshot ID is based on timestamp
             'translation': {
                 'x': self.snapshot.pose.translation.x,
                 'y': self.snapshot.pose.translation.y,
@@ -23,5 +23,6 @@ class PoseParser(BasicParser):
         result = json.dumps(pose)
         print(result)
         return result
+
 
 parser_cls = PoseParser
