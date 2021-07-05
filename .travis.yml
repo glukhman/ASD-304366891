@@ -18,3 +18,9 @@ script:
   - flake8 bci tests --exclude=bci/utils/protobuf
   - pytest -v --cov=./
   - codecov
+  
+jobs:
+  include:
+    - stage: flake8 test
+      install: pip install flake8
+      script: flake8
